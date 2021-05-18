@@ -7,5 +7,8 @@ files:
     # create your list here
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/7191#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Tue, 18 May 2021 11:49:55 UTC
 record: -1
