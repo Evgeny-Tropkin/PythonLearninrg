@@ -5,5 +5,8 @@ files:
   text: '# use the function blackbox(lst) that is already defined'
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/9267#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Tue, 18 May 2021 13:26:00 UTC
 record: -1
