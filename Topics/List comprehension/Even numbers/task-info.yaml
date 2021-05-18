@@ -9,5 +9,8 @@ files:
     # work with the variable 'my_numbers'
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/6319#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Tue, 18 May 2021 12:33:34 UTC
 record: -1
