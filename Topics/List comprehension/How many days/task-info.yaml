@@ -8,5 +8,8 @@ files:
     # create a list of days here
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/6710#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Tue, 18 May 2021 11:56:01 UTC
 record: -1
