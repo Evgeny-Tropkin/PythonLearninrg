@@ -5,5 +5,8 @@ files:
   text: '# work with the preset variable `words`'
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/6320#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Tue, 18 May 2021 12:03:06 UTC
 record: -1
