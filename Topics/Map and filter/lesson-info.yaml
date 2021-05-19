@@ -3,3 +3,4 @@ content:
 - Multiplying lists
 - Analyzing daily temperatures
 - Re-write using map( ) and filter( )
+- Filter out negative numbers
