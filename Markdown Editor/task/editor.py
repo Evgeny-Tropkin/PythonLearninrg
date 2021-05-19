@@ -71,8 +71,31 @@ def new_line():
     return
 
 
+def __list__(list_type):
+    global result
+    num_of_rows = 0
+
+    while num_of_rows < 1:
+        num_of_rows = int(input("Number of rows:"))
+        if num_of_rows < 1:
+            print("The number of rows should be greater than zero")
+        if num_of_rows == "!done":
+            __exit__()
+
+    for num_of_row in range(1, num_of_rows + 1):
+        if list_type == "ordered-list":
+            result += f"{num_of_row}. "
+        elif list_type == "unordered-list":
+            result += "* "
+        result += input(f"Row #{num_of_row}") + "\n"
+
+
 def input_text():
     return input("Text:")
+
+
+def __exit__():
+    exit()
 
 # endregion
 
@@ -84,7 +107,7 @@ while formatter != "!done":
     # check the formatter is valid
     if formatter in available_formatters or formatter in special_commands:
         if formatter == "!done":
-            exit()
+            __exit__()
         elif formatter == "!help":
             __help__()
         elif formatter == "plain":
@@ -101,6 +124,8 @@ while formatter != "!done":
             inline_code()
         elif formatter == "new-line":
             new_line()
+        elif formatter == "ordered-list" or formatter == "unordered-list":
+            __list__(formatter)
         print(result)
     else:
         print("Unknown formatting type or command")
