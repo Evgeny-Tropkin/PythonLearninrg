@@ -1,0 +1,9 @@
+even = [0, 2, 4, 6, 8]
+odd = [1, 3, 5, 7, 9]
+
+# Re-write the rest of the code here using map() and filter() where possible
+my_sum = ...
+
+remainders = ...
+
+nonzero_remainders = ...
