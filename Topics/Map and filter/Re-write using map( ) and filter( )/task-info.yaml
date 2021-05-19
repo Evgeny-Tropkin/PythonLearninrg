@@ -14,5 +14,8 @@ files:
     nonzero_remainders = ...
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/8130#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Wed, 19 May 2021 05:25:17 UTC
 record: -1
