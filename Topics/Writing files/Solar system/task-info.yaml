@@ -5,5 +5,8 @@ files:
   text: '# create the planets.txt'
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/8339#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Wed, 19 May 2021 19:25:02 UTC
 record: -1
