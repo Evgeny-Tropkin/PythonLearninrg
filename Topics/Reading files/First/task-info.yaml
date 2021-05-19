@@ -5,5 +5,8 @@ files:
   text: '# read test_file.txt'
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/8143#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Wed, 19 May 2021 14:15:01 UTC
 record: -1
