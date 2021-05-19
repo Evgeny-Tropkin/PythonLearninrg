@@ -13,8 +13,8 @@ scores_english = [50, 40, 100, 45, 95, 70, 75, 60, 50, 100,
                   90, 85, 60, 45, 100, 70, 65, 50, 55, 95,
                   50, 65, 85, 100, 60, 55, 90, 85, 70, 90]
 
-overall_scores = list(...)
+overall_scores = list(map(lambda sc1, sc2, sc3: sc1 + sc2 + sc3, scores_maths, scores_physics, scores_english))
 
-admitted_students = list(...)
+admitted_students = list(filter(lambda sc: sc >= 270, overall_scores))
 
 print(len(admitted_students))
