@@ -5,5 +5,8 @@ files:
   text: '# put your python code here'
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/6071#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Thu, 20 May 2021 05:31:38 UTC
 record: -1
