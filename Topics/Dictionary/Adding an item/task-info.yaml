@@ -5,5 +5,8 @@ files:
   text: '# please work with the variable fav_flowers'
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/9144#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Thu, 20 May 2021 20:32:41 UTC
 record: -1
