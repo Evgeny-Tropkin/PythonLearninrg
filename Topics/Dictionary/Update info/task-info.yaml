@@ -7,5 +7,8 @@ files:
     # update the dict and print it
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/9145#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Thu, 20 May 2021 20:20:45 UTC
 record: -1
