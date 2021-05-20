@@ -5,5 +5,8 @@ files:
   text: '# please work with the variable children'
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/9146#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Thu, 20 May 2021 21:34:03 UTC
 record: -1
