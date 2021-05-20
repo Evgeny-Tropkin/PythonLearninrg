@@ -1,13 +1,11 @@
 type: hyperskill
-title: Markdown Editor
+title: Memorization Tool
 language: English
-summary: Markdown is a special plain text formatting language that is extremely popular
-  among developers. It is used in documents, research articles, Github README files,
-  and other things. In this project, you will write an editor that will be able to
-  recognize several tags, structures, and save your results to a file.<br/><br/>Learn
-  more at <a href="https://hyperskill.org">https://hyperskill.org/projects/162</a>
+summary: It would be great to remember anything at any time. Alas, our mental capacity
+  is limited. The good thing is that there are a lot of tools to help us memorize
+  things. In this project, we are going to create a tool for memorizing lines, poems,
+  speeches, and other text-based materials.<br/><br/>Learn more at <a href="https://hyperskill.org">https://hyperskill.org/projects/159</a>
 programming_language: Python
 content:
-- Markdown Editor
 - Topics
 mode: Study

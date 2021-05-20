@@ -1,27 +1,2 @@
 content:
-- Program with numbers
-- Comparisons
-- Invoking a function
-- Declaring a function
-- If statement
-- Else statement
-- Elif statement
-- Quotes and multi-line strings
-- String formatting
-- Indexes
-- Scopes
-- Arguments
-- Operations with list
-- Functional decomposition
-- Identity testing
-- While loop
-- For loop
-- Lambda functions
-- List comprehension
-- Objects in Python
-- Default arguments
-- Map and filter
-- Files in Python
-- Reading files
-- Writing files
-- Loop control statements
+- Dictionary
