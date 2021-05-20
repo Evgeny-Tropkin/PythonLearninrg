@@ -514,6 +514,12 @@ files:
     #
     #         return CheckResult.correct()
   learner_created: false
+- name: output.md
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/162/stages/843/implement#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Thu, 20 May 2021 06:04:21 UTC
 record: -1

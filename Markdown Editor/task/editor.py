@@ -80,7 +80,7 @@ def __list__(list_type):
         if num_of_rows < 1:
             print("The number of rows should be greater than zero")
         if num_of_rows == "!done":
-            __exit__()
+            done()
 
     for num_of_row in range(1, num_of_rows + 1):
         if list_type == "ordered-list":
@@ -94,7 +94,10 @@ def input_text():
     return input("Text:")
 
 
-def __exit__():
+def done():
+    result_file = open("output.md", "w")
+    result_file.write(result)
+    result_file.close()
     exit()
 
 # endregion
@@ -107,7 +110,7 @@ while formatter != "!done":
     # check the formatter is valid
     if formatter in available_formatters or formatter in special_commands:
         if formatter == "!done":
-            __exit__()
+            done()
         elif formatter == "!help":
             __help__()
         elif formatter == "plain":
