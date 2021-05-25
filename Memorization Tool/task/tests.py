@@ -1,7 +1,9 @@
-from hstest.stage_test import StageTest
+import os
+
 from hstest.check_result import CheckResult
-from hstest.test_case import TestCase, SimpleTestCase
 from hstest.exceptions import WrongAnswerException
+from hstest.stage_test import StageTest
+from hstest.test_case import TestCase
 
 MAIN_MENU = """
 1. Add flashcards
@@ -15,6 +17,8 @@ FIRST_ANSWER = "Berlin"
 SECOND_QUESTION = "What is the Capital city of Italy?"
 SECOND_ANSWER = "Rome"
 Q_S = 'Please press "y" to see the answer or press "n" to skip:'
+if os.path.exists('flashcard.db'):
+    os.remove('flashcard.db')
 
 
 class FlashCardTest(StageTest):
@@ -49,7 +53,12 @@ class FlashCardTest(StageTest):
                               'What is the capital city of Peru?',
                               ' ',
                               self.test5_input5,
-                              self.test5_input6])]
+                              self.test5_input6])
+            , TestCase(stdin=['2',
+                              self.test1_input10,
+                              self.test1_input11,
+                              self.test1_input12
+                              ])]
 
     def check_main_menu(self, out):
         main_menu_list = MAIN_MENU.strip().split('\n')
@@ -104,6 +113,8 @@ class FlashCardTest(StageTest):
         raise WrongAnswerException(f'{Q_S}\n should be printed after answer')
 
     def test1_input1(self, out):
+        if not os.path.exists("flashcard.db"):
+            raise WrongAnswerException("Please, make sure that your program creates a database and names it \"flashcard\".")
         if self.check_main_menu(out):
             return '1'
 
