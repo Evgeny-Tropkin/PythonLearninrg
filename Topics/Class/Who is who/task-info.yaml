@@ -15,5 +15,8 @@ files:
         home = "Hell"
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/6668#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Wed, 26 May 2021 13:32:51 UTC
 record: -1
