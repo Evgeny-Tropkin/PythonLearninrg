@@ -14,5 +14,8 @@ files:
         # create get_area here
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/6937#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Thu, 27 May 2021 08:02:29 UTC
 record: -1
