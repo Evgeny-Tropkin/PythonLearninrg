@@ -12,5 +12,8 @@ files:
         # create methods here
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/7146#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Thu, 27 May 2021 13:50:26 UTC
 record: -1
