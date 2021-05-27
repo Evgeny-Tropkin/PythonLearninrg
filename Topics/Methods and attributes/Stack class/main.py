@@ -1,16 +1,16 @@
 class Stack():
 
     def __init__(self):
-        pass
+        self.store = []
 
     def push(self, el):
-        pass
+        self.store.append(el)
 
     def pop(self):
-        pass
+        return self.store.pop()
 
     def peek(self):
-        pass
+        return self.store[-1]
 
     def is_empty(self):
-        pass
+        return len(self.store) == 0
