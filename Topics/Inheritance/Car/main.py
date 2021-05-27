@@ -8,4 +8,4 @@ class Tesla(Car):
     pass
 
 
-# create an instance of Tesla
+tesla_car = Tesla("Model S", "red")
