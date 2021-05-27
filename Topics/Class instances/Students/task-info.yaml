@@ -12,5 +12,8 @@ files:
             # calculate the student_id here
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/6675#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Thu, 27 May 2021 02:30:33 UTC
 record: -1
