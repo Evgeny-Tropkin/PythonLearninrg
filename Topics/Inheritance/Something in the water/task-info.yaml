@@ -16,5 +16,8 @@ files:
     seine = River()
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/7241#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Thu, 27 May 2021 21:50:08 UTC
 record: -1
