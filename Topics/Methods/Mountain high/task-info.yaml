@@ -11,5 +11,8 @@ files:
         # create convert_height here
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/6961#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Thu, 27 May 2021 05:19:27 UTC
 record: -1
