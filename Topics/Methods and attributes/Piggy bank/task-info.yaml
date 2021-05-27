@@ -7,5 +7,8 @@ files:
         # create __init__ and add_money methods
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/6987#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Thu, 27 May 2021 12:45:31 UTC
 record: -1
