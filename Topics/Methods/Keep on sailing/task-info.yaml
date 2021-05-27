@@ -18,5 +18,8 @@ files:
     black_pearl = Ship("Black Pearl", 800)
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/6936#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Thu, 27 May 2021 05:35:03 UTC
 record: -1
