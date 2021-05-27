@@ -1,4 +1,5 @@
-# check whether SuperRobot is a subclass of AstromechDroid,
-# MedicalDroid, BattleDroid, and PilotDroid
-
-# the order is IMPORTANT
+bot = SuperRobot()
+print(isinstance(bot, AstromechDroid))
+print(isinstance(bot, MedicalDroid))
+print(isinstance(bot, BattleDroid))
+print(isinstance(bot, PilotDroid))
