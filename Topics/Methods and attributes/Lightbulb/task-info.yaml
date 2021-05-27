@@ -10,5 +10,8 @@ files:
         # create method change_state here
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/6988#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Thu, 27 May 2021 12:56:05 UTC
 record: -1
