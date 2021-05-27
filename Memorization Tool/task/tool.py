@@ -63,7 +63,7 @@ def start_practice():
 
 
 def __exit__():
-    print("Bye!")
+    print("Bye!")t
     exit()
 # endregion
 
