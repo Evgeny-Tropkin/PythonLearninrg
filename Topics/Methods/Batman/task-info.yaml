@@ -5,5 +5,8 @@ files:
   text: '# create a Batman here'
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/8090#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Thu, 27 May 2021 07:46:01 UTC
 record: -1
