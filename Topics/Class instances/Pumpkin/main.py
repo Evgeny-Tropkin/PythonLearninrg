@@ -3,4 +3,4 @@ class Dog:
         self.name = name
 
 
-# create pumpkin
+pumpkin_dog = Dog("Pumpkin")
