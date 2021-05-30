@@ -1,12 +1,12 @@
 type: hyperskill
-title: Memorization Tool
+title: Numeric Matrix Processor
 language: English
-summary: It would be great to remember anything at any time. Alas, our mental capacity
-  is limited. The good thing is that there are a lot of tools to help us memorize
-  things. In this project, we are going to create a tool for memorizing lines, poems,
-  speeches, and other text-based materials.<br/><br/>Learn more at <a href="https://hyperskill.org">https://hyperskill.org/projects/159</a>
+summary: 'Here’s a project for devoted matrix enthusiasts: learn to perform a variety
+  of operations on matrices including addition, multiplication, finding the determinant,
+  and dealing with inverse matrices. If you are working on your tech or math major,
+  this project is a good chance for you to learn matrices in action and not just in
+  your notebook.<br/><br/>Learn more at <a href="https://hyperskill.org">https://hyperskill.org/projects/96</a>'
 programming_language: Python
 content:
 - Topics
-- Memorization Tool
 mode: Study
