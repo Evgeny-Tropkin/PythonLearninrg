@@ -5,5 +5,8 @@ files:
   text: path = 'C:\Users\Public\Desktop\Temporary\Newsletters'.lower()
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/11137#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Sun, 30 May 2021 15:55:09 UTC
 record: -1

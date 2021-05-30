@@ -1,1 +1,1 @@
-path = 'C:\Users\Public\Desktop\Temporary\Newsletters'.lower()
+path = 'C:\\Users\\Public\\Desktop\\Temporary\\Newsletters'.lower()
