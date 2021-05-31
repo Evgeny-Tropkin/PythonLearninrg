@@ -8,5 +8,8 @@ files:
             ["Accolade", "is", "an", "expression", "of", "praise"]]
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/6321#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Mon, 31 May 2021 08:52:22 UTC
 record: -1
