@@ -1,1 +1,2 @@
-# the variable M is already defined
+#  list M has already defined
+print(M[2][0])
