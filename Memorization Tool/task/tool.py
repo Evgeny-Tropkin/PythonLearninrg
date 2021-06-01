@@ -1,12 +1,39 @@
+from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+
+# region Classes
+Base = declarative_base()
+
+
+class FlashCard(Base):
+    __tablename__ = "flashcard"
+
+    id = Column(Integer, primary_key=True)
+    question = Column(String)
+    answer = Column(String)
+# endregion
+
+
+# region Variables
 menu = {"1": {"title": "Add flashcards", "1": {"title": "Add a new flashcard"}, "2": {"title": "Exit"}},
         "2": {"title": "Practice flashcards"},
         "3": {"title": "Exit"}}
 menu_path = []
 current_menu_level = menu
 flashcards = {}
+# endregion
 
 
 # region Methods
+def connect_to_sqlite_db(connection_string):
+    engine = create_engine(connection_string)
+    Base.metadata.create_all(engine)
+
+    Session = sessionmaker(bind=engine)
+    return Session()
+
+
 def show_menu(menu_dict):
     for menu_item in menu_dict.keys():
         if menu_item == "title":
@@ -69,6 +96,7 @@ def __exit__():
 
 
 # region Main()
+session = connect_to_sqlite_db("sqlite:///flashcard.db?check_same_thread=False")
 while True:
     show_menu(current_menu_level)
     selected_menu_item = select_menu_item(current_menu_level)
