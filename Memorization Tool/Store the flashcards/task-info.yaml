@@ -267,6 +267,12 @@ files:
   text: |
     # write your code here
   learner_created: false
+- name: flashcard.db
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/159/stages/827/implement#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Tue, 01 Jun 2021 21:05:58 UTC
 record: -1

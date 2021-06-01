@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String
+from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
@@ -21,7 +21,6 @@ menu = {"1": {"title": "Add flashcards", "1": {"title": "Add a new flashcard"}, 
         "3": {"title": "Exit"}}
 menu_path = []
 current_menu_level = menu
-flashcards = {}
 # endregion
 
 
@@ -50,7 +49,7 @@ def select_menu_item(menu_dict):
         return None
 
 
-def execute_selected_item(menu_dict, item):
+def execute_selected_item(menu_dict, item, session_obj):
     global current_menu_level
     current_item = menu_dict[item]['title']
     if current_item == "Exit":
@@ -59,34 +58,38 @@ def execute_selected_item(menu_dict, item):
         else:
             __exit__()
     elif current_item == "Add a new flashcard":
-        add_flashcard()
+        add_flashcard(session_obj)
     elif current_item == "Practice flashcards":
-        start_practice()
+        start_practice(session_obj)
 
 
-def add_flashcard():
-    question = ""
-    answer = ""
-    while question == "":
-        question = input("Question:")
-    while answer == "":
-        answer = input("Answer:")
-    flashcards.update({question: answer})
+def add_flashcard(session_obj):
+    entered_question = ""
+    entered_answer = ""
+    while entered_question == "":
+        entered_question = input("Question:")
+    while entered_answer == "":
+        entered_answer = input("Answer:")
+    session_obj.add(FlashCard(question=entered_question, answer=entered_answer))
+    session_obj.commit()
 
 
-def start_practice():
-    if len(flashcards.keys()) == 0:
+def start_practice(session_obj):
+    flashcards = session_obj.query(FlashCard).all()
+
+    if len(flashcards) == 0:
         print("There is no flashcard to practice!")
         return
 
-    for question, answer in flashcards.items():
-        print(f"Question: {question}")
+    for item in flashcards:
+        print(f"Question: {item.question}")
         is_show_answer = input('Please press "y" to see the answer or press "n" to skip:').lower()
         while is_show_answer not in ['y', 'n']:
             print(f"{is_show_answer} is not an option")
             is_show_answer = input('Please press "y" to see the answer or press "n" to skip:').lower()
         if is_show_answer == 'y':
-            print(f"Answer: {answer}")
+            print(f"Answer: {item.answer}")
+        print()
 
 
 def __exit__():
@@ -106,5 +109,6 @@ while True:
         menu_path.append(current_menu_level)
         current_menu_level = current_menu_level[selected_menu_item]
         continue
-    execute_selected_item(current_menu_level, selected_menu_item)
+    print()
+    execute_selected_item(current_menu_level, selected_menu_item, session)
 # endregion
