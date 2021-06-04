@@ -16,8 +16,18 @@ class FlashCard(Base):
 
 
 # region Variables
-menu = {"1": {"title": "Add flashcards", "1": {"title": "Add a new flashcard"}, "2": {"title": "Exit"}},
-        "2": {"title": "Practice flashcards"},
+menu = {"1": {"title": "Add flashcards", "is_executed": False,
+              "1": {"title": "Add a new flashcard"},
+              "2": {"title": "Exit"}
+              },
+        "2": {"title": "Practice flashcards", "is_executed": True,
+              "y": {"title": 'press "y" to see the answer:'},
+              "n": {"title": 'press "n" to skip:'},
+              "u": {"title": 'press "u" to update:',
+                    "d": {"title": 'press "d" to delete the flashcard:'},
+                    "e": {"title": 'press "e" to edit the flashcard:'}
+                    }
+              },
         "3": {"title": "Exit"}}
 menu_path = []
 current_menu_level = menu
