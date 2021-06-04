@@ -12,6 +12,13 @@ class FlashCard(Base):
     id = Column(Integer, primary_key=True)
     question = Column(String)
     answer = Column(String)
+
+
+class MenuItem:
+    def __init__(self, parent, title):
+        self.parent = parent
+        self.title = title
+        self.nodes = {}
 # endregion
 
 
