@@ -19,10 +19,46 @@ class MenuItem:
         self.parent = parent
         self.title = title
         self.nodes = {}
+        self.for_exit = None
 # endregion
 
 
 # region Variables
+root = MenuItem(None, "Main menu")
+# region Main menu
+# region item_1 (Add flashcard menu)
+item_1 = MenuItem(root, "Add flashcards")
+item_1_1 = MenuItem(item_1, "Add a new flashcard")
+item_1_2 = MenuItem(item_1, "Exit")
+# endregion
+# region item_2 (Practice flashcards menu)
+item_2 = MenuItem(root, "Practice flashcards")
+item_2_y = MenuItem(item_2, 'press "y" to see the answer:')
+item_2_n = MenuItem(item_2, 'press "n" to skip:')
+item_2_u = MenuItem(item_2, 'press "u" to update:')
+# region Item_2_u (Update flashcard menu)
+item_2_u_d = MenuItem(item_2_u, 'press "d" to delete the flashcard:')
+item_2_u_e = MenuItem(item_2_u, 'press "e" to edit the flashcard:')
+# end region
+# endregion
+# endregion
+# region Menu relations
+# region root (Main menu relations)
+root.nodes = {1: item_1, 2: item_2}
+# endregion)
+# region item_1 (Add flashcards menu relationships)
+item_1.nodes = {1: item_1_1, 2: item_1_2}
+# endregion
+# region item_2 (Practice flashcards menu relationships)
+item_2.nodes = {'y': item_2_y, 'n': item_2_n, 'u': item_2_u}
+# region item_2_u (Update flashcard menu relationships)
+item_2_u.nodes = {'e': item_2_u_e, 'd': item_2_u_d}
+# endregion
+# endregion
+# endregion
+# endregion
+
+
 menu = {"1": {"title": "Add flashcards", "is_executed": False,
               "1": {"title": "Add a new flashcard"},
               "2": {"title": "Exit"}
