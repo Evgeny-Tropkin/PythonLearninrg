@@ -27,12 +27,12 @@ class MenuItem:
 root = MenuItem(None, "Main menu")
 # region Main menu
 # region item_1 (Add flashcard menu)
-item_1 = MenuItem(root, "Add flashcards")
-item_1_1 = MenuItem(item_1, "Add a new flashcard")
-item_1_2 = MenuItem(item_1, "Exit")
+item_1 = MenuItem(root, "1. Add flashcards")
+item_1_1 = MenuItem(item_1, "1. Add a new flashcard")
+item_1_2 = MenuItem(item_1, "2. Exit")
 # endregion
 # region item_2 (Practice flashcards menu)
-item_2 = MenuItem(root, "Practice flashcards")
+item_2 = MenuItem(root, "2. Practice flashcards")
 item_2_y = MenuItem(item_2, 'press "y" to see the answer:')
 item_2_n = MenuItem(item_2, 'press "n" to skip:')
 item_2_u = MenuItem(item_2, 'press "u" to update:')
@@ -42,9 +42,12 @@ item_2_u_e = MenuItem(item_2_u, 'press "e" to edit the flashcard:')
 # end region
 # endregion
 # endregion
+# region item_3 (Exit)
+item_3 = MenuItem(root, "3. Exit")
+# end region
 # region Menu relations
 # region root (Main menu relations)
-root.nodes = {'1': item_1, '2': item_2}
+root.nodes = {'1': item_1, '2': item_2, '3': item_3}
 # endregion)
 # region item_1 (Add flashcards menu relationships)
 item_1.nodes = {'1': item_1_1, '2': item_1_2}
