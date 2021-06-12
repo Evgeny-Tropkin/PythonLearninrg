@@ -44,10 +44,10 @@ item_2_u_e = MenuItem(item_2_u, 'press "e" to edit the flashcard:')
 # endregion
 # region Menu relations
 # region root (Main menu relations)
-root.nodes = {1: item_1, 2: item_2}
+root.nodes = {'1': item_1, '2': item_2}
 # endregion)
 # region item_1 (Add flashcards menu relationships)
-item_1.nodes = {1: item_1_1, 2: item_1_2}
+item_1.nodes = {'1': item_1_1, '2': item_1_2}
 # endregion
 # region item_2 (Practice flashcards menu relationships)
 item_2.nodes = {'y': item_2_y, 'n': item_2_n, 'u': item_2_u}
@@ -71,12 +71,19 @@ def connect_to_sqlite_db(connection_string):
     return Session()
 
 
-def show_menu():
-    pass
+def show_menu(menu_item_root):
+    for title in menu_item_root.nodes.values():
+        print(title)
 
 
-def select_menu_item():
-    pass
+def select_menu_item(menu_item_root):
+    while True:
+        selected_item = input()
+        if selected_item in menu_item_root.nodes.keys():
+            execute_selected_item(menu_item_root.nodes[selected_item])
+            return
+        else:
+            print(f"{selected_item} is not an option")
 
 
 def execute_selected_item():
@@ -121,6 +128,7 @@ def __exit__():
 # region Main()
 session = connect_to_sqlite_db("sqlite:///flashcard.db?check_same_thread=False")
 while True:
-    show_menu()
+    show_menu(current_menu_level)
+    select_menu_item(current_menu_level)
 
 # endregion
