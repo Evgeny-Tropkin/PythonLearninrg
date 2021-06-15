@@ -88,7 +88,7 @@ def select_menu_item(menu_item_root):
             print(f"{selected_item} is not an option")
 
 
-def execute_selected_item():
+def execute_selected_item(menu_item):
     pass
 
 
