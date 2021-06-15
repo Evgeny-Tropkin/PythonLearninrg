@@ -129,9 +129,15 @@ def __exit__():
 
 
 # region Main()
-session = connect_to_sqlite_db("sqlite:///flashcard.db?check_same_thread=False")
-while True:
-    show_menu(current_menu_level)
-    select_menu_item(current_menu_level)
+def main():
+    session = connect_to_sqlite_db("sqlite:///flashcard.db?check_same_thread=False")
+    while True:
+        show_menu(current_menu_level)
+        select_menu_item(current_menu_level)
 
+
+# region Script
+if __name__ == "__main__":
+    main()
+# endregion
 # endregion
