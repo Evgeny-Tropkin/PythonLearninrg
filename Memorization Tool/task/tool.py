@@ -83,8 +83,7 @@ def select_menu_item(menu_item_root):
     while True:
         selected_item = input()
         if selected_item in menu_item_root.nodes.keys():
-            execute_selected_item(menu_item_root.nodes[selected_item])
-            return
+            return menu_item_root.nodes[selected_item]
         else:
             print(f"{selected_item} is not an option")
 
@@ -130,10 +129,15 @@ def __exit__():
 
 # region Main()
 def main():
+    global current_menu_level
     session = connect_to_sqlite_db("sqlite:///flashcard.db?check_same_thread=False")
     while True:
         show_menu(current_menu_level)
-        select_menu_item(current_menu_level)
+        selected_item = select_menu_item(current_menu_level)
+        if len(selected_item.nodes) == 0:
+            execute_selected_item(selected_item)
+        else:
+            current_menu_level = selected_item
 
 
 # region Script
