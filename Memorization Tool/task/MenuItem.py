@@ -16,3 +16,7 @@ class MenuItem:
 
     def get_nodes(self):
         return self.__nodes
+
+    def set_nodes(self, *nodes):
+        for node in nodes:
+            self.__nodes.update({node.get_id: node})
