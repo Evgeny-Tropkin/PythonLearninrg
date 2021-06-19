@@ -88,7 +88,7 @@ def select_menu_item(menu_item):
             print(f"{selected_item} is not an option")
 
 
-def execute_selected_item(menu_item):
+def execute_selected_item(menu_item, session_obj):
     pass
 
 
@@ -135,8 +135,8 @@ def main():
     while True:
         show_menu(current_menu_level)
         selected_item = select_menu_item(current_menu_level)
-        if len(selected_item.nodes) == 0:
-            execute_selected_item(selected_item)
+        if len(selected_item.get_nodes) == 0:
+            execute_selected_item(selected_item, session)
         else:
             current_menu_level = selected_item
 
