@@ -96,6 +96,8 @@ def execute_selected_item(menu_item, session_obj):
         return menu_item.get_parent()
     elif menu_id == "1_2":
         return menu_item.get_parent().get_parent()
+    elif menu_id == "2":
+        start_practice(session_obj)
 
 
 def add_flashcard(session_obj):
