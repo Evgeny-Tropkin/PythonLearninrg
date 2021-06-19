@@ -89,7 +89,13 @@ def select_menu_item(menu_item):
 
 
 def execute_selected_item(menu_item, session_obj):
-    pass
+    menu_id = menu_item.get_id
+
+    if menu_id == "1_1":
+        add_flashcard(session_obj)
+        return menu_item.get_parent()
+    elif menu_id == "1_2":
+        return menu_item.get_parent().get_parent()
 
 
 def add_flashcard(session_obj):
@@ -136,7 +142,7 @@ def main():
         show_menu(current_menu_level)
         selected_item = select_menu_item(current_menu_level)
         if len(selected_item.get_nodes) == 0:
-            execute_selected_item(selected_item, session)
+            current_menu_level = execute_selected_item(selected_item, session)
         else:
             current_menu_level = selected_item
 
