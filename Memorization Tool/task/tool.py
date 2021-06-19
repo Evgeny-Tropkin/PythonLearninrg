@@ -97,7 +97,7 @@ def execute_selected_item(menu_item, session_obj):
     elif menu_id == "1_2":
         return menu_item.get_parent().get_parent()
     elif menu_id == "2":
-        start_practice(session_obj)
+        start_practice(session_obj, menu_item)
 
 
 def add_flashcard(session_obj):
@@ -111,7 +111,7 @@ def add_flashcard(session_obj):
     session_obj.commit()
 
 
-def start_practice(session_obj):
+def start_practice(session_obj, menu_item):
     flashcards = session_obj.query(FlashCard).all()
 
     if len(flashcards) == 0:
