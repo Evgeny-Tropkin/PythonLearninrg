@@ -4,3 +4,15 @@ class MenuItem:
         self.__parent = parent
         self.__title = title
         self.__nodes = {}
+
+    def get_id(self):
+        return self.__menu_id
+
+    def get_parent(self):
+        return self.__parent
+
+    def get_title(self):
+        return self.__title
+
+    def get_nodes(self):
+        return self.__nodes
