@@ -73,8 +73,8 @@ def create_menu():
     return root
 
 
-def show_menu(menu_item_root):
-    for title in menu_item_root.nodes.values():
+def show_menu(menu_item):
+    for title in menu_item.get_nodes().values():
         print(title)
 
 
