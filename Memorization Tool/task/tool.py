@@ -18,43 +18,7 @@ class FlashCard(Base):
 
 
 # region Variables
-root = toolMenu.MenuItem(None, "root", "Main menu")
-# region Main menu
-# region item_1 (Add flashcard menu)
-item_1 = toolMenu.MenuItem(root, "1", "1. Add flashcards")
-item_1_1 = toolMenu.MenuItem(item_1, "1_1", "1. Add a new flashcard")
-item_1_2 = toolMenu.MenuItem(item_1, "1_2", "2. Exit")
-# endregion
-# region item_2 (Practice flashcards menu)
-item_2 = toolMenu.MenuItem(root, "2", "2. Practice flashcards")
-item_2_y = toolMenu.MenuItem(item_2, "2_y", 'press "y" to see the answer:')
-item_2_n = toolMenu.MenuItem(item_2, "2_n", 'press "n" to skip:')
-item_2_u = toolMenu.MenuItem(item_2, "2_u", 'press "u" to update:')
-# region Item_2_u (Update flashcard menu)
-item_2_u_d = toolMenu.MenuItem(item_2_u, "2_u_d", 'press "d" to delete the flashcard:')
-item_2_u_e = toolMenu.MenuItem(item_2_u, "2_u_e", 'press "e" to edit the flashcard:')
-# end region
-# endregion
-# endregion
-# region item_3 (Exit)
-item_3 = toolMenu.MenuItem(root, "3", "3. Exit")
-# end region
-# region Menu relations
-# region root (Main menu relations)
-root.nodes = {'1': item_1, '2': item_2, '3': item_3}
-# endregion)
-# region item_1 (Add flashcards menu relationships)
-item_1.nodes = {'1': item_1_1, '2': item_1_2}
-# endregion
-# region item_2 (Practice flashcards menu relationships)
-item_2.nodes = {'y': item_2_y, 'n': item_2_n, 'u': item_2_u}
-# region item_2_u (Update flashcard menu relationships)
-item_2_u.nodes = {'e': item_2_u_e, 'd': item_2_u_d}
-# endregion
-# endregion
-# endregion
-# endregion
-# endregion
+
 # endregion
 
 
@@ -65,6 +29,47 @@ def connect_to_sqlite_db(connection_string):
 
     session = sessionmaker(bind=engine)
     return session()
+
+
+def create_menu():
+    root = toolMenu.MenuItem(None, "root", "Main menu")
+    # region Main menu
+    # region item_1 (Add flashcard menu)
+    item_1 = toolMenu.MenuItem(root, "1", "1. Add flashcards")
+    item_1_1 = toolMenu.MenuItem(item_1, "1_1", "1. Add a new flashcard")
+    item_1_2 = toolMenu.MenuItem(item_1, "1_2", "2. Exit")
+    # endregion
+    # region item_2 (Practice flashcards menu)
+    item_2 = toolMenu.MenuItem(root, "2", "2. Practice flashcards")
+    item_2_y = toolMenu.MenuItem(item_2, "2_y", 'press "y" to see the answer:')
+    item_2_n = toolMenu.MenuItem(item_2, "2_n", 'press "n" to skip:')
+    item_2_u = toolMenu.MenuItem(item_2, "2_u", 'press "u" to update:')
+    # region Item_2_u (Update flashcard menu)
+    item_2_u_d = toolMenu.MenuItem(item_2_u, "2_u_d", 'press "d" to delete the flashcard:')
+    item_2_u_e = toolMenu.MenuItem(item_2_u, "2_u_e", 'press "e" to edit the flashcard:')
+    # end region
+    # endregion
+    # endregion
+    # region item_3 (Exit)
+    item_3 = toolMenu.MenuItem(root, "3", "3. Exit")
+    # end region
+    # region Menu relations
+    # region root (Main menu relations)
+    root.nodes = {'1': item_1, '2': item_2, '3': item_3}
+    # endregion)
+    # region item_1 (Add flashcards menu relationships)
+    item_1.nodes = {'1': item_1_1, '2': item_1_2}
+    # endregion
+    # region item_2 (Practice flashcards menu relationships)
+    item_2.nodes = {'y': item_2_y, 'n': item_2_n, 'u': item_2_u}
+    # region item_2_u (Update flashcard menu relationships)
+    item_2_u.nodes = {'e': item_2_u_e, 'd': item_2_u_d}
+    # endregion
+    # endregion
+    # endregion
+    # endregion
+    # endregion
+    return root
 
 
 def show_menu(menu_item_root):
@@ -122,7 +127,7 @@ def __exit__():
 
 # region Main()
 def main():
-    current_menu_level = root
+    current_menu_level = create_menu()
     session = connect_to_sqlite_db("sqlite:///flashcard.db?check_same_thread=False")
     while True:
         show_menu(current_menu_level)
