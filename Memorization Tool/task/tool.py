@@ -111,6 +111,10 @@ def add_flashcard(session_obj):
     session_obj.commit()
 
 
+def process_flashcard(menu_item, flashcard):
+    pass
+
+
 def start_practice(session_obj, menu_item):
     flashcards = session_obj.query(FlashCard).all()
 
@@ -118,10 +122,10 @@ def start_practice(session_obj, menu_item):
         print("There is no flashcard to practice!")
         return
 
-    for item in flashcards:
-        print(f"Question: {item.question}")
+    for flashcard in flashcards:
+        print(f"Question: {flashcard.question}")
         selected_menu_item = select_menu_item(menu_item)
-        execute_selected_item(selected_menu_item, session_obj)
+        process_flashcard(selected_menu_item, flashcard)
         # is_show_answer = input('Please press "y" to see the answer or press "n" to skip:').lower()
         # while is_show_answer not in ['y', 'n']:
         #     print(f"{is_show_answer} is not an option")
