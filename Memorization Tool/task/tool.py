@@ -78,11 +78,12 @@ def show_menu(menu_item):
         print(title)
 
 
-def select_menu_item(menu_item_root):
+def select_menu_item(menu_item):
     while True:
         selected_item = input()
-        if selected_item in menu_item_root.nodes.keys():
-            return menu_item_root.nodes[selected_item]
+        if selected_item in menu_item.get_nodes().keys():
+            nodes = menu_item.get_nodes()
+            return nodes[selected_item]
         else:
             print(f"{selected_item} is not an option")
 
