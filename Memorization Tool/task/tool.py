@@ -52,23 +52,23 @@ def create_menu():
     # endregion
     # region item_3 (Exit)
     item_3 = toolMenu.MenuItem(root, "3", "3. Exit")
-    # end region
+    # endregion
+
     # region Menu relations
     # region root (Main menu relations)
-    root.nodes = {'1': item_1, '2': item_2, '3': item_3}
+    root.set_nodes(item_1, item_2, item_3)
     # endregion)
     # region item_1 (Add flashcards menu relationships)
-    item_1.nodes = {'1': item_1_1, '2': item_1_2}
+    item_1.set_nodes(item_1_1, item_1_2)
     # endregion
     # region item_2 (Practice flashcards menu relationships)
-    item_2.nodes = {'y': item_2_y, 'n': item_2_n, 'u': item_2_u}
+    item_2.set_nodes(item_2_n, item_2_y, item_2_u)
     # region item_2_u (Update flashcard menu relationships)
-    item_2_u.nodes = {'e': item_2_u_e, 'd': item_2_u_d}
+    item_2_u.set_nodes(item_2_u_d, item_2_u_e)
     # endregion
     # endregion
     # endregion
-    # endregion
-    # endregion
+
     return root
 
 
