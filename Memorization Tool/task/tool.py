@@ -1,8 +1,9 @@
+# region Imports
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 import MenuItem as toolMenu
-
+# endregion
 
 # region Classes
 Base = declarative_base()
@@ -14,13 +15,13 @@ class FlashCard(Base):
     id = Column(Integer, primary_key=True)
     question = Column(String)
     answer = Column(String)
-# endregion
 
+
+# endregion
 
 # region Variables
 
 # endregion
-
 
 # region Methods
 def connect_to_sqlite_db(connection_string):
@@ -122,8 +123,9 @@ def start_practice(session_obj):
 def __exit__():
     print("Bye!")
     exit()
-# endregion
 
+
+# endregion
 
 # region Main()
 def main():
