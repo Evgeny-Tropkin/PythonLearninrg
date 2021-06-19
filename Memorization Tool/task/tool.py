@@ -112,7 +112,12 @@ def add_flashcard(session_obj):
 
 
 def process_flashcard(menu_item, flashcard):
-    pass
+    menu_id = menu_item.get_id
+
+    if menu_id == "2_y":
+        print(f"Answer: {flashcard.answer}")
+    if menu_id == "2_u":
+        update_flashcard(menu_item, flashcard)
 
 
 def start_practice(session_obj, menu_item):
