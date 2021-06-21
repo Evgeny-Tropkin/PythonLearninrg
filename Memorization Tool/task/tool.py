@@ -23,6 +23,7 @@ class FlashCard(Base):
 
 # endregion
 
+
 # region Methods
 def connect_to_sqlite_db(connection_string):
     engine = create_engine(connection_string)
@@ -88,16 +89,16 @@ def select_menu_item(menu_item):
             print(f"{selected_item} is not an option")
 
 
-def execute_selected_item(menu_item, session_obj):
+def execute_selected_item(menu_item):
     menu_id = menu_item.get_id
 
     if menu_id == "1_1":
-        add_flashcard(session_obj)
+        add_flashcard(current_session)
         return menu_item.get_parent()
     elif menu_id == "1_2":
         return menu_item.get_parent().get_parent()
     elif menu_id == "2":
-        start_practice(session_obj, menu_item)
+        start_practice(current_session, menu_item)
 
 
 def process_flashcard(menu_item, flashcard):
@@ -112,7 +113,7 @@ def process_flashcard(menu_item, flashcard):
 def update_flashcard(menu_item, flashcard):
     show_menu(menu_item)
     selected_item = select_menu_item(menu_item)
-    
+
 
 def add_flashcard(session_obj):
     entered_question = ""
@@ -155,18 +156,19 @@ def __exit__():
 # region Main()
 def main():
     current_menu_level = create_menu()
-    session = connect_to_sqlite_db("sqlite:///flashcard.db?check_same_thread=False")
+
     while True:
         show_menu(current_menu_level)
         selected_item = select_menu_item(current_menu_level)
         if len(selected_item.get_nodes) == 0:
-            current_menu_level = execute_selected_item(selected_item, session)
+            current_menu_level = execute_selected_item(selected_item)
         else:
             current_menu_level = selected_item
 
 
 # region Script
 if __name__ == "__main__":
+    current_session = connect_to_sqlite_db("sqlite:///flashcard.db?check_same_thread=False")
     main()
 # endregion
 # endregion
