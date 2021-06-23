@@ -88,6 +88,7 @@ def select_menu_item(menu_item):
             return nodes[selected_item]
         else:
             print(f"{selected_item} is not an option")
+            return menu_item
 
 
 def execute_selected_item(menu_item):
@@ -100,6 +101,7 @@ def execute_selected_item(menu_item):
         return menu_item.get_parent().get_parent()
     elif menu_id == "2":
         start_practice(menu_item)
+        return menu_item.get_parent()
     elif menu_id == "3":
         __exit__()
 
