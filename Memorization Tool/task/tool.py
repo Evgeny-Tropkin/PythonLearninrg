@@ -66,7 +66,7 @@ def create_menu():
     # region item_2 (Practice flashcards menu relationships)
     item_2.set_nodes(item_2_y, item_2_n, item_2_u)
     # region item_2_u (Update flashcard menu relationships)
-    item_2_u.set_nodes(item_2_u_e, item_2_u_d)
+    item_2_u.set_nodes(item_2_u_d, item_2_u_e)
     # endregion
     # endregion
     # endregion
@@ -114,7 +114,7 @@ def process_flashcard(menu_item, flashcard):
     elif menu_id == "2_u":
         show_menu(menu_item)
         selected_item = select_menu_item(menu_item)
-        menu_id = selected_item.get_id
+        menu_id = selected_item.get_id()
 
         if menu_id == "2_u_e":
             edit_flashcard(flashcard)
