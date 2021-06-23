@@ -1,5 +1,5 @@
 class MenuItem:
-    def __init__(self, menu_id, parent, title):
+    def __init__(self, parent, menu_id, title):
         self.__menu_id = menu_id
         self.__parent = parent
         self.__title = title
@@ -19,4 +19,6 @@ class MenuItem:
 
     def set_nodes(self, *nodes):
         for node in nodes:
-            self.__nodes.update({node.get_id(): node})
+            node_id = node.get_id()
+            key = node_id[-1]
+            self.__nodes.update({key: node})
