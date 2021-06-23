@@ -1,9 +1,10 @@
 class MenuItem:
-    def __init__(self, parent, menu_id, title):
+    def __init__(self, parent, menu_id, title, is_executed):
         self.__menu_id = menu_id
         self.__parent = parent
         self.__title = title
         self.__nodes = {}
+        self.__is_executed = is_executed
 
     def get_id(self):
         return self.__menu_id
@@ -16,6 +17,9 @@ class MenuItem:
 
     def get_nodes(self):
         return self.__nodes
+
+    def is_executed(self):
+        return self.__is_executed
 
     def set_nodes(self, *nodes):
         for node in nodes:

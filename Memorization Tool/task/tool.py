@@ -34,26 +34,26 @@ def connect_to_sqlite_db(connection_string):
 
 
 def create_menu():
-    root = toolMenu.MenuItem(None, "root", "Main menu")
+    root = toolMenu.MenuItem(None, "root", "Main menu", False)
     # region Main menu
     # region item_1 (Add flashcard menu)
-    item_1 = toolMenu.MenuItem(root, "1", "1. Add flashcards")
-    item_1_1 = toolMenu.MenuItem(item_1, "1_1", "1. Add a new flashcard")
-    item_1_2 = toolMenu.MenuItem(item_1, "1_2", "2. Exit")
+    item_1 = toolMenu.MenuItem(root, "1", "1. Add flashcards", False)
+    item_1_1 = toolMenu.MenuItem(item_1, "1_1", "1. Add a new flashcard", True)
+    item_1_2 = toolMenu.MenuItem(item_1, "1_2", "2. Exit", True)
     # endregion
     # region item_2 (Practice flashcards menu)
-    item_2 = toolMenu.MenuItem(root, "2", "2. Practice flashcards")
-    item_2_y = toolMenu.MenuItem(item_2, "2_y", 'press "y" to see the answer:')
-    item_2_n = toolMenu.MenuItem(item_2, "2_n", 'press "n" to skip:')
-    item_2_u = toolMenu.MenuItem(item_2, "2_u", 'press "u" to update:')
+    item_2 = toolMenu.MenuItem(root, "2", "2. Practice flashcards", True)
+    item_2_y = toolMenu.MenuItem(item_2, "2_y", 'press "y" to see the answer:', True)
+    item_2_n = toolMenu.MenuItem(item_2, "2_n", 'press "n" to skip:', True)
+    item_2_u = toolMenu.MenuItem(item_2, "2_u", 'press "u" to update:', False)
     # region Item_2_u (Update flashcard menu)
-    item_2_u_d = toolMenu.MenuItem(item_2_u, "2_u_d", 'press "d" to delete the flashcard:')
-    item_2_u_e = toolMenu.MenuItem(item_2_u, "2_u_e", 'press "e" to edit the flashcard:')
+    item_2_u_d = toolMenu.MenuItem(item_2_u, "2_u_d", 'press "d" to delete the flashcard:', True)
+    item_2_u_e = toolMenu.MenuItem(item_2_u, "2_u_e", 'press "e" to edit the flashcard:', True)
     # end region
     # endregion
     # endregion
     # region item_3 (Exit)
-    item_3 = toolMenu.MenuItem(root, "3", "3. Exit")
+    item_3 = toolMenu.MenuItem(root, "3", "3. Exit", True)
     # endregion
 
     # region Menu relations
