@@ -116,6 +116,9 @@ def process_flashcard(menu_item, flashcard):
 
         if menu_id == "2_u_e":
             edit_flashcard(flashcard)
+        elif menu_id == "2_u_d":
+            current_session.delete(flashcard)
+            current_session.commit()
 
 
 def add_flashcard():
