@@ -160,6 +160,7 @@ def start_practice(menu_item):
 
     for flashcard in flashcards:
         print(f"Question: {flashcard.question}")
+        show_menu(menu_item)
         selected_menu_item = select_menu_item(menu_item)
         process_flashcard(selected_menu_item, flashcard)
 
