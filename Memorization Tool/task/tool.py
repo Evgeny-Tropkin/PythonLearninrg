@@ -64,7 +64,7 @@ def create_menu():
     item_1.set_nodes(item_1_1, item_1_2)
     # endregion
     # region item_2 (Practice flashcards menu relationships)
-    item_2.set_nodes(item_2_n, item_2_y, item_2_u)
+    item_2.set_nodes(item_2_y, item_2_n, item_2_u)
     # region item_2_u (Update flashcard menu relationships)
     item_2_u.set_nodes(item_2_u_e, item_2_u_d)
     # endregion
