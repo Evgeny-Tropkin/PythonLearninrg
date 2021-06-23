@@ -107,12 +107,12 @@ def process_flashcard(menu_item, flashcard):
     if menu_id == "2_y":
         print(f"Answer: {flashcard.answer}")
     if menu_id == "2_u":
-        update_flashcard(menu_item, flashcard)
+        show_menu(menu_item)
+        selected_item = select_menu_item(menu_item)
+        menu_id = selected_item.get_id
 
-
-def update_flashcard(menu_item, flashcard):
-    show_menu(menu_item)
-    selected_item = select_menu_item(menu_item)
+        if menu_id == "2_u_e":
+            edit_flashcard(flashcard)
 
 
 def add_flashcard(session_obj):
@@ -124,6 +124,28 @@ def add_flashcard(session_obj):
         entered_answer = input("Answer:")
     session_obj.add(FlashCard(question=entered_question, answer=entered_answer))
     session_obj.commit()
+
+
+def edit_flashcard(flashcard):
+    is_flashcard_data_changed = False
+
+    print(f"current question: {flashcard.question}")
+    print("please write a new question:")
+    new_question = input()
+    if new_question != "":
+        flashcard.question = new_question
+        is_flashcard_data_changed = True
+
+    print()
+    print(f"current answer: {flashcard.answer}")
+    print("please write a new answer:")
+    new_answer = input()
+    if new_answer != "":
+        flashcard.answer = new_answer
+        is_flashcard_data_changed = True
+
+    if is_flashcard_data_changed:
+        current_session.commit()
 
 
 def start_practice(session_obj, menu_item):
