@@ -100,6 +100,8 @@ def execute_selected_item(menu_item):
         return menu_item.get_parent().get_parent()
     elif menu_id == "2":
         start_practice(menu_item)
+    elif menu_id == "3":
+        __exit__()
 
 
 def process_flashcard(menu_item, flashcard):
@@ -166,6 +168,7 @@ def start_practice(menu_item):
 
 def __exit__():
     print("Bye!")
+    current_session.close()
     exit()
 
 
