@@ -91,7 +91,7 @@ def select_menu_item(menu_item):
 
 
 def execute_selected_item(menu_item):
-    menu_id = menu_item.get_id
+    menu_id = menu_item.get_id()
 
     if menu_id == "1_1":
         add_flashcard()
@@ -178,7 +178,7 @@ def main():
     while True:
         show_menu(current_menu_level)
         selected_item = select_menu_item(current_menu_level)
-        if len(selected_item.get_nodes) == 0:
+        if len(selected_item.get_nodes().keys()) == 0:
             current_menu_level = execute_selected_item(selected_item)
         else:
             current_menu_level = selected_item
