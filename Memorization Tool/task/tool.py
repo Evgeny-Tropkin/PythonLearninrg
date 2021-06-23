@@ -93,12 +93,12 @@ def execute_selected_item(menu_item):
     menu_id = menu_item.get_id
 
     if menu_id == "1_1":
-        add_flashcard(current_session)
+        add_flashcard()
         return menu_item.get_parent()
     elif menu_id == "1_2":
         return menu_item.get_parent().get_parent()
     elif menu_id == "2":
-        start_practice(current_session, menu_item)
+        start_practice(menu_item)
 
 
 def process_flashcard(menu_item, flashcard):
@@ -115,15 +115,15 @@ def process_flashcard(menu_item, flashcard):
             edit_flashcard(flashcard)
 
 
-def add_flashcard(session_obj):
+def add_flashcard():
     entered_question = ""
     entered_answer = ""
     while entered_question == "":
         entered_question = input("Question:")
     while entered_answer == "":
         entered_answer = input("Answer:")
-    session_obj.add(FlashCard(question=entered_question, answer=entered_answer))
-    session_obj.commit()
+    current_session.add(FlashCard(question=entered_question, answer=entered_answer))
+    current_session.commit()
 
 
 def edit_flashcard(flashcard):
@@ -148,8 +148,8 @@ def edit_flashcard(flashcard):
         current_session.commit()
 
 
-def start_practice(session_obj, menu_item):
-    flashcards = session_obj.query(FlashCard).all()
+def start_practice(menu_item):
+    flashcards = current_session.query(FlashCard).all()
 
     if len(flashcards) == 0:
         print("There is no flashcard to practice!")
