@@ -105,11 +105,11 @@ def execute_selected_item(menu_item):
 
 
 def process_flashcard(menu_item, flashcard):
-    menu_id = menu_item.get_id
+    menu_id = menu_item.get_id()
 
     if menu_id == "2_y":
         print(f"Answer: {flashcard.answer}")
-    if menu_id == "2_u":
+    elif menu_id == "2_u":
         show_menu(menu_item)
         selected_item = select_menu_item(menu_item)
         menu_id = selected_item.get_id
