@@ -159,12 +159,7 @@ def start_practice(menu_item):
         print(f"Question: {flashcard.question}")
         selected_menu_item = select_menu_item(menu_item)
         process_flashcard(selected_menu_item, flashcard)
-        # is_show_answer = input('Please press "y" to see the answer or press "n" to skip:').lower()
-        # while is_show_answer not in ['y', 'n']:
-        #     print(f"{is_show_answer} is not an option")
-        #     is_show_answer = input('Please press "y" to see the answer or press "n" to skip:').lower()
-        # if is_show_answer == 'y':
-        #     print(f"Answer: {item.answer}")
+
         print()
 
 
