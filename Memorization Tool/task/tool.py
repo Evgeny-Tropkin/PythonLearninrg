@@ -75,8 +75,9 @@ def create_menu():
 
 
 def show_menu(menu_item):
-    for title in menu_item.get_nodes().values():
-        print(title)
+    menu_item_nodes = menu_item.get_nodes().values()
+    for node in menu_item_nodes:
+        print(node.get_title())
 
 
 def select_menu_item(menu_item):
