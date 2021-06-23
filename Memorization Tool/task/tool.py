@@ -181,7 +181,7 @@ def main():
     while True:
         show_menu(current_menu_level)
         selected_item = select_menu_item(current_menu_level)
-        if len(selected_item.get_nodes().keys()) == 0:
+        if selected_item.is_executed():
             current_menu_level = execute_selected_item(selected_item)
         else:
             current_menu_level = selected_item
