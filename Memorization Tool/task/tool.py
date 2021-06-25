@@ -15,6 +15,7 @@ class FlashCard(Base):
     id = Column(Integer, primary_key=True)
     question = Column(String)
     answer = Column(String)
+    stage = Column(Integer)
 
 
 # endregion
