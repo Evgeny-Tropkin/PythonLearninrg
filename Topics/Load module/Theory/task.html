@@ -3,11 +3,11 @@
  <head></head>
  <body>
   <h2 style="text-align: center;">Module basics</h2> 
-  <p>While working on simple examples you probably type your code directly into the interpreter. But every time you quit from the interpreter and start it again you lose all the definitions you made before. So as you start writing larger programs it makes sense to prepare your code in advance using a text editor and then run it with the interpreter. A file containing a list of operations that further are read and interpreted is called <strong>script</strong>.</p> 
+  <p>While working on simple examples, you probably type your code directly into the interpreter. But every time you quit from the interpreter and start it again, you lose all the definitions you made before. So as you start writing larger programs, it makes sense to prepare your code in advance using a text editor and then run it with the interpreter. A file containing a list of operations that will be further on read and interpreted is called <strong>script</strong>.</p> 
   <p>You also may want to write some functions and then use them in other programs or even reuse code someone else wrote before. One way is just to copy the code into your program, but it soon leads to code that is bad-structured and hard to read. Luckily, there is another way in Python to organize and reuse code called <strong>modules</strong>.</p> 
   <p>The module is simply a file that contains Python statements and definitions. It usually has a <strong>.py</strong> extension. What really makes the module system powerful is the ability to <strong>load</strong> or <strong>import</strong> one module from another.</p> 
   <h2 style="text-align: center;">Module loading</h2> 
-  <p>To load a module just use an <strong>import </strong>statement. In a basic form, it has the following syntax <code class="language-python">import module</code>.</p> 
+  <p>To load a module, just use an <strong>import </strong>statement. In its basic form, it has the following syntax: <code class="language-python">import module</code>.</p> 
   <pre><code class="language-python">import super_module
 
 super_module.super_function()  # calling a function defined in super_module
@@ -27,7 +27,7 @@ import module2
 import module3
 
 # the rest of module code goes here</code></pre> 
-  <p>A special form of import statement allows you to load all the names defined in a module. It is called <em>wildcard import </em>and has syntax <code class="language-python">from module import *</code>. You should generally avoid this in your code. It can cause unexpected behavior because you don't know what names exactly are imported into the current namespace. Besides, these names may shadow some of the existing ones without your knowledge. It's better to make it explicit and specify what you're importing.</p> 
+  <p>A special form of import statement allows you to load all the names defined in a module. It is called <em>wildcard import </em>and has the syntax <code class="language-python">from module import *</code>. You should generally avoid this in your code. It can cause unexpected behavior because you don't know what names exactly are imported into the current namespace. Besides, these names may shadow some of the existing ones without your knowledge. It's better to make it explicit and specify what you're importing.</p> 
   <p>In case you have to use several import statements, pay attention to their order:</p> 
   <ol> 
    <li>standard library imports</li> 
@@ -46,14 +46,16 @@ print(math.log(10))  # prints the natural logarithm of 10
 
 print(math.pi)  # math also contains several constants
 print(math.e)</code></pre> 
-  <p><samp>string</samp> module contains common string operations and constants.</p> 
+  <p><samp>The string</samp> module contains common string operations and constants.</p> 
   <pre><code class="language-python">from string import digits
 
 print(digits)  # prints all the digit symbols</code></pre> 
-  <p><samp>random</samp> module provides functions that let you make a random choice.</p> 
+  <p><samp>The random</samp> module provides functions that let you make a random choice.</p> 
   <pre><code class="language-python">from random import choice
 
-print(choice(['red', 'green', 'yellow']))  # print a random item from the list</code></pre>
+print(choice(['red', 'green', 'yellow']))  # print a random item from the list</code></pre> 
+  <h2>Summary</h2> 
+  <p>Thus, in this topic, we've learned what a script and module are and why they're useful; how to import modules (or particular things from them) whether they are external or come with a standard Python library. This basic skill will definitely give you a lot of opportunities in the future, so don't be shy to try module loadingon your own!</p>
  </body>
 </html>
 <a href="https://hyperskill.org/learn/step/6019">Show topic summary</a>

@@ -389,6 +389,12 @@ files:
     if __name__ == '__main__':
         FlashCardTest('memtool.step3').run_tests()
   learner_created: false
+- name: flashcard.db
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/159/stages/828/implement#comment
-status: Unchecked
-record: -1
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Wed, 23 Jun 2021 18:02:22 UTC
+record: 7
