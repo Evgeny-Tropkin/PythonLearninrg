@@ -130,7 +130,7 @@ def process_flashcard(menu_item, flashcard):
         return
 
     elif menu_id == "2_y" or menu_id == "2_n":
-        check_answer(menu_item, flashcard)
+        is_answer_correct(menu_item, flashcard)
 
 
 def add_flashcard():
@@ -182,7 +182,7 @@ def start_practice(menu_item):
         print()
 
 
-def check_answer(menu_item, flashcard):
+def is_answer_correct(menu_item, flashcard):
     menu_id = menu_item.get_id()
 
     if menu_id == "2_y":
@@ -190,7 +190,8 @@ def check_answer(menu_item, flashcard):
 
     show_menu(menu_item)
     selected_item = select_menu_item(menu_item)
-    process_flashcard(selected_item, flashcard)
+
+    return selected_item.get_id() == "2_yn_y"
 
 
 def __exit__():
