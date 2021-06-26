@@ -130,7 +130,10 @@ def process_flashcard(menu_item, flashcard):
         return
 
     elif menu_id == "2_y" or menu_id == "2_n":
-        is_answer_correct(menu_item, flashcard)
+       if is_answer_correct(menu_item, flashcard):
+           change_stage_up(flashcard)
+       else:
+           reset_stage(flashcard)
 
 
 def add_flashcard():
@@ -192,6 +195,16 @@ def is_answer_correct(menu_item, flashcard):
     selected_item = select_menu_item(menu_item)
 
     return selected_item.get_id() == "2_yn_y"
+
+
+def change_stage_up(flashcard):
+    flashcard.stage += 1
+    current_session.commit()
+
+
+def reset_stage(flashcard):
+    flashcard.stage = 1
+    current_session.commit()
 
 
 def __exit__():
