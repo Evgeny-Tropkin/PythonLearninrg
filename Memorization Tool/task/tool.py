@@ -188,6 +188,10 @@ def check_answer(menu_item, flashcard):
     if menu_id == "2_y":
         print(f"Answer: {flashcard.answer}")
 
+    show_menu(menu_item)
+    selected_item = select_menu_item(menu_item)
+    process_flashcard(selected_item, flashcard)
+
 
 def __exit__():
     print("Bye!")
