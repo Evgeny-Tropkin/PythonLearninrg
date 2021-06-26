@@ -46,10 +46,15 @@ def create_menu():
     item_2 = toolMenu.MenuItem(root, "2", "2. Practice flashcards", True)
     item_2_y = toolMenu.MenuItem(item_2, "2_y", 'press "y" to see the answer:', True)
     item_2_n = toolMenu.MenuItem(item_2, "2_n", 'press "n" to skip:', True)
+    # region Item_2_yn (Check answer menu)
+    item_2_yn_y = toolMenu.MenuItem(item_2_y, "2_yn_y", 'press "y" if your answer is correct:', True)
+    item_2_yn_n = toolMenu.MenuItem(item_2_y, "2_yn_n", 'press "n" if your answer is wrong:', True)
+    # end region
     item_2_u = toolMenu.MenuItem(item_2, "2_u", 'press "u" to update:', False)
     # region Item_2_u (Update flashcard menu)
     item_2_u_d = toolMenu.MenuItem(item_2_u, "2_u_d", 'press "d" to delete the flashcard:', True)
     item_2_u_e = toolMenu.MenuItem(item_2_u, "2_u_e", 'press "e" to edit the flashcard:', True)
+    # endregion
     # end region
     # endregion
     # endregion
@@ -66,6 +71,8 @@ def create_menu():
     # endregion
     # region item_2 (Practice flashcards menu relationships)
     item_2.set_nodes(item_2_y, item_2_n, item_2_u)
+    item_2_y.set_nodes(item_2_yn_y, item_2_yn_n)
+    item_2_n.set_nodes(item_2_yn_y, item_2_yn_n)
     # region item_2_u (Update flashcard menu relationships)
     item_2_u.set_nodes(item_2_u_d, item_2_u_e)
     # endregion
