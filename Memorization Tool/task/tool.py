@@ -110,9 +110,7 @@ def execute_selected_item(menu_item):
 def process_flashcard(menu_item, flashcard):
     menu_id = menu_item.get_id()
 
-    if menu_id == "2_y":
-        print(f"Answer: {flashcard.answer}")
-    elif menu_id == "2_u":
+    if menu_id == "2_u":
         show_menu(menu_item)
         selected_item = select_menu_item(menu_item)
         menu_id = selected_item.get_id()
@@ -122,6 +120,10 @@ def process_flashcard(menu_item, flashcard):
         elif menu_id == "2_u_d":
             current_session.delete(flashcard)
             current_session.commit()
+        return
+
+    elif menu_id == "2_y" or menu_id == "2_n":
+        check_answer(menu_item, flashcard)
 
 
 def add_flashcard():
@@ -171,6 +173,13 @@ def start_practice(menu_item):
         process_flashcard(selected_menu_item, flashcard)
 
         print()
+
+
+def check_answer(menu_item, flashcard):
+    menu_id = menu_item.get_id()
+
+    if menu_id == "2_y":
+        print(f"Answer: {flashcard.answer}")
 
 
 def __exit__():
