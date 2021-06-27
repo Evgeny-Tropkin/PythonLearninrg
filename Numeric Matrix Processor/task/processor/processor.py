@@ -17,6 +17,12 @@ class CustomMatrix:
     def set_value(self, other):
         self.__value = other.get_value()
 
+    def get_row(self, row_num):
+        return self.__value[row_num - 1]
+
+    def append_row(self, row_list):
+        self.__value.append(row_list)
+
     def get_cell_value(self, row_num, col_num):
         return self.__value[row_num - 1][col_num - 1]
         # TODO: implement checking of "the value out of range":
@@ -64,9 +70,17 @@ def main():
 
 def input_matrix():
     """ The function is intended for entering a matrix of a given dimension. \n
-        Returns a List with elements of the List type. \n
-        The number of nesting levels depends on the specified dimension of the matrix"""
-    return CustomMatrix(2, 2)
+        Returns an object of CustomMatrix type"""
+    size = input().split()
+    rows = int(size[0])
+    columns = int(size[1])
+    res = CustomMatrix(rows, columns)
+
+    for i in range(rows):
+        row = [int(item) for item in input().split()]
+        res.append_row(row)
+
+    return res
 # endregion
 
 
