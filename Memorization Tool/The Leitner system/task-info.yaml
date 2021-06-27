@@ -1,10 +1,5 @@
 type: edu
 files:
-- name: tool.py
-  visible: true
-  text: |
-    # write your code here
-  learner_created: false
 - name: tests.py
   visible: false
   text: |
@@ -451,6 +446,15 @@ files:
     if __name__ == '__main__':
         FlashCardTest().run_tests()
   learner_created: false
+- name: tool.py
+  visible: true
+  text: |
+    # write your code here
+  learner_created: false
 feedback_link: https://hyperskill.org/projects/159/stages/829/implement#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Well done! You've finished the project. Select a new project on <a href="https://hyperskill.org/projects">JetBrains
+    Academy</a> to continue learning.
+  time: Sun, 27 Jun 2021 06:15:17 UTC
 record: -1

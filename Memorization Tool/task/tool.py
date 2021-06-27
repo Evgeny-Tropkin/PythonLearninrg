@@ -143,7 +143,7 @@ def add_flashcard():
         entered_question = input("Question:")
     while entered_answer == "":
         entered_answer = input("Answer:")
-    current_session.add(FlashCard(question=entered_question, answer=entered_answer))
+    current_session.add(FlashCard(question=entered_question, answer=entered_answer, stage=1))
     current_session.commit()
 
 
