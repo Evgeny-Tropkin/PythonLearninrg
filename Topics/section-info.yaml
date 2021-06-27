@@ -1,18 +1,6 @@
+custom_name: Topics
 content:
-- Dictionary
-- Dictionary methods
-- Operations with dictionary
-- Load module
-- Packages
-- Class
-- Class instances
-- Methods
-- Methods and attributes
-- Magic methods
-- Inheritance
-- Tuple
-- Exception handling
-- Errors
-- Exceptions
-- Algorithms in Python
-- Built-in exceptions
+- Escape sequences
+- Basic string methods
+- Nested lists
+- Split and join
