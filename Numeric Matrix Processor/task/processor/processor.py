@@ -11,6 +11,9 @@ class CustomMatrix:
     def get_columns_count(self):
         return self.__columns
 
+    def get_value(self):
+        return self.__value
+
     def set_value(self):
         pass
 
