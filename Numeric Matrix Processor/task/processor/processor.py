@@ -1,5 +1,18 @@
+# region Methods
 def main():
-    pass
+    matrix1 = input_matrix()
+    matrix2 = input_matrix()
+    try:
+        result = matrix1 + matrix2
+    except ValueError:
+        print("ERROR")
+    else:
+        print(result)
+
+
+def input_matrix():
+    return []
+# endregion
 
 
 # region Script
