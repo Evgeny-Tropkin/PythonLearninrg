@@ -35,6 +35,9 @@ class CustomMatrix:
         """Addition of matrices"""
         if other.get_rows_count() == self.__rows and other.get_columns_count() == self.__columns:
             res = CustomMatrix(self.__rows, self.__columns)
+            for row in range(1, self.__rows + 1):
+                for column in range(1, self.__columns + 1):
+                    res.set_cell_value(row, column, self.get_cell_value(row, column) + other.get_cell_value(row, column))
             return res
         else:
             return ValueError
