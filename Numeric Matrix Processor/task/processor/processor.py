@@ -3,7 +3,7 @@ class CustomMatrix:
     def __init__(self, rows, columns):
         self.__rows = rows
         self.__columns = columns
-        self.set_value()
+        self.__value = [[0 for _ in range(self.__columns)] for _ in range(self.__rows)]
 
     def get_rows_count(self):
         return self.__rows
