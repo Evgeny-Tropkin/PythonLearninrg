@@ -20,6 +20,9 @@ class CustomMatrix:
     def get_row(self, row_num):
         return self.__value[row_num - 1]
 
+    def set_row(self, row_num, row):
+        self.__value[row_num - 1] = row
+
     def append_row(self, row_list):
         self.__value.append(row_list)
 
@@ -43,10 +46,11 @@ class CustomMatrix:
             res = CustomMatrix(self.__rows, self.__columns)
             for row in range(1, self.__rows + 1):
                 for column in range(1, self.__columns + 1):
-                    res.set_cell_value(row, column, self.get_cell_value(row, column) + other.get_cell_value(row, column))
+                    new_matrix_cell_value = self.get_cell_value(row, column) + other.get_cell_value(row, column)
+                    res.set_cell_value(row, column, new_matrix_cell_value)
             return res
         else:
-            return ValueError
+            raise ValueError
 
     def __repr__(self):
         for row in self.__value:
@@ -76,9 +80,9 @@ def input_matrix():
     columns = int(size[1])
     res = CustomMatrix(rows, columns)
 
-    for i in range(rows):
+    for i in range(1, rows + 1):
         row = [int(item) for item in input().split()]
-        res.append_row(row)
+        res.set_row(i, row)
 
     return res
 # endregion
