@@ -33,9 +33,9 @@ class CustomMatrix:
             return ValueError
 
     def __repr__(self):
-        for row in range(self.__rows):
-            for column in range(self.__columns):
-                print(self.get_cell_value(row, column))
+        for row in self.__value:
+            print(' '.join(map(str, row)))
+        return ''
 
 # end region
 
@@ -56,7 +56,7 @@ def input_matrix():
     """ The function is intended for entering a matrix of a given dimension. \n
         Returns a List with elements of the List type. \n
         The number of nesting levels depends on the specified dimension of the matrix"""
-    return []
+    return CustomMatrix(2, 2)
 # endregion
 
 
