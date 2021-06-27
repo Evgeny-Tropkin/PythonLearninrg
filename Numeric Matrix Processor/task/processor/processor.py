@@ -17,6 +17,13 @@ class CustomMatrix:
     def set_value(self):
         pass
 
+    def get_cell_value(self, row_num, col_num):
+        return self.__value[row_num - 1][col_num - 1]
+    # TODO: implement checking of "the value out of range":
+    #  for row_num outside the range (cells.__rows)
+    #  for col_num outside the range (self.__columns).
+    #  If the check is not passed, return IndexError
+
     def __add__(self, other):
         """Addition of matrices"""
         if other.get_rows_count() == self.__rows and other.get_columns_count() == self.__columns:
@@ -24,6 +31,11 @@ class CustomMatrix:
             return res
         else:
             return ValueError
+
+    def __repr__(self):
+        for row in range(self.__rows):
+            for column in range(self.__columns):
+                print(self.get_cell_value(row, column))
 
 # end region
 
@@ -37,7 +49,7 @@ def main():
     except ValueError:
         print("ERROR")
     else:
-        print(result.get_value())
+        print(result.__repr__())
 
 
 def input_matrix():
