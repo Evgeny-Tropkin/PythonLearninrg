@@ -21,7 +21,7 @@ class FlashCard(Base):
 # endregion
 
 # region Variables
-
+max_stage = 3
 # endregion
 
 
@@ -130,10 +130,10 @@ def process_flashcard(menu_item, flashcard):
         return
 
     elif menu_id == "2_y" or menu_id == "2_n":
-       if is_answer_correct(menu_item, flashcard):
-           change_stage_up(flashcard)
-       else:
-           reset_stage(flashcard)
+        if is_answer_correct(menu_item, flashcard):
+            change_stage_up(flashcard)
+        else:
+            reset_stage(flashcard)
 
 
 def add_flashcard():
@@ -199,6 +199,8 @@ def is_answer_correct(menu_item, flashcard):
 
 def change_stage_up(flashcard):
     flashcard.stage += 1
+    if flashcard.stage > max_stage:
+        current_session.delete(flashcard)
     current_session.commit()
 
 
