@@ -14,8 +14,8 @@ class CustomMatrix:
     def get_value(self):
         return self.__value
 
-    def set_value(self):
-        pass
+    def set_value(self, other):
+        self.__value = other.get_value()
 
     def get_cell_value(self, row_num, col_num):
         return self.__value[row_num - 1][col_num - 1]
