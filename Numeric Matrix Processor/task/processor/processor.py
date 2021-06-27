@@ -26,6 +26,9 @@ class CustomMatrix:
     def append_row(self, row_list):
         self.__value.append(row_list)
 
+    def get_column(self, col_num):
+        pass
+
     def get_cell_value(self, row_num, col_num):
         return self.__value[row_num - 1][col_num - 1]
         # TODO: implement checking of "the value out of range":
