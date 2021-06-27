@@ -41,9 +41,11 @@ class CustomMatrix:
         #  If the check is not passed, return IndexError
 
     def multiple_by_number(self, num):
-        for row in self.__value:
-            for item in row:
-                item *= num
+        res = CustomMatrix(self.__rows, self.__columns)
+        for row in range(1, self.__rows + 1):
+            for col in range(1, self.__columns + 1):
+                res.set_cell_value(row, col, self.get_cell_value(row, col) * num)
+        return res
 
     def multiple(self, other):
         pass
