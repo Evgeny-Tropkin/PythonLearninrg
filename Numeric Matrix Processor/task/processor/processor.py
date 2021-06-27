@@ -15,10 +15,15 @@ class CustomMatrix:
         pass
 
     def __add__(self, other):
+        """Addition of matrices"""
         if other.get_rows() == self.__rows and other.get_columns() == self.__columns:
-            pass
+            res = CustomMatrix(self.__rows, self.__columns)
+            return res
+        else:
+            return ValueError
 
 # end region
+
 
 # region Methods
 def main():
