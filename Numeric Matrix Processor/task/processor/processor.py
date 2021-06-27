@@ -79,10 +79,10 @@ class CustomMatrix:
 # region Methods
 def main():
     matrix1 = input_matrix()
-    matrix2 = input_matrix()
+    num = int(input())
     try:
-        result = matrix1 + matrix2
-    except ValueError:
+        result = matrix1 * num
+    except TypeError:
         print("ERROR")
     else:
         print(result.__repr__())
