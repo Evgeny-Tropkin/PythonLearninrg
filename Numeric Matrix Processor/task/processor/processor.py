@@ -40,6 +40,12 @@ class CustomMatrix:
         #  for col_num outside the range (self.__columns).
         #  If the check is not passed, return IndexError
 
+    def multiple_by_number(self, num):
+        pass
+
+    def multiple(self, other):
+        pass
+
     def __add__(self, other):
         """Addition of matrices"""
         if other.get_rows_count() == self.__rows and other.get_columns_count() == self.__columns:
@@ -51,6 +57,14 @@ class CustomMatrix:
             return res
         else:
             raise ValueError
+
+    def __mul__(self, other):
+        if type(other) == int:
+            return self.multiple_by_number(other)
+        elif type(other) == CustomMatrix:
+            return self.multiple(other)
+        else:
+            raise TypeError
 
     def __repr__(self):
         for row in self.__value:
