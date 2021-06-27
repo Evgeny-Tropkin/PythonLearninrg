@@ -19,7 +19,7 @@ class CustomMatrix:
 
     def __add__(self, other):
         """Addition of matrices"""
-        if other.get_rows() == self.__rows and other.get_columns() == self.__columns:
+        if other.get_rows_count() == self.__rows and other.get_columns_count() == self.__columns:
             res = CustomMatrix(self.__rows, self.__columns)
             return res
         else:
@@ -37,7 +37,7 @@ def main():
     except ValueError:
         print("ERROR")
     else:
-        print(result)
+        print(result.get_value())
 
 
 def input_matrix():
