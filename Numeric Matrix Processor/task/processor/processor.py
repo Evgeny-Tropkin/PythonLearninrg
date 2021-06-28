@@ -55,7 +55,7 @@ class CustomMatrix:
 
     def multiple(self, other):
         """Multiplication of matrices"""
-        if self.__columns == other.get_rows_count:
+        if self.__columns == other.get_rows_count():
             res_rows_count = self.__rows
             res_columns_count = other.get_columns_count()
             res = CustomMatrix(res_rows_count, res_columns_count)
@@ -65,6 +65,7 @@ class CustomMatrix:
                 res_row_i = [row[pos] * column[pos] for pos in range(res_columns_count)]
 
                 res.set_row(i, res_row_i)
+            return res
                 
         else:
             raise ValueError
