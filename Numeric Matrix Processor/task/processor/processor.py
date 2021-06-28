@@ -153,13 +153,14 @@ def execute_selected_item(menu_item):
     if menu_id == "0":
         __exit__()
     if menu_id == "1":
-        matrix1 = input_matrix()
-        matrix2 = input_matrix()
+        matrix1 = input_matrix("first matrix")
+        matrix2 = input_matrix("second matrix")
         try:
             result = matrix1 + matrix2
         except ValueError:
             print("ERROR")
         else:
+            print("The result is:")
             print(result.__repr__())
 
     elif menu_id == "2":
@@ -168,13 +169,16 @@ def execute_selected_item(menu_item):
         pass
 
 
-def input_matrix():
+def input_matrix(part_of_message):
     """ The function is intended for entering a matrix of a given dimension. \n
+        Accepts a part of the message to prompt the user
         Returns an object of CustomMatrix type"""
-    size = input().split()
+    size = input(f"Enter size of {part_of_message}: ").split()
     rows = int(size[0])
     columns = int(size[1])
     res = CustomMatrix(rows, columns)
+
+    print(f"Enter {part_of_message}: ")
 
     for i in range(1, rows + 1):
         row = [int(item) for item in input().split()]
