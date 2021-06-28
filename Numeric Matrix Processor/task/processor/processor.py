@@ -104,7 +104,7 @@ def main():
     while True:
         show_menu(current_menu_level)
         selected_item = select_menu_item(current_menu_level)
-        current_menu_level = execute_selected_item(selected_item)
+        execute_selected_item(selected_item)
 
 
 def create_menu():
@@ -153,7 +153,15 @@ def execute_selected_item(menu_item):
     if menu_id == "0":
         __exit__()
     if menu_id == "1":
-        pass
+        matrix1 = input_matrix()
+        matrix2 = input_matrix()
+        try:
+            result = matrix1 + matrix2
+        except ValueError:
+            print("ERROR")
+        else:
+            print(result.__repr__())
+
     elif menu_id == "2":
         pass
     elif menu_id == "3":
