@@ -151,7 +151,7 @@ def execute_selected_item(menu_item):
     menu_id = menu_item.get_id()
 
     if menu_id == "0":
-        pass
+        __exit__()
     if menu_id == "1":
         pass
     elif menu_id == "2":
@@ -173,6 +173,11 @@ def input_matrix():
         res.set_row(i, row)
 
     return res
+
+
+def __exit__():
+    print("Bye!")
+    exit()
 # endregion
 
 
