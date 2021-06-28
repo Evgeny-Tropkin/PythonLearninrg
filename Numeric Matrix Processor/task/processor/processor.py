@@ -104,6 +104,7 @@ def main():
     while True:
         show_menu(current_menu_level)
         selected_item = select_menu_item(current_menu_level)
+        current_menu_level = execute_selected_item(selected_item)
 
 
 def create_menu():
@@ -144,6 +145,19 @@ def select_menu_item(menu_item):
         else:
             print(f"{selected_item} is not an option")
             return menu_item
+
+
+def execute_selected_item(menu_item):
+    menu_id = menu_item.get_id()
+
+    if menu_id == "0":
+        pass
+    if menu_id == "1":
+        pass
+    elif menu_id == "2":
+        pass
+    elif menu_id == "3":
+        pass
 
 
 def input_matrix():
