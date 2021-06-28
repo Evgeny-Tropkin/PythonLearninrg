@@ -129,7 +129,9 @@ def create_menu():
 
 
 def show_menu(menu_item):
-    pass
+    menu_item_nodes = menu_item.get_nodes().values()
+    for node in menu_item_nodes:
+        print(node.get_title())
 
 
 def input_matrix():
