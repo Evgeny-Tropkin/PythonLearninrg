@@ -164,7 +164,16 @@ def execute_selected_item(menu_item):
             print(result.__repr__())
 
     elif menu_id == "2":
-        pass
+        matrix1 = input_matrix("matrix")
+        num = int(input())
+        try:
+            result = matrix1 * num
+        except TypeError:
+            print("ERROR")
+        else:
+            print("The result is:")
+            print(result.__repr__())
+
     elif menu_id == "3":
         pass
 
