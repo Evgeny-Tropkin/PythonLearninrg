@@ -138,7 +138,7 @@ def show_menu(menu_item):
 
 def select_menu_item(menu_item):
     while True:
-        selected_item = input()
+        selected_item = input("Your choice: ")
         if selected_item in menu_item.get_nodes().keys():
             nodes = menu_item.get_nodes()
             return nodes[selected_item]
