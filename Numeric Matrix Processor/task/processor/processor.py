@@ -1,3 +1,6 @@
+import MenuItem as processorMenu
+
+
 # region Classes
 class CustomMatrix:
     def __init__(self, rows, columns):
@@ -96,14 +99,20 @@ class CustomMatrix:
 
 # region Methods
 def main():
-    matrix1 = input_matrix()
-    num = int(input())
-    try:
-        result = matrix1 * num
-    except TypeError:
-        print("ERROR")
-    else:
-        print(result.__repr__())
+    current_menu_level = create_menu()
+
+    while True:
+        show_menu(current_menu_level)
+
+
+def create_menu():
+    root = processorMenu.MenuItem(None, "root", "Main menu", False)
+
+    return root
+
+
+def show_menu(menu_item):
+    pass
 
 
 def input_matrix():
@@ -125,4 +134,4 @@ def input_matrix():
 # region Script
 if __name__ == "__main__":
     main()
-# end region
+# endregion
