@@ -181,7 +181,7 @@ def input_matrix(part_of_message):
     print(f"Enter {part_of_message}: ")
 
     for i in range(1, rows + 1):
-        row = [int(item) for item in input().split()]
+        row = [float(item) for item in input().split()]
         res.set_row(i, row)
 
     return res
