@@ -175,7 +175,15 @@ def execute_selected_item(menu_item):
             print(result.__repr__())
 
     elif menu_id == "3":
-        pass
+        matrix1 = input_matrix("first matrix")
+        matrix2 = input_matrix("second matrix")
+        try:
+            result = matrix1 * matrix2
+        except ValueError:
+            print("ERROR")
+        else:
+            print("The result is:")
+            print(result.__repr__())
 
 
 def input_matrix(part_of_message):
