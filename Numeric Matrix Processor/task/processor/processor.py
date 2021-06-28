@@ -51,7 +51,20 @@ class CustomMatrix:
         return res
 
     def multiple(self, other):
-        pass
+        """Multiplication of matrices"""
+        if self.__columns == other.get_rows_count:
+            res_rows_count = self.__rows
+            res_columns_count = other.get_columns_count()
+            res = CustomMatrix(res_rows_count, res_columns_count)
+            for i in range(1, res_rows_count + 1):
+                row = self.get_row(i)
+                column = other.get_column(i)
+                res_row_i = [row[pos] * column[pos] for pos in range(res_columns_count)]
+
+                res.set_row(i, res_row_i)
+                
+        else:
+            raise ValueError
 
     def __add__(self, other):
         """Addition of matrices"""
