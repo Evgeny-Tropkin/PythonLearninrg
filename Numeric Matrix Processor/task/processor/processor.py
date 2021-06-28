@@ -107,6 +107,23 @@ def main():
 
 def create_menu():
     root = processorMenu.MenuItem(None, "root", "Main menu", False)
+    # region Main menu
+    # region item_1 ("Add matrices" menu)
+    item_1 = processorMenu.MenuItem(root, "1", "1. Add matrices", True)
+    # endregion
+    # region item_2 ("Multiply matrix by a constant" menu)
+    item_2 = processorMenu.MenuItem(root, "2", "2. Multiply matrix by a constant", True)
+    # endregion
+    # region item_3 ("Multiply matrices" menu)
+    item_3 = processorMenu.MenuItem(root, "3", "3. Multiply matrices", True)
+    # endregion
+    # region item_0
+    item_0 = processorMenu.MenuItem(root, "0", "0. Exit", True)
+    # endregion
+
+    # region Menu relations
+    root.set_nodes(item_1, item_2, item_3, item_0)
+    # endregion
 
     return root
 
