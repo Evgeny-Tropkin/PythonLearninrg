@@ -103,6 +103,7 @@ def main():
 
     while True:
         show_menu(current_menu_level)
+        selected_item = select_menu_item(current_menu_level)
 
 
 def create_menu():
@@ -132,6 +133,17 @@ def show_menu(menu_item):
     menu_item_nodes = menu_item.get_nodes().values()
     for node in menu_item_nodes:
         print(node.get_title())
+
+
+def select_menu_item(menu_item):
+    while True:
+        selected_item = input()
+        if selected_item in menu_item.get_nodes().keys():
+            nodes = menu_item.get_nodes()
+            return nodes[selected_item]
+        else:
+            print(f"{selected_item} is not an option")
+            return menu_item
 
 
 def input_matrix():
