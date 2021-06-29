@@ -59,12 +59,20 @@ class CustomMatrix:
             res_rows_count = self.__rows
             res_columns_count = other.get_columns_count()
             res = CustomMatrix(res_rows_count, res_columns_count)
-            for i in range(1, res_rows_count + 1):
-                row = self.get_row(i)
-                column = other.get_column(i)
-                res_row_i = [row[pos] * column[pos] for pos in range(res_columns_count)]
 
-                res.set_row(i, res_row_i)
+            for row_num in range(1, self.__rows + 1):
+                row = self.get_row(row_num)
+                res_row =[]
+                for col_num in range(1, other.get_columns_count() + 1):
+                    column = other.get_column(col_num)
+                    item = 0
+                    for i in range(self.__columns):
+                        item += row[i] * column[i]
+
+                    res_row.append(item)
+
+                res.set_row(row_num, res_row)
+
             return res
                 
         else:
