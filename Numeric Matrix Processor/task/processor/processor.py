@@ -62,7 +62,7 @@ class CustomMatrix:
 
             for row_num in range(1, self.__rows + 1):
                 row = self.get_row(row_num)
-                res_row =[]
+                res_row = []
                 for col_num in range(1, other.get_columns_count() + 1):
                     column = other.get_column(col_num)
                     item = 0
@@ -128,12 +128,20 @@ def create_menu():
     # region item_3 ("Multiply matrices" menu)
     item_3 = processorMenu.MenuItem(root, "3", "3. Multiply matrices", True)
     # endregion
+    # region item_4 ("Transpose matrix" menu)
+    item_4 = processorMenu.MenuItem(root, "4", "4. Transpose matrix", False)
+    item_4_1 = processorMenu.MenuItem(item_4, "4_1", "1. Main diagonal", True)
+    item_4_2 = processorMenu.MenuItem(item_4, "4_2", "2. Side diagonal", True)
+    item_4_3 = processorMenu.MenuItem(item_4, "4_3", "3. Vertical line", True)
+    item_4_4 = processorMenu.MenuItem(item_4, "4_4", "4. Horizontal line", True)
+    # endregion
     # region item_0
     item_0 = processorMenu.MenuItem(root, "0", "0. Exit", True)
     # endregion
 
     # region Menu relations
     root.set_nodes(item_1, item_2, item_3, item_0)
+    item_4.set_nodes(item_4_1, item_4_2, item_4_3, item_4_4)
     # endregion
 
     return root
