@@ -122,10 +122,11 @@ class CustomMatrix:
         else:
             raise TypeError
 
-    def __repr__(self):
+    def __str__(self):
+        res = ''
         for row in self.__value:
-            print(' '.join(map(str, row)))
-        return ''
+            res = res + ' '.join(map(str, row)) + '\n'
+        return res
 
 # end region
 
@@ -205,7 +206,7 @@ def execute_selected_item(menu_item):
             print("ERROR")
         else:
             print("The result is:")
-            print(result.__repr__())
+            print(result)
         return menu_item.get_parent()
 
     elif menu_id == "2":
@@ -217,7 +218,7 @@ def execute_selected_item(menu_item):
             print("ERROR")
         else:
             print("The result is:")
-            print(result.__repr__())
+            print(result)
         return menu_item.get_parent()
 
     elif menu_id == "3":
@@ -229,34 +230,34 @@ def execute_selected_item(menu_item):
             print("ERROR")
         else:
             print("The result is:")
-            print(result.__repr__())
+            print(result)
         return menu_item.get_parent()
 
     elif menu_id == "4_1":
         matrix = input_matrix("matrix")
         result = matrix.transpose_over_main_diagonal()
-        print(result.__repr__())
+        print(result)
 
         return menu_item.get_parent().get_parent()
 
     elif menu_id == "4_2":
         matrix = input_matrix("matrix")
         result = matrix.transpose_over_side_diagonal()
-        print(result.__repr__())
+        print(result)
 
         return menu_item.get_parent().get_parent()
 
     elif menu_id == "4_3":
         matrix = input_matrix("matrix")
         result = matrix.transpose_over_vertical_line()
-        print(result.__repr__())
+        print(result)
 
         return menu_item.get_parent().get_parent()
 
     elif menu_id == "4_4":
         matrix = input_matrix("matrix")
         result = matrix.transpose_over_horizontal_line()
-        print(result.__repr__())
+        print(result)
 
         return menu_item.get_parent().get_parent()
 
