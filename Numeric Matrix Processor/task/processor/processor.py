@@ -86,7 +86,8 @@ class CustomMatrix:
 
     def transpose_over_side_diagonal(self):
         res = CustomMatrix(self.__columns, self.__rows)
-
+        for col_num in range(1, self.__columns + 1):
+            res.set_row(col_num, self.get_column(col_num).reverse())
         return res
 
     def transpose_over_vertical_line(self):
