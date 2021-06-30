@@ -167,7 +167,7 @@ def create_menu():
     # endregion
 
     # region Menu relations
-    root.set_nodes(item_1, item_2, item_3, item_0)
+    root.set_nodes(item_1, item_2, item_3, item_4, item_0)
     item_4.set_nodes(item_4_1, item_4_2, item_4_3, item_4_4)
     # endregion
 
