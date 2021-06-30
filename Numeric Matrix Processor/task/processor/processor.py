@@ -86,10 +86,16 @@ class CustomMatrix:
 
     def transpose_over_side_diagonal(self):
         res = CustomMatrix(self.__columns, self.__rows)
-        
+
         return res
 
     def transpose_over_vertical_line(self):
+        res = CustomMatrix(self.__rows, self.__columns)
+        for row_num in range(1, self.__rows + 1):
+            res.set_row(row_num * (-1), self.get_row(row_num))
+        return res
+
+    def transpose_over_horizontal_line(self):
         res = CustomMatrix(self.__rows, self.__columns)
         for row_num in range(1, self.__rows + 1):
             res.set_row(row_num * (-1), self.get_row(row_num))
@@ -238,9 +244,17 @@ def execute_selected_item(menu_item):
         print(result.__repr__())
 
         return menu_item.get_parent().get_parent()
+
     elif menu_id == "4_3":
         matrix = input_matrix("matrix")
         result = matrix.transpose_over_vertical_line()
+        print(result.__repr__())
+
+        return menu_item.get_parent().get_parent()
+
+    elif menu_id == "4_4":
+        matrix = input_matrix("matrix")
+        result = matrix.transpose_over_horizontal_line()
         print(result.__repr__())
 
         return menu_item.get_parent().get_parent()
