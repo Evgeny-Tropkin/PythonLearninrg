@@ -92,7 +92,7 @@ class CustomMatrix:
     def transpose_over_vertical_line(self):
         res = CustomMatrix(self.__rows, self.__columns)
         for row_num in range(1, self.__rows + 1):
-            res.set_row(row_num * (-1), self.get_row(row_num))
+            res.set_row(row_num, self.get_row(row_num).reverse())
         return res
 
     def transpose_over_horizontal_line(self):
