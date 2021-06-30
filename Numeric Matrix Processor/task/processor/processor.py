@@ -78,6 +78,12 @@ class CustomMatrix:
         else:
             raise ValueError
 
+    def transpose_over_main_diagonal(self):
+        res = CustomMatrix(self.__columns, self.__rows)
+        for col_num in range(1, self.__columns + 1):
+            res.set_row(col_num, self.get_column(col_num))
+        return res
+
     def __add__(self, other):
         """Addition of matrices"""
         if other.get_rows_count() == self.__rows and other.get_columns_count() == self.__columns:
@@ -207,6 +213,13 @@ def execute_selected_item(menu_item):
             print("The result is:")
             print(result.__repr__())
         return menu_item.get_parent()
+
+    elif menu_id == "4_1":
+        matrix = input_matrix("matrix")
+        result = matrix.transpose_over_main_diagonal()
+        print(result.__repr__())
+
+        return menu_item.get_parent().get_parent()
 
 
 def input_matrix(part_of_message):
