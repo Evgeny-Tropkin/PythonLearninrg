@@ -438,5 +438,8 @@ files:
                 self.__nodes.update({key: node})
   learner_created: true
 feedback_link: https://hyperskill.org/projects/96/stages/531/implement#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Wed, 30 Jun 2021 19:00:10 UTC
 record: -1
