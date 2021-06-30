@@ -89,6 +89,12 @@ class CustomMatrix:
         
         return res
 
+    def transpose_over_vertical_line(self):
+        res = CustomMatrix(self.__rows, self.__columns)
+        for row_num in range(1, self.__rows + 1):
+            res.set_row(row_num * (-1), self.get_row(row_num))
+        return res
+
     def __add__(self, other):
         """Addition of matrices"""
         if other.get_rows_count() == self.__rows and other.get_columns_count() == self.__columns:
@@ -229,6 +235,12 @@ def execute_selected_item(menu_item):
     elif menu_id == "4_2":
         matrix = input_matrix("matrix")
         result = matrix.transpose_over_side_diagonal()
+        print(result.__repr__())
+
+        return menu_item.get_parent().get_parent()
+    elif menu_id == "4_3":
+        matrix = input_matrix("matrix")
+        result = matrix.transpose_over_vertical_line()
         print(result.__repr__())
 
         return menu_item.get_parent().get_parent()
