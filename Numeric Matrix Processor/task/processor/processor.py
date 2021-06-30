@@ -113,7 +113,10 @@ def main():
     while True:
         show_menu(current_menu_level)
         selected_item = select_menu_item(current_menu_level)
-        execute_selected_item(selected_item)
+        if selected_item.is_executed():
+            current_menu_level = execute_selected_item(selected_item)
+        else:
+            current_menu_level = selected_item
 
 
 def create_menu():
@@ -179,6 +182,7 @@ def execute_selected_item(menu_item):
         else:
             print("The result is:")
             print(result.__repr__())
+        return menu_item.get_parent()
 
     elif menu_id == "2":
         matrix1 = input_matrix("matrix")
@@ -190,6 +194,7 @@ def execute_selected_item(menu_item):
         else:
             print("The result is:")
             print(result.__repr__())
+        return menu_item.get_parent()
 
     elif menu_id == "3":
         matrix1 = input_matrix("first matrix")
@@ -201,6 +206,7 @@ def execute_selected_item(menu_item):
         else:
             print("The result is:")
             print(result.__repr__())
+        return menu_item.get_parent()
 
 
 def input_matrix(part_of_message):
