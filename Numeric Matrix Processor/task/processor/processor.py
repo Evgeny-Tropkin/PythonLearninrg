@@ -84,6 +84,11 @@ class CustomMatrix:
             res.set_row(col_num, self.get_column(col_num))
         return res
 
+    def transpose_over_side_diagonal(self):
+        res = CustomMatrix(self.__columns, self.__rows)
+        
+        return res
+
     def __add__(self, other):
         """Addition of matrices"""
         if other.get_rows_count() == self.__rows and other.get_columns_count() == self.__columns:
@@ -217,6 +222,13 @@ def execute_selected_item(menu_item):
     elif menu_id == "4_1":
         matrix = input_matrix("matrix")
         result = matrix.transpose_over_main_diagonal()
+        print(result.__repr__())
+
+        return menu_item.get_parent().get_parent()
+
+    elif menu_id == "4_2":
+        matrix = input_matrix("matrix")
+        result = matrix.transpose_over_side_diagonal()
         print(result.__repr__())
 
         return menu_item.get_parent().get_parent()
