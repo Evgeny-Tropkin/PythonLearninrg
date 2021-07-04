@@ -1,6 +1,6 @@
 def multiply(a, b):
 
-    if ...:  # base case
+    if b == 1:
         return a
-    # recursive case
-    return  ...
+
+    return a + multiply(a, b - 1)
