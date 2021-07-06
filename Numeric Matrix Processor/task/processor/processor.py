@@ -102,6 +102,9 @@ class CustomMatrix:
             res.set_row(row_num * (-1) + 1, self.get_row(row_num))
         return res
 
+    def calculate_determinant(self):
+        return 0
+
     def __add__(self, other):
         """Addition of matrices"""
         if other.get_rows_count() == self.__rows and other.get_columns_count() == self.__columns:
@@ -263,6 +266,15 @@ def execute_selected_item(menu_item):
         print(result)
 
         return menu_item.get_parent().get_parent()
+
+    elif menu_id == "5":
+        matrix = input_matrix("matrix")
+        if matrix.get_rows_count() != matrix.get_columns_count():
+            print("For calculation a determinant the matrix must be square!")
+        else:
+            print(matrix.calculate_determinant())
+
+        return menu_item.get_parent()
 
 
 def input_matrix(part_of_message):
