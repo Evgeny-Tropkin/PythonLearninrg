@@ -163,12 +163,15 @@ def create_menu():
     item_4_3 = processorMenu.MenuItem(item_4, "4_3", "3. Vertical line", True)
     item_4_4 = processorMenu.MenuItem(item_4, "4_4", "4. Horizontal line", True)
     # endregion
+    # region item_5 ("Calculate a determinant")
+    item_5 = processorMenu.MenuItem(root, "5", "5. Calculate a determinant", True)
+    # endregion
     # region item_0
     item_0 = processorMenu.MenuItem(root, "0", "0. Exit", True)
     # endregion
 
     # region Menu relations
-    root.set_nodes(item_1, item_2, item_3, item_4, item_0)
+    root.set_nodes(item_1, item_2, item_3, item_4, item_5, item_0)
     item_4.set_nodes(item_4_1, item_4_2, item_4_3, item_4_4)
     # endregion
 

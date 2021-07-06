@@ -9,4 +9,7 @@ files:
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/7670#comment
 status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Tue, 06 Jul 2021 04:15:25 UTC
 record: -1
