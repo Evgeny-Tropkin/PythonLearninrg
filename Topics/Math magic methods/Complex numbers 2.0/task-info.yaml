@@ -33,5 +33,8 @@ files:
         # define the rest of the methods here
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/7449#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Wed, 07 Jul 2021 15:10:34 UTC
 record: -1
