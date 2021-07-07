@@ -7,5 +7,8 @@ files:
     # put your python code here
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/6716#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Wed, 07 Jul 2021 19:48:04 UTC
 record: -1
