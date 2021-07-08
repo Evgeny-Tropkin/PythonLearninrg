@@ -1,13 +1,11 @@
 type: hyperskill
-title: Numeric Matrix Processor
+title: Regex Engine
 language: English
-summary: 'Here’s a project for devoted matrix enthusiasts: learn to perform a variety
-  of operations on matrices including addition, multiplication, finding the determinant,
-  and dealing with inverse matrices. If you are working on your tech or math major,
-  this project is a good chance for you to learn matrices in action and not just in
-  your notebook.<br/><br/>Learn more at <a href="https://hyperskill.org">https://hyperskill.org/projects/96</a>'
+summary: Regular expressions are a fundamental part of computer science and natural
+  language processing. In this project, you will write an extendable regex engine
+  that can handle basic regex syntax, including literals (a, b, c, etc.), wild-cards
+  (.), and metacharacters (?, *, +, ^, $).<br/><br/>Learn more at <a href="https://hyperskill.org">https://hyperskill.org/projects/114</a>
 programming_language: Python
 content:
-- Topics
-- Numeric Matrix Processor
+- Regex Engine
 mode: Study
