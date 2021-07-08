@@ -6,5 +6,6 @@ def print_info(func):
     return wrapper
 
 
+@ print_info
 def addition(arg1, arg2):
-    ...
+    return arg1 + arg2
