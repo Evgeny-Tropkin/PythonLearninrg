@@ -125,10 +125,18 @@ class CustomMatrix:
 
         return res
 
-    def inverse(self):
-        res = CustomMatrix(self.__rows, self.__columns)
+    def inverse(self, determinant=None):
+        if determinant is None:
+            determinant = self.calculate_determinant()
+        cofactors = CustomMatrix(self.__rows, self.__columns)
+        for i in range(1, cofactors.get_rows_count() + 1):
+            for j in range(1, cofactors.get_columns_count() + 1):
+                cofactor_i_j = (-1) ** (i + j) * self.get_minor_submatrix(i, j).calculate_determinant()
+                cofactors.set_cell_value(i, j, cofactor_i_j)
 
-        return res
+        transposed_cofactors = cofactors.transpose_over_main_diagonal()
+
+        return transposed_cofactors.multiple_by_number(1 / determinant)
 
     def __add__(self, other):
         """Addition of matrices"""
@@ -308,10 +316,14 @@ def execute_selected_item(menu_item):
         matrix = input_matrix("matrix")
         if matrix.get_rows_count() != matrix.get_columns_count():
             print("For calculation of inverted matrix the initial matrix must be square!")
-        elif matrix.calculate_determinant() == 0:
+            return menu_item.get_parent()
+
+        det = matrix.calculate_determinant()
+
+        if det == 0:
             print("This matrix doesn't have an inverse.")
         else:
-            print(matrix.inverse)
+            print(matrix.inverse(det))
 
         return menu_item.get_parent()
 
