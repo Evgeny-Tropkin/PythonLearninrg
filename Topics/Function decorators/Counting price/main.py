@@ -5,5 +5,6 @@ def price_string(func):
     return wrapper  
 
 
-def new_price():
-    ...
+@ price_string
+def new_price(value):
+    return 0.9 * value
