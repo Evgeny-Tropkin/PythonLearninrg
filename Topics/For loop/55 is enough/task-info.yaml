@@ -5,5 +5,8 @@ files:
   text: '# put your code here'
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/14218#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Thu, 08 Jul 2021 04:11:39 UTC
 record: -1
