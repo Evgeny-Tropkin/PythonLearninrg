@@ -125,6 +125,11 @@ class CustomMatrix:
 
         return res
 
+    def inverse(self):
+        res = CustomMatrix(self.__rows, self.__columns)
+
+        return res
+
     def __add__(self, other):
         """Addition of matrices"""
         if other.get_rows_count() == self.__rows and other.get_columns_count() == self.__columns:
@@ -296,6 +301,17 @@ def execute_selected_item(menu_item):
             print("For calculation a determinant the matrix must be square!")
         else:
             print(matrix.calculate_determinant())
+
+        return menu_item.get_parent()
+
+    elif menu_id == "6":
+        matrix = input_matrix("matrix")
+        if matrix.get_rows_count() != matrix.get_columns_count():
+            print("For calculation of inverted matrix the initial matrix must be square!")
+        elif matrix.calculate_determinant() == 0:
+            print("This matrix doesn't have an inverse.")
+        else:
+            print(matrix.inverse)
 
         return menu_item.get_parent()
 
