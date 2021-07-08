@@ -103,7 +103,27 @@ class CustomMatrix:
         return res
 
     def calculate_determinant(self):
-        return 0
+        det = 0
+        if self.__rows == 1:
+            return self.get_cell_value(1, 1)
+
+        for j in range(1, self.__columns + 1):
+            det += pow(-1, 1 + j) * self.get_cell_value(1, j) * self.get_minor_submatrix(1, j).calculate_determinant()
+
+        return det
+
+    def get_minor_submatrix(self, excluded_row_num, excluded_column_num):
+        res = CustomMatrix(self.__rows - 1, self.__columns - 1)
+        row_num = 1
+        for i in range(1, self.__rows + 1):
+            if i == excluded_row_num:
+                continue
+            row = self.get_row(i)[::]
+            row.pop(excluded_column_num - 1)
+            res.set_row(row_num, row)
+            row_num += 1
+
+        return res
 
     def __add__(self, other):
         """Addition of matrices"""
