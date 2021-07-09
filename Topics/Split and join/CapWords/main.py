@@ -1,4 +1,5 @@
-underscored_identifier_parts = input().split('_')
-camel_case_identifier = ''.join([word.capitalize() for word in underscored_identifier_parts])
+initial_identifier = input().split('_')
 
-print(camel_case_identifier)
+right_class_identifier = ''.join([word.capitalize() for word in initial_identifier])
+
+print(right_class_identifier)
