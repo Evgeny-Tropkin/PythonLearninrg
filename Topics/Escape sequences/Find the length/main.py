@@ -1,1 +1,1 @@
-print(len(repr('That is \n mine')))
+print(len(repr("That is \n mine")))
