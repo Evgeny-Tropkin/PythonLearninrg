@@ -3,6 +3,11 @@ def parse_reg_ex(reg_ex_string):
        Returns a list of tokens which were found in the entered regular expression """
     res = []
 
+    if len(reg_ex_string) != 0:
+        for char in reg_ex_string:
+            if char == '.':
+                res.append(char)
+
     return res
 
 
