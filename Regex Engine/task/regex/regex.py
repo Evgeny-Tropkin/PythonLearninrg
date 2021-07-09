@@ -17,10 +17,7 @@ def process_string(processed_string, reg_ex_list):
 
 
 def main():
-    user_input = input().split('|')
-
-    reg_ex = user_input[0]
-    processed_string = user_input[1]
+    reg_ex, processed_string = input().split('|')
 
     parsed_reg_ex = parse_reg_ex(reg_ex)
 
