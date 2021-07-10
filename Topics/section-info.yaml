@@ -1,8 +1,14 @@
 custom_name: Topics
 content:
+- Slicing
 - Escape sequences
 - Basic string methods
-- Nested lists
 - Split and join
-- Slicing
-
+- Nested lists
+- Operations with list
+- Arguments
+- Default arguments
+- Dictionary
+- Dictionary methods
+- Operations with dictionary
+- Tuple
