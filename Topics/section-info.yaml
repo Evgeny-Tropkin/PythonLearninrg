@@ -2,8 +2,10 @@ custom_name: Topics
 content:
 - Slicing
 - Escape sequences
-- Basic string methods
+- Args
+- Kwargs
 - Split and join
+- Basic string methods
 - Nested lists
 - Operations with list
 - Arguments
@@ -12,5 +14,4 @@ content:
 - Dictionary methods
 - Operations with dictionary
 - Tuple
-- Args
-- Kwargs
+
