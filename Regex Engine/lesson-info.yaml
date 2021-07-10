@@ -1,5 +1,4 @@
 type: framework
-custom_name: Regex Engine
 content:
 - Single character strings
 - Matching two equal length strings
@@ -7,4 +6,4 @@ content:
 - Implementing the operators ^ and $
 - Controlling repetition
 - Escaping
-current_task: 0
+current_task: 1
