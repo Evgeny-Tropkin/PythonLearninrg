@@ -6,4 +6,7 @@ files:
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/5959#comment
 status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Sat, 10 Jul 2021 04:58:04 UTC
 record: -1
