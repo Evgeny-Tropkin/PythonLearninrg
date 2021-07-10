@@ -1,2 +1,4 @@
-def congratulations():
-#  put your code here
+def congratulations(*names):
+    print("Happy New Year! Take care of yourself and your loved ones!\nFor:")
+    for name in names:
+        print(name)
