@@ -2,6 +2,7 @@ class TestPetOwner(unittest.TestCase):
 
     def setUp(self):
         # write your code here
+        self.pet_owner = PetOwner('Polly', 'parrot', 'Joshy')
 
     def test_add(self):
         self.assertEqual(self.pet_owner.owner_with_pet(), 'Polly has a parrot named Joshy')
