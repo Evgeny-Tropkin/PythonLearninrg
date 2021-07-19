@@ -42,7 +42,7 @@ print(replaced_message)  # b!nj!ur and welcome to Paris!
 # again, the source string is unchanged, only its copy is modified
 print(message)  # bonjour and welcome to Paris!</code></pre> 
   <h2 style="text-align: center;">"Editing" a string</h2> 
-  <p>Often, when you read a string from somewhere (a file or the input) you need to edit it so that it contains only the information you need. For instance, the input string can have a lot of unnecessary whitespaces or some trailing combinations of characters. The "editing" methods that can help with that are <strong><code class="language-python">strip()</code></strong>, <strong><code class="language-python">rstrip()</code></strong> and <strong><code class="language-python">lstrip()</code></strong>.</p> 
+  <p>Often, when you read a string from somewhere (a file or the input) you need to edit it so that it contains only the information you need. For instance, the input string can have a lot of unnecessary whitespaces or some trailing combinations of characters. The "editing" methods that can help with that are <strong><code class="language-python">strip()</code></strong>, <strong><code class="language-python">rstrip()</code></strong>, and <strong><code class="language-python">lstrip()</code></strong>.</p> 
   <ul> 
    <li> <p><strong><code class="language-python">str.lstrip([chars])</code></strong> removes the leading characters (i.e. characters from the left side). If the argument <code class="language-python">chars</code> isn’t specified, leading whitespaces are removed.</p> </li> 
    <li> <p><strong><code class="language-python">str.rstrip([chars])</code></strong> removes the trailing characters (i.e. characters from the right side). The default for the argument <code class="language-python">chars</code> is also whitespace.</p> </li> 
@@ -69,7 +69,7 @@ whitespace_string.strip()  # "hey"
 
 # delete all trailing "i" and "s" from both sides
 normal_string.strip("is")  # "ncomprehensibilitie"</code></pre> 
-  <p>Keep in mind that the methods <code class="language-python">strip()</code>, <code class="language-python">lstrip()</code> and <code class="language-python">rstrip()</code> get rid of all possible combinations of specified characters:</p> 
+  <p>Keep in mind that the methods <code class="language-python">strip()</code>, <code class="language-python">lstrip()</code>, and <code class="language-python">rstrip()</code> get rid of all possible combinations of specified characters:</p> 
   <pre><code class="language-python">word = "Mississippi"
 
 # starting from the right side, all "i", "p", and "s" are removed:
@@ -84,9 +84,9 @@ print(word.strip("Mips"))  # ""</code></pre>
   <h2 style="text-align: center;">Summary</h2> 
   <p>To sum up, we have considered the main methods for strings. Here is a brief recap:</p> 
   <ul> 
-   <li>While working with string, you have to remember that strings are <strong>immutable</strong>, thus all the methods that "change" them only return the copy of a string with necessary changes.</li> 
-   <li>If you want to save the result of the method call for later use, you need to assign this result to a variable (either the same or the one with a different name).</li> 
-   <li>If you want to use this result only once, for example, in comparisons or just to print the formatted string, you are free to use the result on spot, as we did within <code class="language-python">print()</code>.</li> 
+   <li>While working with strings, you have to remember that strings are <strong>immutable</strong>, thus all the methods that "change" them only return the copy of a string with necessary changes.</li> 
+   <li>If you want to save the result of a method call for later use, you need to assign this result to a variable (either the same or the one with a different name).</li> 
+   <li>If you want to use this result only once, for example, in comparisons or just to print the formatted string, you are free to use the result on the spot, as we did within <code class="language-python">print()</code>.</li> 
   </ul>
  </body>
 </html>
