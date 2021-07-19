@@ -1,0 +1,106 @@
+<h2>Unittest in more detail</h2>
+<html>
+ <head></head>
+ <body>
+  <p>Testing is a very important part of writing any software application or product. Some developers write tests for the application before the code. This is called <strong>test-driven development (TDD)</strong>. We have special Python libraries that can be useful and the <code class="language-python">unittest</code> is one of them.</p> 
+  <p>We have already learned the basics of the <code class="language-python">unittest</code> testing framework — we've learned how to create test cases and tests, how to use assert methods, how to run tests, and how to read the message about the result of the tests. However, the <code class="language-python">unittest</code> framework provides a lot of other tools to make testing easier. We will learn some advanced features of the library in this topic.</p> 
+  <h2>setUp and tearDown methods</h2> 
+  <p>Sometimes we need to create class instances, temporary files, or access the web in the tests. These resources are called <strong>fixtures</strong>. Suppose you write several tests for the same class. You may think that you will have to create an instance of that class manually for each test. It can be a repetitive and time-consuming process.<span style="color: #66cc66;"> </span>The <code class="language-python">unittest.TestCase</code> class (namely, the <code class="language-python">setUp()</code> and <code class="language-python">tearDown()</code> methods) provides an easy mechanism to configure and clean up any fixtures.</p> 
+  <p>The code inside the <code class="language-python">setUp()</code> method is executed <em>before</em> every test method and the code inside the <code class="language-python">tearDown()</code> method is executed <em>after</em> every test method. These methods save us from having to write the same code for each test. Now let's see these methods in action!</p> 
+  <p>First, we will create a class with some methods that perform some mathematical operations. This is what <code class="language-python">calculator.py</code> may contain:</p> 
+  <pre><code class="language-python"># this code is in the calculator.py file
+
+class Calculator:
+
+    def __init__(self, first, second):
+        self.first = first
+        self.second = second
+
+    def add(self):
+        """ Addition """
+        return self.first + self.second
+
+    def subtract(self):
+        """ Subtraction """
+        return self.first - self.second</code></pre> 
+  <p>The <code class="language-python">Calculator</code>class has two arguments, the <code class="language-python">first</code> and the <code class="language-python">second</code>, and has two methods, <code class="language-python">add()</code> and <code class="language-python">subtract()</code>. Now let's write tests for the <code class="language-python">Calculator</code> class using the <code class="language-python">setUp()</code> and <code class="language-python">tearDown()</code> methods. </p> 
+  <p>To get the clear picture about the order of the methods, we will add a print statement with the name of the method at the end. In the <code class="language-python">setUp()</code> method we create an instance of the <code class="language-python">Calculator</code> class with two arguments, 5 and 1. We add the <code class="language-python">tearDown()</code> method, but we don't write anything there, because we don't need it to perform any actions for now. After that, we will write the tests for the <code class="language-python">add()</code> and <code class="language-python">subtract()</code> methods.</p> 
+  <pre><code class="language-python"># this code is in the test_calculator.py file
+
+import unittest
+import calculator
+
+
+class TestCalculator(unittest.TestCase):
+
+    def setUp(self):
+        self.calc = calculator.Calculator(5, 1)
+        print('setUp method')
+
+    def tearDown(self):
+        print('tearDown method')
+
+    def test_add(self):
+        self.assertEqual(self.calc.add(), 6)
+        self.calc.first = 8
+        self.calc.second = 2
+        self.assertEqual(self.calc.add(), 10)
+        print('test_add method')
+
+    def test_subtract(self):
+        self.assertEqual(self.calc.subtract(), 4)
+        self.calc.first = 8
+        self.calc.second = 2
+        self.assertEqual(self.calc.subtract(), 6)
+        print('test_subtract method')</code></pre> 
+  <p>For the <code class="language-python">test_add()</code> and the <code class="language-python">test_subtract()</code>, we check whether they work with the arguments we wrote in the <code class="language-python">setUp()</code> method first, if everything is ok, we change the arguments and check again. </p> 
+  <p>Let's run our tests. If everything works as expected, we would get the following message:</p> 
+  <pre><code class="language-no-highlight">setUp method
+test_add method
+tearDown method
+.setUp method
+test_subtract method
+tearDown method
+.
+----------------------------------------------------------------------
+Ran 2 tests in 0.003s
+
+OK</code></pre> 
+  <p>The print statements show the order of methods' execution. The <code class="language-python">setUp()</code> method is executed before each test method, and the <code class="language-python">tearDown()</code> is executed after each test method.</p> 
+  <p>In both test methods, we checked the expected output for the arguments we wrote in <code class="language-python">setUp()</code>first. This is because the <code class="language-python">setUp()</code> method runs before each test method. So even if we change the arguments in the <code class="language-python">test_add()</code> and check that they have changed, in <code class="language-python">test_subtract()</code> we write the assertion for the initial arguments. </p> 
+  <p>The <code class="language-python">tearDown()</code> method can be used when we work with files. For example, in the <code class="language-python">setUp()</code> we can create a file that we are going to use in a test method, and then we can automatically delete it using <code class="language-python">tearDown()</code> after the test method was executed.</p> 
+  <p>The<code class="language-python">unittest</code> also provides possibilities for <a target="_blank" href="https://docs.python.org/3/library/unittest.html#class-and-module-fixtures" rel="noopener noreferrer nofollow">class and module fixtures</a>.</p> 
+  <h2>Command-line options</h2> 
+  <p>You know that tests can be executed from the command line, but we have some cool features for you.</p> 
+  <p>Sometimes the module with the tested unit and the file with tests are located in different directories. For instance, you have <code class="language-python">test_calculator.py</code> that is located in a different directory as the <code class="language-python">calculator.py</code>. To do this, we need to run the command line from the directory of <code class="language-python">calculator.py</code> and specify the path to <code class="language-python">test_calculator.py</code>:</p> 
+  <pre><code class="language-no-highlight">python -m unittest C:\Users\User\Hyperskill\test_calculator.py</code></pre> 
+  <p>When the tests are located in the same directory as the tested unit, we can specify not only the file we want to run but a test case and even a test method. Let's see how it works with our <code class="language-python">test_calculator.py</code>. </p> 
+  <ul> 
+   <li> <p>If we want to specify a test case (our code has only one case, but there are more usually), we should write the name of the test case in the command line:</p> <pre><code class="language-no-highlight">python -m unittest test_calculator.TestCalculator</code></pre> <p>In this case, only the tests from the <code class="language-python">test_calculator</code> module in the <code class="language-python">TestCalculator</code> test case will be executed.</p> </li> 
+   <li> <p>If you want to execute only one test method, for example, the <code class="language-python">test_add()</code>, add the name of this method:</p> <pre><code class="language-no-highlight">python -m unittest test_calculator.TestCalculator.test_add</code></pre> <p>It comes in handy when you are dealing with one particular test method that you need to check. Note that the <code class="language-python">setUp()</code> and <code class="language-python">tearDown()</code> methods will also be executed.</p> </li> 
+   <li> <p>We can also run several test modules at once — you just need to type their names in the command line one after another:</p> <pre><code class="language-no-highlight">python -m unittest test_calculator.py test_calculator2.py test_calculator3.py</code></pre> <p>In this case, all tests from these three modules will be executed in one run!</p> </li> 
+   <li>It is possible to combine all these options. For example, we can run all tests from <code class="language-python">test_caculator.py</code> file and only <code class="language-python">test_add()</code> from <code class="language-python">test_calculator2.py</code> like this: <pre><code class="language-no-highlight">python -m unittest test_calculator.py test_calculator2.TestCalculator.test_add</code></pre> </li> 
+  </ul> 
+  <p>There are several command-line options that allow us to modify the testing process and the output we receive.</p> 
+  <ul> 
+   <li> <p>We can run tests with more detail, or higher <strong>verbosity</strong>. To get the details for each test, we need to type '-v' (verbosity) before the name of the test module:</p> <pre><code class="language-no-highlight">python -m unittest -v test_calculator.py</code></pre> <p>We will get the following output:</p> <pre><code class="language-no-highlight">test_add (test_calculator.TestCalculator) ... ok
+test_subtract (test_calculator.TestCalculator) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.003s
+
+OK</code></pre> </li> 
+   <li> <p>Another useful feature accessible from the command line is when the tests are stopped after a failure. Just type '-f' before the name of the module:</p> <pre><code class="language-no-highlight">python -m unittest -f test_calculator.py</code></pre> </li> 
+  </ul> 
+  <p>The list of the command-line options is bigger, we only described the most useful and commonly-used features. If you feel that you need to know more about this, you can type '-h' (help) and read the explanations:</p> 
+  <pre><code class="language-no-highlight">python -m unittest -h</code></pre> 
+  <h2>Summary</h2> 
+  <p>We've learned more about the <code class="language-python">unittest</code> framework.</p> 
+  <ul> 
+   <li>The code inside the <code class="language-python">setUp()</code> method is executed before each test method.</li> 
+   <li>The code inside the <code class="language-python">tearDown()</code> method is executed after each test method.</li> 
+   <li>We can specify not only a module, but also a test case and a test method if we use the command line.</li> 
+   <li>We can get details for each test method by typing '-v', or stop the tests after the first failure or error by typing '-f' in the command line.</li> 
+  </ul>
+ </body>
+</html>
