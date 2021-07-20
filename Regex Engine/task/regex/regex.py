@@ -1,7 +1,7 @@
 def parse_reg_ex(reg_ex_string):
     """The method accepts a string containing a Regular Expression.
        Returns a list of tokens which were found in the entered regular expression """
-    special_characters = ('.',)
+    special_characters = ('.', '^', '$')
     res = []
     substring = []
 
