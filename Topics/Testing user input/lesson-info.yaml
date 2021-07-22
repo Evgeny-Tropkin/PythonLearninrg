@@ -3,3 +3,4 @@ content:
 - Built-in methods
 - Checking inputs
 - Several testings
+- Invalid inputs and the ValueError
