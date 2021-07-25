@@ -5,10 +5,12 @@ import unittest
 class TestStringToLower(unittest.TestCase):
     def test_string_to_lower(self):
         # testing for an exception one way
-        self.assertRaises()
+        self.assertRaises(ValueError, string_to_lower, True)
 
         # testing for an exception another way
-        with self.assertRaises():
+        with self.assertRaises(ValueError):
+            string_to_lower(5)
+
 
 if __name__ == '__main__':
     unittest.main()
