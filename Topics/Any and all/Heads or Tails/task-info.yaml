@@ -7,5 +7,8 @@ files:
     check =  # are there any heads in the list heads_or_tails?
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/7808#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Tue, 27 Jul 2021 20:12:54 UTC
 record: -1
