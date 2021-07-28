@@ -12,5 +12,8 @@ files:
     # Your code here. Work with the variables 'Belov', 'Smith', and 'Sarada'
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/6649#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Wed, 28 Jul 2021 19:58:41 UTC
 record: -1

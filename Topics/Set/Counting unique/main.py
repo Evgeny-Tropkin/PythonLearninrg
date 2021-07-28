@@ -5,3 +5,8 @@ Smith = students['Smith']
 Sarada = students['Sarada']
 
 # Your code here. Work with the variables 'Belov', 'Smith', and 'Sarada'
+unique_subjects = set(Belov)
+unique_subjects.update(Smith)
+unique_subjects.update(Sarada)
+
+print(len(unique_subjects))
