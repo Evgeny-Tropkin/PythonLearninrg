@@ -5,4 +5,4 @@ import random
 random.seed(int(input()))
 
 # use a function from the random module in the next line
-print(...)
+print(random.randint(1, 6))
