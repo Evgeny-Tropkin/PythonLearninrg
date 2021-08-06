@@ -19,3 +19,5 @@ content:
 - Testing user input
 - Any and all
 - Set
+- Argparse module
+- Random module
