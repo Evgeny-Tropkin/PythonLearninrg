@@ -82,6 +82,9 @@ files:
 - name: regex/regex_tests.py
   visible: true
   learner_created: true
+- name: regex/regex.drn
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/114/stages/622/implement#comment
 status: Unchecked
 record: -1
