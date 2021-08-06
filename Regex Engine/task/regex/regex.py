@@ -9,13 +9,14 @@ def parse_reg_ex(reg_ex_string):
         for pos, char in enumerate(reg_ex_string):
             if pos == 0 and char == '^':
                 res.append(char)
+                continue
             if char in special_characters:
                 if len(substring) != 0:
                     res.append(''.join(substring))
                     substring.clear()
                 res.append(char)
                 continue
-            if pos == len(reg_ex_string - 1) and char == '$':
+            if pos == len(reg_ex_string) - 1 and char == '$':
                 continue
             substring.append(char)
         if len(substring) > 0:
