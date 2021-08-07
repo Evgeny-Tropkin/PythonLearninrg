@@ -40,33 +40,42 @@ def process_string(processed_string, reg_ex_list):
     elif len(processed_string) == 0:
         pass
     else:
-        is_startswith = reg_ex_list[0] == '^'
-        checking_char_index = 0
-        current_lex_pos = 0
-        if is_startswith:
-            current_lex_pos = 1
-        while current_lex_pos < len(reg_ex_list):
-            target_item = reg_ex_list[current_lex_pos]
-            if target_item == '.':
-                if not processed_string[checking_char_index].isspace():
-                    checking_char_index += 1
-                    current_lex_pos += 1
-                    continue
+        res[0] = match(processed_string, reg_ex_list, is_startswith=reg_ex_list[0] == '^')
 
-            if processed_string.startswith(target_item, checking_char_index):
-                checking_char_index += len(target_item)
-                current_lex_pos += 1
-            else:
-                if is_startswith:
-                    break
-                checking_char_index += 1
-                current_lex_pos = 0
-
-            if checking_char_index >= len(processed_string) and current_lex_pos < len(reg_ex_list):
-                break
-        else:
-            res[0] = True
     return all(res)
+
+
+def match(processed_string, reg_ex_list, is_startswith=False, is_endswith=False):
+    res = False
+    checking_char_index = 0
+    current_lex_pos = 0
+    if is_startswith:
+        current_lex_pos = 1
+    if is_endswith:
+        pass
+    while current_lex_pos < len(reg_ex_list):
+        target_item = reg_ex_list[current_lex_pos]
+        if target_item == '.':
+            if not processed_string[checking_char_index].isspace():
+                checking_char_index += 1
+                current_lex_pos += 1
+                continue
+
+        if processed_string.startswith(target_item, checking_char_index):
+            checking_char_index += len(target_item)
+            current_lex_pos += 1
+        else:
+            if is_startswith:
+                break
+            checking_char_index += 1
+            current_lex_pos = 0
+
+        if checking_char_index >= len(processed_string) and current_lex_pos < len(reg_ex_list):
+            break
+    else:
+        res = True
+
+    return res
 
 
 def main():
