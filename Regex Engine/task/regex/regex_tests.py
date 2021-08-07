@@ -11,3 +11,11 @@ class TestRegex(unittest.TestCase):
         self.assertEqual(regex.parse_reg_ex("^abc$"), ['^', "abc", '$'])
         self.assertEqual(regex.parse_reg_ex("^abc"), ['^', "abc"])
         self.assertEqual(regex.parse_reg_ex("abc$"), ["abc", '$'])
+
+    def test_process_string(self):
+        self.assertTrue(regex.process_string("abc", ['.', "bc"]))
+        self.assertTrue(regex.process_string("abc", ['a', '.', 'c']))
+        self.assertTrue(regex.process_string("abc", ["ab", '.']))
+        self.assertTrue(regex.process_string("a bc", ["bc"]))
+        self.assertTrue(regex.process_string(" abc", ["bc"]))
+        self.assertTrue(regex.process_string("abc ", ["bc"]))
