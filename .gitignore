@@ -1,4 +1,4 @@
 .idea
 /Markdown Editor/task/output.md
-/Regex Engine/task/regex/regex.drn
+/Regex Engine/task/regex/*.drn
 venv
