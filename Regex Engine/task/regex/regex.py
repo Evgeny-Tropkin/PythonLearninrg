@@ -33,15 +33,18 @@ def process_string(processed_string, reg_ex_list):
         - A regular expression as a list of tokens
         - A string that will be matched against a regular expression
        Returns the result of matching"""
+    res = [False]
 
     if len(reg_ex_list) == 0:
-        res = True
+        res[0] = True
     elif len(processed_string) == 0:
-        res = False
+        pass
     else:
-        res = False
+        is_startswith = reg_ex_list[0] == '^'
         checking_char_index = 0
         current_lex_pos = 0
+        if is_startswith:
+            current_lex_pos = 1
         while current_lex_pos < len(reg_ex_list):
             target_item = reg_ex_list[current_lex_pos]
             if target_item == '.':
@@ -54,14 +57,16 @@ def process_string(processed_string, reg_ex_list):
                 checking_char_index += len(target_item)
                 current_lex_pos += 1
             else:
+                if is_startswith:
+                    break
                 checking_char_index += 1
                 current_lex_pos = 0
 
             if checking_char_index >= len(processed_string) and current_lex_pos < len(reg_ex_list):
                 break
         else:
-            res = True
-    return res
+            res[0] = True
+    return all(res)
 
 
 def main():
