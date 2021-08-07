@@ -37,7 +37,11 @@ class TestRegex(unittest.TestCase):
         self.assertFalse(regex.process_string("sections", ["tion", '$']))
         #  tests for a Stage 5
         self.assertTrue(regex.process_string("aaaaaaaaaabc", ['a*', 'bc']))
+        self.assertTrue(regex.process_string("bc", ['a*', 'bc']))
+        self.assertTrue(regex.process_string("abcccccccccc", ["ab", 'c*']))
+        self.assertTrue(regex.process_string("ab", ["ab", 'c*']))
         self.assertTrue(regex.process_string("aaaaaaaaaabc", ['a+', 'bc']))
+        self.assertTrue(regex.process_string("abcccccccccc", ["ab", 'c+']))
         self.assertTrue(regex.process_string("color", ["colo", 'u?', 'r']))
         self.assertTrue(regex.process_string("colour", ["colo", 'u?', 'r']))
         self.assertFalse(regex.process_string("colouur", ["colo", 'u?', 'r']))
