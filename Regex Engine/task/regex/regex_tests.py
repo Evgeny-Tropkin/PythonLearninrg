@@ -15,14 +15,19 @@ class TestRegex(unittest.TestCase):
         self.assertEqual(regex.parse_reg_ex("abc$"), ["abc", '$'])
 
     def test_process_string(self):
-        #  tests for Stage 3
+        #  tests for a Stage 3
         self.assertTrue(regex.process_string("abc", ['.', "bc"]))
         self.assertTrue(regex.process_string("abc", ['a', '.', 'c']))
         self.assertTrue(regex.process_string("abc", ["ab", '.']))
         self.assertTrue(regex.process_string("a bc", ["bc"]))
         self.assertTrue(regex.process_string(" abc", ["bc"]))
         self.assertTrue(regex.process_string("abc ", ["bc"]))
-        #  tests for Stage 4
+        self.assertTrue(regex.process_string("abc de", ["abc d"]))
+        self.assertTrue(regex.process_string(" abc de", ["abc d"]))
+        self.assertTrue(regex.process_string("abc de ", ["abc d"]))
+        self.assertTrue(regex.process_string(" abc de", [" abc"]))
+        self.assertTrue(regex.process_string("abc de ", ["de "]))
+        #  tests for a Stage 4
         self.assertTrue(regex.process_string("abc", ['^', "ab"]))
         self.assertTrue(regex.process_string("abc", ["bc", '$']))
         self.assertTrue(regex.process_string("abc", ['^', "abc", '$']))
@@ -30,3 +35,16 @@ class TestRegex(unittest.TestCase):
         self.assertFalse(regex.process_string("to be", ['^', "be"]))
         self.assertTrue(regex.process_string("section", ["tion", '$']))
         self.assertFalse(regex.process_string("sections", ["tion", '$']))
+        #  tests for a Stage 5
+        self.assertTrue(regex.process_string("aaaaaaaaaabc", ['a*', 'bc']))
+        self.assertTrue(regex.process_string("aaaaaaaaaabc", ['a+', 'bc']))
+        self.assertTrue(regex.process_string("color", ["colo", 'u?', 'r']))
+        self.assertTrue(regex.process_string("colour", ["colo", 'u?', 'r']))
+        self.assertFalse(regex.process_string("colouur", ["colo", 'u?', 'r']))
+        self.assertTrue(regex.process_string("color", ["colo", 'u*', 'r']))
+        self.assertTrue(regex.process_string("colour", ["colo", 'u*', 'r']))
+        self.assertTrue(regex.process_string("colouur", ["colo", 'u*', 'r']))
+        self.assertTrue(regex.process_string("color", ["col", '.*', 'r']))
+        self.assertTrue(regex.process_string("colour", ["col", '.*', 'r']))
+        self.assertTrue(regex.process_string("colr", ["col", '.*', 'r']))
+        #  tests for a Stage 6
