@@ -29,12 +29,14 @@ class TestRegex(unittest.TestCase):
         self.assertTrue(regex.process_string("abc de ", ["de "]))
         #  tests for a Stage 4
         self.assertTrue(regex.process_string("abc", ['^', "ab"]))
-        self.assertTrue(regex.process_string("abc", ["bc", '$']))
-        self.assertTrue(regex.process_string("abc", ['^', "abc", '$']))
         self.assertTrue(regex.process_string("become", ['^', "be"]))
         self.assertFalse(regex.process_string("to be", ['^', "be"]))
+        self.assertTrue(regex.process_string("abc", ["bc", '$']))
+        self.assertTrue(regex.process_string("abc", ['^', "abc", '$']))
         self.assertTrue(regex.process_string("section", ["tion", '$']))
         self.assertFalse(regex.process_string("sections", ["tion", '$']))
+        self.assertTrue(regex.process_string("apple", ['.', '$']))
+        self.assertTrue(regex.process_string("apple", ['l', '.', '$']))
         #  tests for a Stage 5
         self.assertTrue(regex.process_string("aaaaaaaaaabc", ['a*', 'bc']))
         self.assertTrue(regex.process_string("bc", ['a*', 'bc']))
