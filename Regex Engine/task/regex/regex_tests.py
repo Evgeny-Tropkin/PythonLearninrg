@@ -16,6 +16,8 @@ class TestRegex(unittest.TestCase):
 
     def test_process_string(self):
         #  tests for a Stage 3
+        self.assertTrue(regex.process_string("abc",['']))
+        self.assertFalse(regex.process_string('', ['a']))
         self.assertTrue(regex.process_string("abc", ['.', "bc"]))
         self.assertTrue(regex.process_string("abc", ['a', '.', 'c']))
         self.assertTrue(regex.process_string("abc", ["ab", '.']))
