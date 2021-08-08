@@ -20,6 +20,8 @@ class TestRegex(unittest.TestCase):
         self.assertEqual(regex.parse_reg_ex("a.?"), ['a', ".?"])
         self.assertEqual(regex.parse_reg_ex("a.?c"), ['a', ".?", 'c'])
         self.assertEqual(regex.parse_reg_ex("ab.?"), ["ab", ".?"])
+        self.assertEqual(regex.parse_reg_ex(".?a"), [".?", 'a'])
+        self.assertEqual(regex.parse_reg_ex("..?a"), ['.', ".?", 'a'])
         self.assertEqual(regex.parse_reg_ex("^?abc"), ['^', "?abc"])
         self.assertEqual(regex.parse_reg_ex("a*bc"), ["a*", "bc"])
         self.assertEqual(regex.parse_reg_ex("ab*c"), ['a', "b*", 'c'])
@@ -28,6 +30,8 @@ class TestRegex(unittest.TestCase):
         self.assertEqual(regex.parse_reg_ex("a.*c"), ['a', ".*", 'c'])
         self.assertEqual(regex.parse_reg_ex("ab.*"), ["ab", ".*"])
         self.assertEqual(regex.parse_reg_ex("^*abc"), ['^', "*abc"])
+        self.assertEqual(regex.parse_reg_ex(".*a"), [".*", 'a'])
+        self.assertEqual(regex.parse_reg_ex("..*a"), ['.', ".*", 'a'])
         self.assertEqual(regex.parse_reg_ex("a+bc"), ["a+", "bc"])
         self.assertEqual(regex.parse_reg_ex("ab+c"), ['a', "b+", 'c'])
         self.assertEqual(regex.parse_reg_ex("abc+"), ["ab", "c+"])
@@ -35,10 +39,12 @@ class TestRegex(unittest.TestCase):
         self.assertEqual(regex.parse_reg_ex("a.+c"), ['a', ".+", 'c'])
         self.assertEqual(regex.parse_reg_ex("ab.+"), ["ab", ".+"])
         self.assertEqual(regex.parse_reg_ex("^+abc"), ['^', "+abc"])
+        self.assertEqual(regex.parse_reg_ex(".+a"), [".+", 'a'])
+        self.assertEqual(regex.parse_reg_ex("..+a"), ['.', ".+", 'a'])
 
     def test_process_string(self):
         #  tests for a Stage 3
-        self.assertTrue(regex.process_string("abc",['']))
+        self.assertTrue(regex.process_string("abc", ['']))
         self.assertFalse(regex.process_string('', ['a']))
         self.assertTrue(regex.process_string("abc", ['.', "bc"]))
         self.assertTrue(regex.process_string("abc", ['a', '.', 'c']))
