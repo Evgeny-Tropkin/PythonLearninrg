@@ -11,20 +11,35 @@
 def parse_reg_ex(reg_ex_string):
     """The method accepts a string containing a Regular Expression.
        Returns a list of tokens which were found in the entered regular expression """
-    special_characters = ('.', )
+    special_characters = ('.', '?', '*', '+')
     res = []
     substring = []
 
     if len(reg_ex_string) != 0:
+        char = reg_ex_string[0]
+        if char == '^':
+            res.append(char)
+            if len(reg_ex_string) > 1:
+                reg_ex_string = reg_ex_string[1::]
         for pos, char in enumerate(reg_ex_string):
-            if pos == 0 and char == '^':
-                res.append(char)
-                continue
-            if char in special_characters:
-                if len(substring) != 0:
-                    res.append(''.join(substring))
-                    substring.clear()
-                res.append(char)
+            if char in special_characters and pos > 0:
+                if char == '.':
+                    if len(substring) != 0:
+                        res.append(''.join(substring))
+                    res.append(char)
+                else:
+                    substring_first = substring[:len(substring) - 1:]
+                    substring_last = substring[len(substring) - 1::]
+                    if len(substring_first) > 0:
+                        res.append(''.join(substring_first))
+                    if len(substring_last) > 0:
+                        substring_last.append(char)
+                        res.append(''.join(substring_last))
+                    else:
+                        res[-1] = res[-1] + char
+                    substring_first.clear()
+                    substring_last.clear()
+                substring.clear()
                 continue
             if pos == len(reg_ex_string) - 1 and char == '$':
                 continue
