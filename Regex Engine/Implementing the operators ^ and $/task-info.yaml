@@ -85,9 +85,9 @@ files:
 - name: regex/regex_sceme.drn
   visible: true
   learner_created: true
-- name: regex/regex_sceme.py
-  visible: true
-  learner_created: true
 feedback_link: https://hyperskill.org/projects/114/stages/622/implement#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Sun, 08 Aug 2021 04:31:35 UTC
 record: -1
