@@ -1,3 +1,13 @@
+# TODO:
+#   1. Special characters of a regular expression must be replaced with separate global readonly variables
+#       Currently, special characters include:
+#           * '.' - any symbol other than a space
+#           * '^' - the substring encoded in the regular expression must be found at the BEGINNING of the string
+#           * '$' - the substring encoded in the regular expression must be found at the END of the string
+#   2. process_string() method must returns:
+#       * list of indexes for which the substring was found
+#       * '-1' if the substring was not found
+
 def parse_reg_ex(reg_ex_string):
     """The method accepts a string containing a Regular Expression.
        Returns a list of tokens which were found in the entered regular expression """
