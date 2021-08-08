@@ -13,6 +13,28 @@ class TestRegex(unittest.TestCase):
         self.assertEqual(regex.parse_reg_ex("^abc$"), ['^', "abc", '$'])
         self.assertEqual(regex.parse_reg_ex("^abc"), ['^', "abc"])
         self.assertEqual(regex.parse_reg_ex("abc$"), ["abc", '$'])
+        #  tests for Stage 5
+        self.assertEqual(regex.parse_reg_ex("a?bc"), ["a?", "bc"])
+        self.assertEqual(regex.parse_reg_ex("ab?c"), ['a', "b?", 'c'])
+        self.assertEqual(regex.parse_reg_ex("abc?"), ["ab", "c?"])
+        self.assertEqual(regex.parse_reg_ex("a.?"), ['a', ".?"])
+        self.assertEqual(regex.parse_reg_ex("a.?c"), ['a', ".?", 'c'])
+        self.assertEqual(regex.parse_reg_ex("ab.?"), ["ab", ".?"])
+        self.assertEqual(regex.parse_reg_ex("^?abc"), ['^', "?abc"])
+        self.assertEqual(regex.parse_reg_ex("a*bc"), ["a*", "bc"])
+        self.assertEqual(regex.parse_reg_ex("ab*c"), ['a', "b*", 'c'])
+        self.assertEqual(regex.parse_reg_ex("abc*"), ["ab", "c*"])
+        self.assertEqual(regex.parse_reg_ex("a.*"), ['a', ".*"])
+        self.assertEqual(regex.parse_reg_ex("a.*c"), ['a', ".*", 'c'])
+        self.assertEqual(regex.parse_reg_ex("ab.*"), ["ab", ".*"])
+        self.assertEqual(regex.parse_reg_ex("^*abc"), ['^', "*abc"])
+        self.assertEqual(regex.parse_reg_ex("a+bc"), ["a+", "bc"])
+        self.assertEqual(regex.parse_reg_ex("ab+c"), ['a', "b+", 'c'])
+        self.assertEqual(regex.parse_reg_ex("abc+"), ["ab", "c+"])
+        self.assertEqual(regex.parse_reg_ex("a.+"), ['a', ".+"])
+        self.assertEqual(regex.parse_reg_ex("a.+c"), ['a', ".+", 'c'])
+        self.assertEqual(regex.parse_reg_ex("ab.+"), ["ab", ".+"])
+        self.assertEqual(regex.parse_reg_ex("^+abc"), ['^', "+abc"])
 
     def test_process_string(self):
         #  tests for a Stage 3
