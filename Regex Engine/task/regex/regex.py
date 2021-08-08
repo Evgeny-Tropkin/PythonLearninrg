@@ -33,10 +33,9 @@ def parse_reg_ex(reg_ex_string):
                     if len(substring_first) > 0:
                         res.append(''.join(substring_first))
                     if len(substring_last) > 0:
-                        substring_last.append(char)
                         res.append(''.join(substring_last))
-                    else:
-                        res[-1] = res[-1] + char
+                    res.append(char)
+
                     substring_first.clear()
                     substring_last.clear()
                 substring.clear()
