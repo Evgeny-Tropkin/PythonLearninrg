@@ -13,5 +13,8 @@ files:
     # compare the string and the template
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/12683#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Mon, 16 Aug 2021 19:11:53 UTC
 record: -1
