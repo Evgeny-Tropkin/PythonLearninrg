@@ -5,5 +5,8 @@ files:
   text: "import re       \nnames = input()\n# your code here"
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/14187#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Thu, 19 Aug 2021 04:43:45 UTC
 record: -1
