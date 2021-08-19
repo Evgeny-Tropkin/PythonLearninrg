@@ -1,1 +1,1 @@
-path = 'C:\tasks\Hyperskill\new'
+path = r'C:\tasks\Hyperskill\new'

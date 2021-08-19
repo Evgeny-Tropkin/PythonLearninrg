@@ -21,3 +21,13 @@ content:
 - Set
 - Argparse module
 - Random module
+- Search in a string
+- Regexps in Python
+- Escaping in regexps
+- Regexp sets and ranges
+- Shorthands
+- Regexp quantifiers
+- Groups and alternations
+- Conversion to boolean
+- Match object and flags
+- Regexp functions in Python
