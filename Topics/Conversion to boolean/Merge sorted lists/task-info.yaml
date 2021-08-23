@@ -20,5 +20,8 @@ files:
         return c
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/10658#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Mon, 23 Aug 2021 15:46:01 UTC
 record: -1
