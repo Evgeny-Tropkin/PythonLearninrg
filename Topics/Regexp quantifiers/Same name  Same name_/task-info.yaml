@@ -11,5 +11,8 @@ files:
     template = ""
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/15149#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Thu, 26 Aug 2021 04:24:00 UTC
 record: -1
