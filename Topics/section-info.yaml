@@ -31,3 +31,7 @@ content:
 - Conversion to boolean
 - Match object and flags
 - Regexp functions in Python
+- Regexp flags in Python
+- Preconditions and postconditions
+- Tokenization
+- Regexps in programs

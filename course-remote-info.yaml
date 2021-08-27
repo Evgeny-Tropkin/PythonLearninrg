@@ -3,7 +3,7 @@ hyperskill_project:
   ide_files: https://stepik.org/media/attachments/lesson/384512/additional_files.json
   is_template_based: false
   use_ide: true
-update_date: Thu, 19 Aug 2021 04:01:26 UTC
+update_date: Fri, 27 Aug 2021 04:20:00 UTC
 stages:
 - id: 619
   step: 10239
@@ -43,10 +43,6 @@ topics:
     theory_id: 5913
   - title: Program with numbers
     theory_id: 5872
-  - title: Invoking a function
-    theory_id: 5891
-  - title: Declaring a function
-    theory_id: 5900
   - title: If statement
     theory_id: 5953
   - title: Else statement
@@ -67,12 +63,16 @@ topics:
     theory_id: 5859
   - title: List
     theory_id: 5979
+  - title: Invoking a function
+    theory_id: 5891
+  - title: Declaring a function
+    theory_id: 5900
+  - title: Basic string methods
+    theory_id: 6842
   - title: Boolean logic
     theory_id: 6025
   - title: Comparisons
     theory_id: 5920
-  - title: Basic string methods
-    theory_id: 6842
   - title: Split and join
     theory_id: 6972
   1:
@@ -84,20 +84,20 @@ topics:
     theory_id: 8745
   - title: While loop
     theory_id: 5940
-  - title: Functional decomposition
-    theory_id: 9571
   - title: Recursion basics
     theory_id: 5984
   - title: Algorithms in Python
     theory_id: 7316
-  - title: Recursion in Python
-    theory_id: 7665
   - title: Indexes
     theory_id: 6189
   - title: Slicing
     theory_id: 6177
+  - title: Functional decomposition
+    theory_id: 9571
   - title: List comprehension
     theory_id: 6315
+  - title: Recursion in Python
+    theory_id: 7665
   2:
   - title: Immutability
     theory_id: 7929
@@ -109,32 +109,32 @@ topics:
     theory_id: 3614
   - title: Avoiding bad comments
     theory_id: 6440
-  - title: Arguments
-    theory_id: 7248
   - title: Loop control statements
     theory_id: 6302
-  - title: Default arguments
-    theory_id: 10295
-  - title: Args
-    theory_id: 8560
-  - title: Kwargs
-    theory_id: 9544
   - title: PyCharm basics
     theory_id: 6193
-  - title: Dictionary
-    theory_id: 6481
-  - title: Tuple
-    theory_id: 7462
-  - title: Operations with list
-    theory_id: 6031
   - title: Identity testing
     theory_id: 8077
+  - title: Dictionary
+    theory_id: 6481
+  - title: Arguments
+    theory_id: 7248
+  - title: Operations with list
+    theory_id: 6031
+  - title: Tuple
+    theory_id: 7462
   - title: Dictionary methods
     theory_id: 9008
   - title: Operations with dictionary
     theory_id: 11096
   - title: Objects in Python
     theory_id: 9262
+  - title: Default arguments
+    theory_id: 10295
+  - title: Args
+    theory_id: 8560
+  - title: Kwargs
+    theory_id: 9544
   3:
   - title: Introduction to operating systems
     theory_id: 9704
@@ -150,8 +150,6 @@ topics:
     theory_id: 7545
   - title: Program execution
     theory_id: 6047
-  - title: Scopes
-    theory_id: 6322
   - title: Load module
     theory_id: 6019
   - title: Errors
@@ -182,3 +180,5 @@ topics:
     theory_id: 10795
   - title: String formatting
     theory_id: 6037
+  - title: Scopes
+    theory_id: 6322
