@@ -5,5 +5,8 @@ files:
   visible: true
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/14900#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Fri, 27 Aug 2021 04:26:46 UTC
 record: -1
