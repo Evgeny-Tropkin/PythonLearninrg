@@ -4,6 +4,7 @@
 #           * '.' - any symbol other than a space
 #           * '^' - the substring encoded in the regular expression must be found at the BEGINNING of the string
 #           * '$' - the substring encoded in the regular expression must be found at the END of the string
+#           * '*' - matches the preceding character zero or more times;
 #   2. process_string() method must returns:
 #       * list of indexes for which the substring was found
 #       * '-1' if the substring was not found
@@ -65,6 +66,7 @@ def process_string(processed_string, reg_ex_list):
     elif len(processed_string) == 0:
         pass
     else:
+        # TODO: replace '^' with a global variable
         is_startswith = reg_ex_list[0] == '^'
 
         if is_startswith:
@@ -83,13 +85,14 @@ def match(processed_string, reg_ex_list, is_startswith=False):
     while current_lex_pos < len(reg_ex_list):
         target_item = reg_ex_list[current_lex_pos]
         if target_item == '.':
-            if not processed_string[checking_char_index].isspace():
+            if processed_string[checking_char_index] != '\n':
                 checking_char_index += 1
                 current_lex_pos += 1
                 continue
 
         if checking_char_index >= len(processed_string):
             if current_lex_pos == len(reg_ex_list) - 1:
+                # TODO: replace '$' with a global variable
                 res.append(reg_ex_list[current_lex_pos] == '$')
                 current_lex_pos += 1
             elif current_lex_pos < len(reg_ex_list) - 1:
