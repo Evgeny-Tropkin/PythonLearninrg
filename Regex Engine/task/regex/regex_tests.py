@@ -43,7 +43,7 @@ class TestRegex(unittest.TestCase):
         self.assertEqual(regex.parse_reg_ex("..+a"), ['.', ".+", 'a'])
 
     def test_process_string(self):
-        #  tests for a Stage 3
+        #  tests for Stages 1-3
         self.assertTrue(regex.process_string("abc", ['']))
         self.assertFalse(regex.process_string('', ['a']))
         self.assertTrue(regex.process_string("abc", ['.', "bc"]))
@@ -57,6 +57,7 @@ class TestRegex(unittest.TestCase):
         self.assertTrue(regex.process_string("abc de ", ["abc d"]))
         self.assertTrue(regex.process_string(" abc de", [" abc"]))
         self.assertTrue(regex.process_string("abc de ", ["de "]))
+        self.assertFalse(regex.process_string("a\nc", ['a', '.', 'c']))
         #  tests for a Stage 4
         self.assertTrue(regex.process_string("abc", ['^', "ab"]))
         self.assertTrue(regex.process_string("become", ['^', "be"]))
