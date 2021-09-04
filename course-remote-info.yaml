@@ -3,7 +3,7 @@ hyperskill_project:
   ide_files: https://stepik.org/media/attachments/lesson/384512/additional_files.json
   is_template_based: false
   use_ide: true
-update_date: Sun, 29 Aug 2021 14:57:18 UTC
+update_date: Sat, 04 Sep 2021 04:56:44 UTC
 stages:
 - id: 619
   step: 10239
@@ -136,12 +136,6 @@ topics:
   - title: Kwargs
     theory_id: 9544
   3:
-  - title: Introduction to operating systems
-    theory_id: 9704
-  - title: Files
-    theory_id: 13025
-  - title: File types
-    theory_id: 13017
   - title: What is a bug
     theory_id: 5504
   - title: Functional testing
@@ -156,26 +150,16 @@ topics:
     theory_id: 6052
   - title: Exceptions
     theory_id: 6042
+  - title: Built-in exceptions
+    theory_id: 11680
+  - title: Exception handling
+    theory_id: 6270
   - title: Class
     theory_id: 6661
   - title: Class instances
     theory_id: 6669
   - title: Methods
     theory_id: 6931
-  - title: Command line overview
-    theory_id: 8977
-  - title: Introduction to Linux
-    theory_id: 9526
-  - title: File modes and permissions
-    theory_id: 13953
-  - title: Working with file modes and permissions
-    theory_id: 13961
-  - title: Files in Python
-    theory_id: 8691
-  - title: Built-in exceptions
-    theory_id: 11680
-  - title: Exception handling
-    theory_id: 6270
   - title: Unit testing in Python
     theory_id: 10795
   - title: String formatting
