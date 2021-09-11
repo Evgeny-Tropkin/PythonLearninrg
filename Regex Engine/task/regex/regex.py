@@ -80,6 +80,7 @@ def process_string(processed_string, reg_ex_list):
 def match(processed_string, reg_ex_list, is_startswith=False):
     res = [False]
     checking_char_index = 0
+    checking_char = processed_string[checking_char_index]
     current_lex_pos = 0
 
     while current_lex_pos < len(reg_ex_list):
