@@ -1,5 +1,5 @@
 # TODO:
-#   1. Special characters of a regular expression must be replaced with separate global readonly variables
+#   1. Special characters of a regular expression must be replaced with separate global readonly variables or constants
 #       Currently, special characters include:
 #           * '.' - any symbol other than a space
 #           * '^' - the substring encoded in the regular expression must be found at the BEGINNING of the string
@@ -84,21 +84,40 @@ def match(processed_string, reg_ex_list, is_startswith=False):
 
     while current_lex_pos < len(reg_ex_list):
         target_item = reg_ex_list[current_lex_pos]
+        if checking_char_index < len(processed_string):
+            checking_char = processed_string[checking_char_index]
         if target_item == '.':
-            if processed_string[checking_char_index] != '\n':
+            if checking_char != '\n':
                 checking_char_index += 1
                 current_lex_pos += 1
                 continue
+        elif len(target_item) > 1:
+            if target_item[-1] == '*':
+                if target_item[-2] == '.':
+                    while checking_char != '\n' and checking_char != reg_ex_list[current_lex_pos + 1]:
+                        checking_char_index += 1
+                        checking_char = processed_string[checking_char_index]
+
+                while target_item[-2] == checking_char:
+                    checking_char_index += 1
+                    if checking_char_index >= len(processed_string):
+                        break
+                    checking_char = processed_string[checking_char_index]
+                else:
+                    current_lex_pos += 1
+                    if current_lex_pos < len(reg_ex_list):
+                        target_item = reg_ex_list[current_lex_pos]
 
         if checking_char_index >= len(processed_string):
             if current_lex_pos == len(reg_ex_list) - 1:
-                # TODO: replace '$' with a global variable
-                res.append(reg_ex_list[current_lex_pos] == '$')
                 current_lex_pos += 1
             elif current_lex_pos < len(reg_ex_list) - 1:
                 break
         else:
-            if processed_string.startswith(target_item, checking_char_index):
+            # TODO: replace '$' with a global readonly variable or a constant
+            if target_item == '$':
+                current_lex_pos -= 1
+            elif processed_string.startswith(target_item, checking_char_index):
                 checking_char_index += len(target_item)
                 current_lex_pos += 1
             else:
