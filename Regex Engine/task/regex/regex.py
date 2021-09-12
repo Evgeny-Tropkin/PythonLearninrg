@@ -93,9 +93,10 @@ def match(processed_string, reg_ex_list, is_startswith=False):
                 current_lex_pos += 1
                 continue
         elif len(target_item) > 1:
-            if target_item[-1] == '*':
+            if target_item[-1] in ['*', '+']:
                 if target_item[-2] == '.':
-                    while checking_char != '\n' and checking_char != reg_ex_list[current_lex_pos + 1]:
+                    while checking_char != '\n' \
+                            and (checking_char != reg_ex_list[current_lex_pos + 1] or target_item[-1] == '+'):
                         checking_char_index += 1
                         checking_char = processed_string[checking_char_index]
 
