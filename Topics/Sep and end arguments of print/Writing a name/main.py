@@ -1,3 +1,3 @@
 name = ['M', 'A', 'R', 'C', 'O']
 # modify the next line
-print(...)
+print(*name, sep='-', end='!')
