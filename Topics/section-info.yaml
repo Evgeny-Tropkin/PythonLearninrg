@@ -36,3 +36,6 @@ content:
 - Tokenization
 - Regexps in programs
 - XML in Python
+- Parallel iteration
+- Sep and end arguments of print
+- Flush and file arguments of print
