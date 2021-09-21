@@ -21,5 +21,8 @@ files:
     print(aver(sentence))
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/15376#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Tue, 21 Sep 2021 10:04:56 UTC
 record: -1

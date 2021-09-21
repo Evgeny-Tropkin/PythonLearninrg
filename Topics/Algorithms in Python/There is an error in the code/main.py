@@ -3,7 +3,7 @@ sentence = input()
 def aver(sent):
 
     for sym in ['!', '?', ';', '.', '"', "'"]:
-        sent = sent.replace(sym, '')
+        sent = sent.replace(sym, ' ')
 
     words = sent.split()
 
@@ -11,6 +11,6 @@ def aver(sent):
     for word in words:
         total = total + len(word)
 
-    return total / len(word)
+    return total / len(words)
 
 print(aver(sentence))
