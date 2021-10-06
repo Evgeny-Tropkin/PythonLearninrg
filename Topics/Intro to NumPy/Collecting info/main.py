@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def collect_info(array):
     shape = array.shape
     num_of_dim = array.ndim
