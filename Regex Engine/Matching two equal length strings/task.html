@@ -1,8 +1,8 @@
-<h2>Description</h2>
+<h5>Description</h5>
 
 <p>A single character is not a lot, so let's extend our new regex engine to handle regex-string pairs of equal length. Don't forget about supporting the wildcard symbol! It is still not the most realistic way to use a regex engine, but we are slowly getting there.</p>
 
-<h2>Objectives</h2>
+<h5>Objectives</h5>
 
 <p>Create a new function that calls the function from the first stage on every character of the regex-string pair and returns <code class="java">True</code> only if there is a match for every character. In other words, for a complete match, either every character pair should be the same, or the regex should contain a wild card. There are different ways to achieve this, but the most elegant is probably recursion.</p>
 
@@ -26,7 +26,7 @@
 
 <p>Note that some of the steps can be concatenated with the help of boolean logic and smartly coined return statements. If your program works but you find it awkward or overly complicated, try to combine some of the steps to make your code more readable.</p>
 
-<h2>Example</h2>
+<h5>Example</h5>
 
 <pre><code class="language-no-highlight">Input: 'apple|apple'     Output: True
 Input: '.pple|apple'     Output: True

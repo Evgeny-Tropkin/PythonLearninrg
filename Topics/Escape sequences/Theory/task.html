@@ -9,7 +9,7 @@
 warning = 'That's my car'
 print(warning)</code></pre> 
   <p>The sentence seems to look fine, but Python will show you an error message «<code class="language-python">EOL while scanning string literal</code>». Why did that error occur? The abbreviation "EOL" stands for "End-of-line" and it means that Python went through the text and didn't find the end of the string. The sentence was divided into two parts. The first one is <code class="language-python">"That"</code> and the second one is <code class="language-python">"s my car"</code>.</p> 
-  <h2>What is an escape sequence?</h2> 
+  <h5>What is an escape sequence?</h5> 
   <p>To avoid the described problem you should use <strong>escape sequences</strong>. </p> 
   <p>All escape sequences start with a backslash <code class="language-python">\</code>, which is interpreted as an <strong>escape character</strong>. A backslash indicates that one or more characters must be handled in a special way or that the next character after it has a different meaning.</p> 
   <p>Add an escape character to our example and see that the quote is now interpreted as the literal symbol of a single quote without any errors.</p> 
@@ -48,7 +48,7 @@ print(face)  # \^_^/</code></pre>
   <pre><code class="language-python">print(repr(face))  # '\\^_^/'</code></pre> 
   <p>When we want to know the length of a string, escape sequences are also taken into account:</p> 
   <pre><code class="language-python">print(len(repr(face)))  # 8</code></pre> 
-  <h2>Other examples</h2> 
+  <h5>Other examples</h5> 
   <p>Let's consider an example with the escape sequence <code class="language-python">\n</code>:</p> 
   <pre><code class="language-python"># The new line
 
@@ -82,7 +82,7 @@ print(len(greeting))       # 11
 print(len(nice_greeting))  # 12</code></pre> 
   <p>After calling the <code class="language-python">len()</code> function, we can see that the length of the string with an escape sequence (in this case <code class="language-python">\n</code>) is greater.</p> 
   <p>Be careful while working with strings because the function <code class="language-python">print()</code> doesn't show escape sequences.</p> 
-  <h2>Summary</h2> 
+  <h5>Summary</h5> 
   <p>Thus, in this topic, we have introduced basic escape sequences, their features, and considered several examples of how to use them, so now you can work with them in Python strings!</p>
  </body>
 </html>

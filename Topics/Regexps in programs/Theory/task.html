@@ -3,7 +3,7 @@
  <head></head>
  <body>
   <p>Regular expressions are very versatile. They can be used to automate many tedious text-related tasks, such as input text validation or data collection. In this topic, we will have a look at two examples of simple yet powerful programs that employ regular expressions.</p> 
-  <h2>Email validation program </h2> 
+  <h5>Email validation program </h5> 
   <p>Let's have a look at a basic program that checks whether the text contains email addresses and, if it does, returns them in sequential order:</p> 
   <pre><code class="language-python">import re
 
@@ -27,7 +27,7 @@ find_emails(string)
 # alice_2000@website.com
 # johnnY.b@blahblahblah.com</code></pre> 
   <p>The downside is that our program will also match strings like <code class="language-python">_@._</code>. They obviously cannot be considered email addresses. </p> 
-  <h2>Email validation 2.0</h2> 
+  <h5>Email validation 2.0</h5> 
   <p>If usernames and domain names are too short, it may lead to rather bad scenarios. We can set some restrictions when compiling our pattern to avoid this:</p> 
   <pre><code class="language-python"># Let's say we want the username to be at least 5 characters long 
 # and the domain name of 2 to 4 characters 
@@ -58,7 +58,7 @@ find_emails(string)
 # alice_2000@website.com
 # johnnY.b@blahblahblah.com</code></pre> 
   <p>As you can see, simple restrictions can make our pattern more powerful. You can also make your pattern match more specific strings by, for example, adding the boundary shorthands <code class="language-python">\b</code> at the beginning and the end of the pattern, as well as lookaround assertions. </p> 
-  <h2>Tokenization</h2> 
+  <h5>Tokenization</h5> 
   <p>As you may already know, text preprocessing plays a crucial role with textual data. Tokenization or splitting text into smaller units (usually words) is the first step in text processing. Text tokenization can go smoother with regular expressions if you don't want to use other special tools. </p> 
   <p>The most straightforward approach to tokenization is to split a text by whitespaces. Let's see how it works: </p> 
   <pre><code class="language-python">import re
@@ -90,7 +90,7 @@ tokenize(string)
 # ['This', 'is', 'a', 'sample', 'string', 'And', "here's", 'another', 'one']</code></pre> 
   <p>We have not omitted the apostrophe <code class="language-python">'</code> in the punctuation mark list. This is quite important as we do not want to split words like <code class="language-python">Let's</code>, <code class="language-python">here's</code>, or <code class="language-python">Mary's</code> into two different tokens and change their meaning. </p> 
   <p>As you can see, tokenization can be a bit tricky, but regex can help you with it. Of course, there are a lot of ways to tokenize a text depending on the text type you are dealing with. We have presented you with one of the simplest ways to do it. </p> 
-  <h2>Conclusion</h2> 
+  <h5>Conclusion</h5> 
   <p>In this topic, we've seen examples of how regular expressions can help us with string processing. You can experiment further and implement other regular expressions to check whether a string is a valid email address or tokenize more complicated sentences. </p> 
   <p>To sum up, even simple regular expression patterns can be used to write powerful programs for real-life applications, including textual data extraction and substitution, web scraping, and many other natural language processing tasks. </p>
  </body>

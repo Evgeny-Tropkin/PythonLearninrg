@@ -5,7 +5,7 @@
   <p>In this topic, we are going to learn about unit testing in Python. First, let's go back and recap what unit testing is. A <strong>unit</strong> is a small part of the code that performs one task, and we write tests to determine whether the unit works correctly.</p> 
   <p>In general, units take input data and generate output data. So with unit testing, we know the input and the expected output, and we just compare the actual output with the expected. We can write numerous tests checking most of the case scenarios. Unit testing enables developers to detect bugs at early stages and notice if the code works incorrectly after changes.</p> 
   <p>We can do unit testing either manually or automatically. It is rarely done manually because it is a very time-consuming task. Python provides a lot of instruments for automated unit testing. <code class="language-python">unittest</code> is the most popular test framework in Python, so we are going to learn how to use it in this topic. But it is not the only tool in Python for unit testing; you can also use, for example, <a target="_blank" href="https://docs.nose2.io/en/latest/getting_started.html" rel="noopener noreferrer nofollow">nose</a>, <a target="_blank" href="https://docs.pytest.org/en/latest/" rel="noopener noreferrer nofollow">pytest</a>, or <a target="_blank" href="https://docs.python.org/3/library/doctest.html" rel="noopener noreferrer nofollow">doctest</a>.</p> 
-  <h2>Getting started</h2> 
+  <h5>Getting started</h5> 
   <p><code class="language-python">unittest</code> is a module from the standard library with a great set of tools for writing tests. To see how it works, we will write a simple calculator and then test this program. This is the code of our calculator:</p> 
   <pre><code class="language-python"># this code is in the calculator.py file
 
@@ -35,7 +35,7 @@ def divide(x, y):
 
 import unittest
 import calculator</code></pre> 
-  <h2>Time to test</h2> 
+  <h5>Time to test</h5> 
   <p>Now, we are ready to test our program. To do this, we will write one or several test cases. A <strong>test case</strong> is a basic unit of testing, it checks that the tested unit produces the right output when given various kinds of input. We create a test case by subclassing the general <code class="language-python">unittest.TestCase</code> class: </p> 
   <pre><code class="language-python">class TestCalculator(unittest.TestCase):  # a test case for the calculator.py module</code></pre> 
   <p>In our case, the tested unit is the whole <code class="language-python">calculator.py</code> module, but we could write a separate test case for each function. In Python, the tested unit can be a class, a method, or a function.</p> 
@@ -65,7 +65,7 @@ import calculator</code></pre>
    <a target="_blank" href="https://www.jetbrains.com/help/pycharm/testing-your-first-python-application.html" rel="noopener noreferrer nofollow">in this tutorial</a>. 
   </div>
   <p></p> 
-  <h2>Assert methods</h2> 
+  <h5>Assert methods</h5> 
   <p>The <code class="language-python">unittest.TestCase</code> class provides special assert methods that are used for testing. You have seen one of them in the example above, we checked that the result of the addition is correct with the help of the <code class="language-python">assertEqual()</code> method.</p> 
   <p>All assert methods accept a message argument that, when specified, is used as the error message if the test fails:</p> 
   <pre><code class="language-python">class TestCalculator(unittest.TestCase):  # a test case for the calculator.py module
@@ -140,7 +140,7 @@ import calculator</code></pre>
    </tbody> 
   </table> 
   <p>If you want more information about the assert methods, you can read <a target="_blank" href="https://docs.python.org/3/library/unittest.html#assert-methods" rel="noopener noreferrer nofollow">the official Python documentation</a>.</p> 
-  <h2>Running tests</h2> 
+  <h5>Running tests</h5> 
   <p>Once the tests are ready, we should run them and check the code. However, if you run <code class="language-python">test_calculator.py</code> as a usual Python file, you are not going to get any information about the result of testing. To see the results, you should run the file from the command line, from the directory where the <code class="language-python">test_calculator.py</code> is located. You need to enter either of the commands:</p> 
   <pre><code class="language-no-highlight">python -m unittest</code></pre> 
   <pre><code class="language-no-highlight">python -m unittest test_calculator</code></pre> 
@@ -150,7 +150,7 @@ import calculator</code></pre>
     unittest.main()</code></pre> 
   <p>Now, if we run the module directly (not imported in some other module), then all our tests will be collected and executed. In commands, <samp>'-m'</samp> does exactly the same.</p> 
   <p>After that, you will get a message with information about the tests. We talk about these messages in detail in the next section.</p> 
-  <h2>Test outcomes</h2> 
+  <h5>Test outcomes</h5> 
   <p>When the tests are executed, we get a message which provides us with information about the result of testing. For example, if we run the tests we have written for our calculator, we will see the following message:</p> 
   <pre><code class="language-no-highlight">....
 ----------------------------------------------------------------------
@@ -214,7 +214,7 @@ Ran 4 tests in 0.003s
 
 FAILED (errors=1)</code></pre> 
   <p>First, it tells us that an error occurred in the line No. 28, in the <code class="language-python">test_divide</code> (the letter <samp>'E'</samp> is the second of all the dots). Further in the message, we can see that the <code class="language-python">divide</code> method raises a <code class="language-python">ValueError</code> if we try to divide it by zero. As a result, the <code class="language-python">ValueError</code> does take place, which is not <code class="language-python">AssertionError</code>, so the test is considered neither failed nor passed.</p> 
-  <h2>Summary</h2> 
+  <h5>Summary</h5> 
   <p>In this topic, we have discussed the basics of unit testing in Python using the <code class="language-python">unittest</code> framework. The main points to remember are as follows:</p> 
   <ul> 
    <li>We write tests in a separate file, in the very beginning of which we import <code class="language-python">unittest</code> and the tested module.</li> 

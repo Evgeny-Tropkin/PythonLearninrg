@@ -12,7 +12,7 @@
    <strong>assign the same name</strong> to the copy. So, what to do with the output of the methods depends on whether you are going to use the original string or its copy later.
   </div>
   <p></p> 
-  <h2 style="text-align: center;">"Changing" a string</h2> 
+  <h5 style="text-align: center;">"Changing" a string</h5> 
   <p>The first group of string methods consists of the ones that "change" the string in a specific way, that is they return the copy with some changes made.</p> 
   <p>The syntax for calling a method is as follows: a string is given first (or the name of a variable that holds a string), then comes a period followed by the method name and parentheses in which arguments are listed.</p> 
   <p>Here’s a list of common string methods of that kind:</p> 
@@ -41,7 +41,7 @@ print(replaced_message)  # b!nj!ur and welcome to Paris!
 
 # again, the source string is unchanged, only its copy is modified
 print(message)  # bonjour and welcome to Paris!</code></pre> 
-  <h2 style="text-align: center;">"Editing" a string</h2> 
+  <h5 style="text-align: center;">"Editing" a string</h5> 
   <p>Often, when you read a string from somewhere (a file or the input) you need to edit it so that it contains only the information you need. For instance, the input string can have a lot of unnecessary whitespaces or some trailing combinations of characters. The "editing" methods that can help with that are <strong><code class="language-python">strip()</code></strong>, <strong><code class="language-python">rstrip()</code></strong>, and <strong><code class="language-python">lstrip()</code></strong>.</p> 
   <ul> 
    <li> <p><strong><code class="language-python">str.lstrip([chars])</code></strong> removes the leading characters (i.e. characters from the left side). If the argument <code class="language-python">chars</code> isn’t specified, leading whitespaces are removed.</p> </li> 
@@ -81,7 +81,7 @@ print(word.lstrip("ips"))  # "Mississippi"
 # "M", "i", "p", and "s" are removed from both sides, so nothing is left:
 print(word.strip("Mips"))  # ""</code></pre> 
   <p>Use them carefully, or you may end up with an empty string.</p> 
-  <h2 style="text-align: center;">Summary</h2> 
+  <h5 style="text-align: center;">Summary</h5> 
   <p>To sum up, we have considered the main methods for strings. Here is a brief recap:</p> 
   <ul> 
    <li>While working with strings, you have to remember that strings are <strong>immutable</strong>, thus all the methods that "change" them only return the copy of a string with necessary changes.</li> 

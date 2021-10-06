@@ -4,7 +4,7 @@
  <body>
   <p>By now, you are on good terms with functions, since you know how to invoke and declare them. Let's deepen your knowledge a bit and discover some new features of functions.</p> 
   <p>First, a line should be drawn between the terms <strong>"argument"</strong> and <strong>"parameter"</strong>. Parameters represent what a function accepts, it's those names that appear in the function definition. Meanwhile, arguments are the values we pass to a function when calling it. We'll cover both arguments and parameters further.</p> 
-  <h2 style="text-align: center;">Positional arguments</h2> 
+  <h5 style="text-align: center;">Positional arguments</h5> 
   <p>There are different ways to assign arguments to a function. First of all, you can do it simply by <strong>position</strong>. In this case, values will associate with parameters in the order in which you passed them into your function <strong>from left to right</strong>. Such arguments are called <strong>positional</strong>, or <strong>non-keyword</strong>. </p> 
   <pre><code class="language-python">def subtract(x, y):
     return x - y
@@ -13,7 +13,7 @@
 subtract(11, 4)  # 7
 subtract(4, 11)  # -7</code></pre> 
   <p>When we swapped the numbers in the second function call, we got a different result. Thus, you can see that the order determines how arguments are assigned.</p> 
-  <h2 style="text-align: center;">Named arguments</h2> 
+  <h5 style="text-align: center;">Named arguments</h5> 
   <p>Another way to assign arguments is by <strong>name</strong>. Sometimes you might want to control the order of passed values. That's where <strong>named</strong>, or <strong>keyword</strong>, arguments come into play.</p> 
   <pre><code class="language-python">def greet(name, surname):
     print("Hello,", name, surname)
@@ -35,7 +35,7 @@ greet(name="Frodo", "Baggins")     # SyntaxError: positional argument follows ke
 greet("Clementine", name="Rose")
 # TypeError: greet() got multiple values for argument 'name'</code></pre> 
   <p>As shown in the example, multiple values for the same name cause an error.</p> 
-  <h2 style="text-align: center;">Names are important</h2> 
+  <h5 style="text-align: center;">Names are important</h5> 
   <p>We have covered the main errors that you can face. Of course, there can be more parameters in a function:</p> 
   <pre><code class="language-python">def responsibility(developer, tester, project_manager, designer):
     print(developer, "writes code")
@@ -58,9 +58,9 @@ greet("Clementine", name="Rose")
   <pre><code class="language-python">help(responsibility)
 # Help on function responsibility in module __main__:
 # responsibility(developer, tester, project_manager, designer)</code></pre> 
-  <h2 style="text-align: center;">PEP time</h2> 
+  <h5 style="text-align: center;">PEP time</h5> 
   <p>Look at the declared function and function calls shown in this topic one more time: <code class="language-python">greet(name="Willy", surname="Wonka")</code>. Have you noticed missing spaces around the equality sign? Their absence is not accidental. By <a target="_blank" href="https://www.python.org/dev/peps/pep-0008/#other-recommendations" rel="noopener noreferrer nofollow">PEP 8 convention</a>, you should not put spaces around <code class="language-python">=</code> when indicating a keyword argument.</p> 
-  <h2 style="text-align: center;">Summary</h2> 
+  <h5 style="text-align: center;">Summary</h5> 
   <p>Now that we've discussed some advanced features of functions, let's sum it up:</p> 
   <ul> 
    <li>There's a distinction between <strong>parameters </strong>and <strong>arguments</strong>.</li> 

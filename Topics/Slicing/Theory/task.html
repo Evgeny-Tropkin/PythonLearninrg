@@ -8,7 +8,7 @@
 
 print(fib_nums[0])  # 0, the first element
 print(fib_nums[8])  # 21, the last element</code></pre> 
-  <h2>Getting sections of sequences</h2> 
+  <h5>Getting sections of sequences</h5> 
   <p>Another thing you may want to do with a sequence is retrieving its <strong>part</strong>. Usually, it means getting elements from a particular section by their indexes. This is called <strong>slicing</strong>, and there is a special notation for it. It looks like accessing an element by its index, but in an improved manner:</p> 
   <pre><code class="language-python">print(fib_nums[2:5])  # [1, 2, 3]</code></pre> 
   <p>Looks great, doesn't it? Just like with the indexing, we use <strong>square brackets</strong>, but here we add a <strong>colon</strong> to indicate that we're slicing. Actually, slicing is one of the most famous and widely used features of Python. It allows developers to do a lot of cool things.</p> 
@@ -24,7 +24,7 @@ print(text[10:9999])  # 'not only a snake!'
 words = ['Python', 'is', 'not', 'only', 'a', 'snake', '!']
 print(words[2:9999])  # ['not', 'only', 'a', 'snake', '!']</code></pre> 
   <p>Now, we will explore slicing in more detail with the help of lists.</p> 
-  <h2>Forms of slicing</h2> 
+  <h5>Forms of slicing</h5> 
   <p>We've demonstrated the use of slicing with starting and ending indexes. But this is not the only possible form.</p> 
   <p>The full syntax for slicing looks like this:</p> 
   <pre><code class="language-python">sequence[start:stop:step]  # from start to stop-1, by step</code></pre> 
@@ -64,7 +64,7 @@ print(pets[::-2])  # ['gecko', 'cat']</code></pre>
 print(numbers[7:2:-1])  # [8, 7, 6, 5, 4]
 print(numbers[2:7:-1])  # []</code></pre> 
   <p>We hope you get the general idea of slicing now.</p> 
-  <h2>Summary</h2> 
+  <h5>Summary</h5> 
   <p>Slicing allows you to get sections of sequences such as lists, strings, and tuples specifying <code class="language-python">start</code>, <code class="language-python">end</code> and <code class="language-python">step</code>. Remember that all the indexes are optional in the slice syntax because there is a default value for all of them.</p> 
   <p>In some sense, slicing is just an extension of the standard indexing with similar rules: the first index of a sequence is zero, and negative indexes start from the end. We believe, that after a bit of practice, you will be good at it.</p>
  </body>

@@ -1,4 +1,4 @@
-<h2>Description</h2>
+<h5>Description</h5>
 
 <p>Regular expressions are useful and flexible because they include a set of metacharacters. So far, the only metacharacter we can handle is the wild-card (<code class="java">.</code>). Although it is certainly useful, our engine still lacks the flexibility we need.</p>
 
@@ -6,7 +6,7 @@
 
 <p>The metacharacter <code class="java">^</code> is the opposite: it only matches a pattern if it is located at the beginning of the input string. This way, the regex <code class="java">^be</code> will match the strings <code class="java">beware</code>, <code class="java">become</code>, <code class="java">behind</code>, but not <code class="java">to be</code>, even though it contains <code class="java">be</code>.</p>
 
-<h2>Objectives</h2>
+<h5>Objectives</h5>
 
 <p>Your task is to add some metacharacters to the already existing regex engine.</p>
 
@@ -23,7 +23,7 @@
 
 <p>Note: the position of the terminating conditions can alter the behavior of the function! This condition should be added after the regex has been determined as empty or not, but before the same is determined for the input string. </p>
 
-<h2>Example</h2>
+<h5>Example</h5>
 
 <pre><code class="language-no-highlight">Input:    '^app|apple'           Output: True
 Input:     'le$|apple'           Output: True

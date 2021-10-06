@@ -5,7 +5,7 @@
   <p>Imagine that you're a birdwatcher sitting in the park and counting birds that you see. You've observed a dozen pigeons, 5 sparrows, and even one red crossbill! Now, suppose that you want to store these observations for later use. You need to remember exactly how many birds of each kind you've seen. So, a simple list with numbers won't do because you won't be able to tell which number refers to which bird. You need a data type that can associate one thing with another: in our case, the name of the bird with the number of observations.</p> 
   <p>Luckily, Python has such a type — <strong>dictionary</strong> (<code class="language-python">dict</code>). You can picture a real dictionary — a large book with definitions for a lot of words. The definition contains two parts: the word itself (let's call it a <strong>key</strong>) and the definition for it (a <strong>value</strong>). In our birdwatcher example, the keys are names of the birds ("pigeon", "sparrow", and "red crossbill") and the values are how many birds of that kind we've seen (12, 5 and 1, respectively).</p> 
   <p>In programming, dictionaries work in a similar way: if we want to store an object, we need to select some key for it and put our object as a value for that key into our dictionary.</p> 
-  <h2>Dictionary creation</h2> 
+  <h5>Dictionary creation</h5> 
   <p>A dictionary consists of a collection of key-value pairs. Each key-value pair maps the key to its associated value. If you already know the values needed, then the easiest way to create a dictionary is to use the <strong>curly braces</strong> with a comma-separated list of <code class="language-python">key: value</code> pairs. If you want to create an empty dictionary, you can do so with the help of curly braces as well. Note that values in a dictionary can be of <strong>different types</strong>.</p> 
   <pre><code class="language-python">birds = {"pigeon": 12, "sparrow": 5, "red crossbill": 1}
 prices = {'espresso': 5.0, 'americano': 8.0, 'latte': 10, 'pastry': 'various prices'}
@@ -45,7 +45,7 @@ digits = {1: {'Word': 'one', 'Roman': 'I'},
           3: {'Word': 'three', 'Roman': 'III'}, 
           4: {'Word': 'four', 'Roman': 'IV'}, 
           5: {'Word': 'five', 'Roman': 'V'}}</code></pre> 
-  <h2>Accessing the items</h2> 
+  <h5>Accessing the items</h5> 
   <p>The syntax for <strong>accessing</strong> an item is quite simple — square brackets <code class="language-python">[]</code> with a key between them. This approach works both for adding objects to a dictionary and for reading them from there:</p> 
   <pre><code class="language-python">my_pet = {}
 
@@ -66,7 +66,7 @@ my_pets = {'dog': {'name': 'Dolly', 'breed': 'collie'},
 print(my_pets['cat'])  # {'name': 'Fluffy', 'breed': 'maine coon'}
 
 print(my_pets['cat']['breed'])  # maine coon</code></pre> 
-  <h2>Choosing the keys</h2> 
+  <h5>Choosing the keys</h5> 
   <p>You can save objects of any type in a dictionary, but not all of them qualify as a key. You need a good, <strong>unique</strong> key for each object in your collection. Still, this is not the only restriction on dictionary keys and we will cover them later. For now, safely use numbers and strings.</p> 
   <p>When a key has already been added to your dictionary, its old value will be overwritten:</p> 
   <pre><code class="language-python">trilogy = {'IV': 'Star Wars', 'V': 'The Empire Strikes Back', 'VI': 'Return of the Jedi'}
@@ -81,7 +81,7 @@ alphabet['beta'] = 2
 
 print(alphabet)
 # Python 3.8 output: {'alpha': 1, 'beta': 2}</code></pre> 
-  <h2>Summary</h2> 
+  <h5>Summary</h5> 
   <p>In this topic we've covered some basics for the <strong>dictionary </strong>data type in Python:</p> 
   <ul> 
    <li>how to create a dictionary,</li> 

@@ -10,7 +10,7 @@
   </ul> 
   <p>All other objects are evaluated to <code class="language-python">True</code>.</p> 
   <p>This allows us to use objects of any type in boolean expressions. In this topic, we are going to learn when it can be useful and when you should explicitly convert objects into boolean values.</p> 
-  <h2>Truthy test</h2> 
+  <h5>Truthy test</h5> 
   <p>Since there are few objects in Python that are evaluated to <code class="language-python">False</code>, there are not many cases when non-boolean values are used in logical expressions. The most common one is checking whether the given container is empty or not. Let's write a function that prints a list if it is not empty and the string <code class="language-python">"empty list"</code> if it is the opposite.</p> 
   <pre><code class="language-python">def print_list(lst):
     if lst:
@@ -28,7 +28,7 @@ print_list([])         # empty list</code></pre>
   </div>
   <p></p> 
   <p>There is a more compact way to implement the same function but it requires a deep understanding of how the <code class="language-python">and</code> and <code class="language-python">or</code> operators work with non-boolean values.</p> 
-  <h2>Logical operations with non-boolean values</h2> 
+  <h5>Logical operations with non-boolean values</h5> 
   <p>You already know that given two boolean values, <code class="language-python">and</code> returns <code class="language-python">True</code> if both operands equal <code class="language-python">True</code> while <code class="language-python">or</code> returns <code class="language-python">True</code> if at least one operand equals <code class="language-python">True</code>. When the operands are of the arbitrary type, Python can apply <code class="language-python">and</code> and <code class="language-python">or</code> operators to them, but the result will be one of the operands rather than the boolean values <code class="language-python">True</code> or <code class="language-python">False</code>.</p> 
   <p>The tables below show what <code class="language-python">and</code> , <code class="language-python">or</code> and <code class="language-python">not</code> operators return depending on whether their operands are truthy or falsy.</p> 
   <p style="text-align: center;"><em>The <code class="language-python">and</code> operator.</em></p> 
@@ -120,13 +120,13 @@ print_list([])         # empty list</code></pre>
   <pre><code class="language-python">if lst and lst[0] &gt; 0:
     ...</code></pre> 
   <p>If <code class="language-python">lst</code> is empty, the <code class="language-python">lst[0] &gt; 0</code> expression is invalid but it does not cause an exception because it never gets evaluated.</p> 
-  <h2>bool() function</h2> 
+  <h5>bool() function</h5> 
   <p>Although we can use any objects in boolean expressions, there are cases when we should explicitly convert objects into real boolean values. This can be done with the <code class="language-python">bool()</code> function. The <code class="language-python">bool()</code> function returns <code class="language-python">True</code> if the passed argument is truthy, and <code class="language-python">False</code> if it is falsy.</p> 
   <pre><code class="language-python">print(bool(True), bool(False))    # True False
 print(bool(None))                 # False
 print(bool([]), bool([2, 3, 9]))  # False True</code></pre> 
   <p>This function is not very common, but there are special cases when it can be useful.</p> 
-  <h2>When to use the bool() function?</h2> 
+  <h5>When to use the bool() function?</h5> 
   <p>Sometimes you need to store the result of a logical expression or even write it to a file. In this case, you would want to get <code class="language-python">True</code> or <code class="language-python">False</code>, not a truthy or falsy object.</p> 
   <p>Let's look at the example. You have a list of lists with integer values. You want to check if this list is not empty and its first element is not zero for each inner list. The solution is the following code:</p> 
   <pre><code class="language-python">def check_list(lst):
@@ -158,7 +158,7 @@ print(result)  # [True, False, False]</code></pre>
    <code class="language-python">if bool(lst)</code>.
   </div>
   <p></p> 
-  <h2>Summary</h2> 
+  <h5>Summary</h5> 
   <ul> 
    <li>All objects in Python can be interpreted as boolean values.</li> 
    <li>Some boolean operators, such as <code class="language-python">and</code> and <code class="language-python">or</code>, return one of the operands as a result; <code class="language-python">not</code>, on the contrary, always returns a boolean value.</li> 

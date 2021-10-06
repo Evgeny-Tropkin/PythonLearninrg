@@ -1,9 +1,9 @@
-<h2>Description</h2>
+<h5>Description</h5>
 
 <p>Since <code class="java">^</code>, <code class="java">$</code>, <code class="java">?</code>, <code class="java">*</code>, <code class="java">+</code> and <code class="java">.</code> are now reserved as metacharacters, they cannot be used as literals. This might be a problem, for example, when you want to match the end of sentences. In this case, you would look for words that are succeeded by a period or a question mark. Since these characters have a special meaning in the regex notation, they would not get matched the way you want it.<br>
 To solve this problem, the regex notation has a so called escape sequence: if a metacharacter is preceded by a backward slash (<code class="java">\</code>), it is considered as a normal literal and can be matched.</p>
 
-<h2>Objectives</h2>
+<h5>Objectives</h5>
 
 <p>Just like it was with the metacharacters, some more conditions should be added to the recursive function to handle the escape symbols.</p>
 
@@ -13,7 +13,7 @@ To solve this problem, the regex notation has a so called escape sequence: if a 
 
 <p>Here is another riddle. If the backward slash <code class="java">\</code> is now an escape sequence, how can it be matched as a literal in a string? What if you want to find every string that ends with the character <code class="java">\</code>? Check out the examples below to see what the engine does in this case.</p>
 
-<h2>Example</h2>
+<h5>Example</h5>
 
 <pre><code class="language-no-highlight">Input:      '\.$|end.'              Output: True
 Input:     '3\+3|3+3=6'             Output: True

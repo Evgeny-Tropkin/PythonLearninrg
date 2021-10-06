@@ -3,7 +3,7 @@
  <head></head>
  <body>
   <p>With <code class="language-python">*args</code> you can create more flexible functions that accept a varying number of <em>positional</em> arguments. You may now wonder how to do the same with <em>named</em> arguments. Fortunately, in Python, you can work with <em>keyword</em> arguments in a similar way.</p> 
-  <h2 style="text-align: center;">Multiple keyword arguments</h2> 
+  <h5 style="text-align: center;">Multiple keyword arguments</h5> 
   <p>Let's get acquainted with the <code class="language-python">**</code> operator used to pass a varying number of keyword arguments into a function. <code class="language-python">**kwargs</code> collects all possible extra values in a dictionary with keywords as keys.</p> 
   <p>By convention, people use special names for this kind of arguments: <code class="language-python">*args</code> for positional arguments and <code class="language-python">**kwargs</code> for keyword arguments, but you can call them whatever you want. The main thing is that a single asterisk <code class="language-python">*</code> matches a value by position and a double asterisk <code class="language-python">**</code> associates a value with a name, or keyword. So, <code class="language-python">**kwargs</code> differs from <code class="language-python">*args</code> in that you will need to assign keywords.</p> 
   <p>Here is an example:</p> 
@@ -33,7 +33,7 @@ Helsinki is the capital city of Finland</code></pre>
 
 func(positional_args, defaults, **kwargs, *args)
 # SyntaxError: iterable argument unpacking follows keyword argument unpacking</code></pre> 
-  <h2 style="text-align: center;">Unpacking in function calls</h2> 
+  <h5 style="text-align: center;">Unpacking in function calls</h5> 
   <p>There are two unpacking operators in Python: a single asterisk <code class="language-python">*</code> unpacks elements of an iterable object and a double asterisk <code class="language-python">**</code> works with dictionaries. Let's try to get key-value pairs from a dictionary and pass them as keyword arguments using a double asterisk <code class="language-python">**</code>:</p> 
   <pre><code class="language-python">def say_bye(**names):
     for name in names:
@@ -53,7 +53,7 @@ say_bye(**humans)
 # Au revoir, Robin
 # See you on Friday</code></pre> 
   <p>By default, you iterate over keys in a dictionary, so be careful with this. You might need this type of unpacking when setting specific parameters of a function. Saving values in a dictionary and then unpacking them in this way might be much easier than listing them in each call manually. Also, it will save time when you choose to fine-tune these parameters.</p> 
-  <h2 style="text-align: center;">Summary</h2> 
+  <h5 style="text-align: center;">Summary</h5> 
   <p>Let's go over the main points discussed in the topic:</p> 
   <ul> 
    <li>If you want to work with a varying number of <strong>keyword </strong>arguments, make use of <code class="language-python">**kwargs</code>.</li> 

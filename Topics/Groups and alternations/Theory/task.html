@@ -10,7 +10,7 @@
    <code class="language-python">|</code>. As a programmer, you can picture the situations where this operator is indispensable. In this regard, regexps are no different.
   </div>
   <p></p> 
-  <h2>Groups</h2> 
+  <h5>Groups</h5> 
   <p>By default, when we put a quantifier in our template, it's applied to the <strong>preceding character</strong>. Take <code class="language-python">h[ao]{2}</code> for example. The quantifier demands either <code class="language-python">a</code> or <code class="language-python">o</code> to be repeated twice, but <code class="language-python">h</code> can only occur once. To apply a quantifier to a sequence of characters, we must use parentheses <code class="language-python">()</code> to group the desired symbols and put the quantifier after this group. Take a look at the following example. There, we are looking for the <code class="language-python">h[ao]</code> substring:</p> 
   <pre><code class="language-python">template = r"(h[ao]){2}"  # matches a string consisting of two "ha" or "ho"
 re.match(template, "haha")  # a match
@@ -25,7 +25,7 @@ re.match(template, "ha")  # a match
 re.match(template, "ha?")  # matches only "ha", but not "?", since there's no "!" succeeding "?"
 re.match(template, "ha!")  # matches only "ha", but not "!", since there's no "?" preceding "!"</code></pre> 
   <p>So, entire parts of the template can be omitted in the string.</p> 
-  <h2>Nested groups</h2> 
+  <h5>Nested groups</h5> 
   <p>We can also make use of <strong>nested groups </strong>— you can put a group inside a group to specify smaller substring repetitions inside larger substrings. Take a look at this template that matches any number of repeated strings containing two substrings of the <code class="language-python">&lt;letter&gt;&lt;digit&gt;</code> type (for example, <code class="language-python">A0</code>, <code class="language-python">C3</code>):</p> 
   <pre><code class="language-python">template = r"(([A-Z]\d){2}\.)+"
 re.match(template, "A0C3.B8K5.")  # a match
@@ -39,7 +39,7 @@ re.match(template, "A0.C3.B8K5")  # no match, as "A0.C3." is separated by a dot
   </div>
   <p></p> 
   <p>However, the quantifiers aren't the only reason why we need groups. Groups are also a tool that gives your template a structure when you need it.</p> 
-  <h2>Method groups()</h2> 
+  <h5>Method groups()</h5> 
   <p>After comparing a template against a string, we often need to <strong>process </strong>the result (extract one part of the matching string, rearrange it, replace some of its parts). We will discuss these options in other topics. But for now, we can say that groups can help with such processing. Groups can help you to designate important parts of your regexp.</p> 
   <p>If you want to make some groups in your template, you can get parts of the string that match each group with just one <code class="language-python">groups()</code> method. This method applies to any matched object, that is, any result of the <code class="language-python">match()</code> function when there's a match. It returns a tuple with substrings matching the created groups:</p> 
   <pre><code class="language-python">template = r"([Pp]ython) (\d)"
@@ -50,7 +50,7 @@ print(match.groups())  # The output is ('Python', '3')</code></pre>
 match = re.match(template, "Python")
 print(match.groups())  # The output is ('Python', None)</code></pre> 
   <p>In case you need to extract the string matching as a single group, you can opt for a special method.</p> 
-  <h2>Method group()</h2> 
+  <h5>Method group()</h5> 
   <p>To extract the match for a particular group, you can use the <code class="language-python">group()</code> method. This method accepts an integer designating the <strong>number of the group </strong>that you want to extract:</p> 
   <pre><code class="language-python">template = r"Python (\d)"
 match_1 = re.match(template, "Python 2")
@@ -63,7 +63,7 @@ match_1 = re.match(template, "Python 2")
 print(match_1.group())  # The output is "Python 2"
 print(match_1.group(0))  # The output is "Python 2"</code></pre> 
   <p>As you can see, you need to know the group number to extract it. For that, we need to discuss the concept of enumeration.</p> 
-  <h2>Group enumeration</h2> 
+  <h5>Group enumeration</h5> 
   <p>The groups are enumerated in <strong>linear order</strong>, from left to right. To be precise, the group numbers coincide with the numbers of their opening parentheses in the template. The group with the first parenthesis gets the first number.</p> 
   <pre><code class="language-python">template = r"(a)(b)(c)"
 match = re.match(template, "abc")
@@ -82,7 +82,7 @@ match.group(4)  # "second"</code></pre>
   <pre><code class="language-python">template = r"(Python (\d) ){2,}"
 re.match(template, "Python 2 Python 3 ").group(2)  # The output is "3"</code></pre> 
   <p>There's one more powerful regexp tool. Let's go!</p> 
-  <h2>Alternations</h2> 
+  <h5>Alternations</h5> 
   <p>In many cases, a pattern we'd like to match can contain alternative substrings — sometimes one, sometimes another. For example, when we search for a web address, it can have <code class="language-python">.com</code>, <code class="language-python">.org</code>, <code class="language-python">.net</code>, etc. as a part of the domain name. We can match several domain types in one template by using <code class="language-python">|</code>.</p> 
   <p><code class="language-python">|</code> is the <code class="language-python">or</code> operator in regexps. By separating alternative substrings with vertical bars, you are matching any of these substrings with the template. Here, take a look:</p> 
   <pre><code class="language-python">template = r"python|java|kotlin"
@@ -93,7 +93,7 @@ re.match(template, "c++")  # no match
 re.match(template, "k")  # no match
 re.match(template, "jav")  # no match</code></pre> 
   <p>In the above example, <code class="language-python">|</code> separates three alternative options. Any string that doesn't coincide with any of the options is not going to match the template.</p> 
-  <h2>Groups and alternations</h2> 
+  <h5>Groups and alternations</h5> 
   <p>Also, notice that the vertical bar isn't similar to quantifiers in terms of the application scope — it's applied to the entire template until the next vertical bar occurs. For instance, if we need to find the following strings: <code class="language-python">python course</code>, <code class="language-python">kotlin course</code>, <code class="language-python">python lesson</code>, or <code class="language-python">kotlin lesson</code>, we can write the following expression first:</p> 
   <pre><code class="language-python">template = r"python|kotlin course|lesson"
 re.match(template, "kotlin")  # no match: should be "kotlin course" to match
@@ -106,7 +106,7 @@ re.match(template, "lesson")  # no match
 re.match(template, "python lesson")  # match
 re.match(template, "kotlin course")  # match</code></pre> 
   <p>Don't forget about groups when you include alternative options to your template.</p> 
-  <h2>Summary</h2> 
+  <h5>Summary</h5> 
   <p>Hey, we've done a great job here! Pretty much the whole inventory of regular expression operations is at your disposal now. In this topic, we've learned that:</p> 
   <ul> 
    <li>in regexps, parentheses <code class="language-python">()</code> can be used to group characters into substrings;</li> 

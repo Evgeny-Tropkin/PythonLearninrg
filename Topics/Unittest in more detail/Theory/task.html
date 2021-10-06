@@ -4,7 +4,7 @@
  <body>
   <p>Testing is a very important part of writing any software application or product. Some developers write tests for the application before the code. This is called <strong>test-driven development (TDD)</strong>. We have special Python libraries that can be useful and the <code class="language-python">unittest</code> is one of them.</p> 
   <p>We have already learned the basics of the <code class="language-python">unittest</code> testing framework — we've learned how to create test cases and tests, how to use assert methods, how to run tests, and how to read the message about the result of the tests. However, the <code class="language-python">unittest</code> framework provides a lot of other tools to make testing easier. We will learn some advanced features of the library in this topic.</p> 
-  <h2>setUp and tearDown methods</h2> 
+  <h5>setUp and tearDown methods</h5> 
   <p>Sometimes we need to create class instances, temporary files, or access the web in the tests. These resources are called <strong>fixtures</strong>. Suppose you write several tests for the same class. You may think that you will have to create an instance of that class manually for each test. It can be a repetitive and time-consuming process.<span style="color: #66cc66;"> </span>The <code class="language-python">unittest.TestCase</code> class (namely, the <code class="language-python">setUp()</code> and <code class="language-python">tearDown()</code> methods) provides an easy mechanism to configure and clean up any fixtures.</p> 
   <p>The code inside the <code class="language-python">setUp()</code> method is executed <em>before</em> every test method and the code inside the <code class="language-python">tearDown()</code> method is executed <em>after</em> every test method. These methods save us from having to write the same code for each test. Now let's see these methods in action!</p> 
   <p>First, we will create a class with some methods that perform some mathematical operations. This is what <code class="language-python">calculator.py</code> may contain:</p> 
@@ -70,7 +70,7 @@ OK</code></pre>
   <p>In both test methods, we checked the expected output for the arguments we wrote in <code class="language-python">setUp()</code>first. This is because the <code class="language-python">setUp()</code> method runs before each test method. So even if we change the arguments in the <code class="language-python">test_add()</code> and check that they have changed, in <code class="language-python">test_subtract()</code> we write the assertion for the initial arguments. </p> 
   <p>The <code class="language-python">tearDown()</code> method can be used when we work with files. For example, in the <code class="language-python">setUp()</code> we can create a file that we are going to use in a test method, and then we can automatically delete it using <code class="language-python">tearDown()</code> after the test method was executed.</p> 
   <p>The<code class="language-python">unittest</code> also provides possibilities for <a target="_blank" href="https://docs.python.org/3/library/unittest.html#class-and-module-fixtures" rel="noopener noreferrer nofollow">class and module fixtures</a>.</p> 
-  <h2>Command-line options</h2> 
+  <h5>Command-line options</h5> 
   <p>You know that tests can be executed from the command line, but we have some cool features for you.</p> 
   <p>Sometimes the module with the tested unit and the file with tests are located in different directories. For instance, you have <code class="language-python">test_calculator.py</code> that is located in a different directory as the <code class="language-python">calculator.py</code>. To do this, we need to run the command line from the directory of <code class="language-python">calculator.py</code> and specify the path to <code class="language-python">test_calculator.py</code>:</p> 
   <pre><code class="language-no-highlight">python -m unittest C:\Users\User\Hyperskill\test_calculator.py</code></pre> 
@@ -94,7 +94,7 @@ OK</code></pre> </li>
   </ul> 
   <p>The list of the command-line options is bigger, we only described the most useful and commonly-used features. If you feel that you need to know more about this, you can type '-h' (help) and read the explanations:</p> 
   <pre><code class="language-no-highlight">python -m unittest -h</code></pre> 
-  <h2>Summary</h2> 
+  <h5>Summary</h5> 
   <p>We've learned more about the <code class="language-python">unittest</code> framework.</p> 
   <ul> 
    <li>The code inside the <code class="language-python">setUp()</code> method is executed before each test method.</li> 

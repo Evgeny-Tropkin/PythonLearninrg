@@ -3,7 +3,7 @@
  <head></head>
  <body>
   <p>If you work with Python regexp functions regularly, you know that sometimes they require additional parameters. These additional parameters are called <strong>flags</strong>. In this topic, we are going to cover compilation flags that can help you with adjusting regular expression patterns.</p> 
-  <h2>Compilation flags</h2> 
+  <h5>Compilation flags</h5> 
   <p>Regexes contain <strong>seven compilation flags</strong>. They can be passed as values of the optional <code class="language-python">flags</code> argument to any function. These flags change the behavior of your patterns. Each flag has two names: a long one, <code class="language-python">re.IGNORECASE</code>, for example, and a short one, <code class="language-python">re.I</code> in this case. Below you can find a table with all flags that will be discussed further:</p> 
   <table align="center" border="1" cellpadding="1" cellspacing="1"> 
    <tbody> 
@@ -41,7 +41,7 @@ upper = 'YOU SHALL NOT PASS\!'
 string = 'You Shall Not Pass!'
 result_lower = re.match(lower, string, flags=re.IGNORECASE)  # match
 result_upper = re.match(upper, string, flags=re.IGNORECASE)  # match</code></pre> 
-  <h2>Changing metacharacter behavior</h2> 
+  <h5>Changing metacharacter behavior</h5> 
   <p><code class="language-python">Re.DOTALL</code>, or <code class="language-python">re.S</code> for short, is another very useful flag. It matches the special <code class="language-python">.</code> character with any character, including the newline <code class="language-python">\n</code> character. If you remember, the dot meta metacharacter doesn't match a newline by default:</p> 
   <pre><code class="language-python">pattern = 'precious .'
 result_1 = re.search(pattern, 'my precious \n')  # no match
@@ -54,7 +54,7 @@ result_2 = re.findall('^(A|You)', string, flags=re.MULTILINE)  # ['A', 'You', 'A
 
 result_3 = re.findall('(cool.)$', string)  # []
 result_4 = re.findall('(cool.)$', string, flags=re.MULTILINE)  # ['cool.', 'cool?']</code></pre> 
-  <h2>Making patterns more readable</h2> 
+  <h5>Making patterns more readable</h5> 
   <p>Unlike other flags, <code class="language-python">Re.VERBOSE</code> or <code class="language-python">re.X</code> doesn't change the way your pattern behaves but makes the pattern compilation more comprehensible instead. Most of the regexp patterns are complex and barely understandable, and <code class="language-python">re.VERBOSE</code> allows for two things during compilation:</p> 
   <ul> 
    <li>Whitespaces can be used for alignment;</li> 
@@ -77,7 +77,7 @@ results = pattern.match('username@abc.com')  # match</code></pre>
    <code class="language-python">\#</code>.
   </div>
   <p></p> 
-  <h2>Matching ASCII only</h2> 
+  <h5>Matching ASCII only</h5> 
   <p>By default <code class="language-python">\w</code>, <code class="language-python">\W</code>, <code class="language-python">\b</code>, <code class="language-python">\B</code>, <code class="language-python">\d</code>, <code class="language-python">\D</code>, <code class="language-python">\s</code> and <code class="language-python">\S</code> match the entire UNICODE. To make a pattern match <strong>only ASCII characters</strong>, you can use <code class="language-python">re.ASCII</code> or <code class="language-python">re.A</code>:</p> 
   <pre><code class="language-python">result_1 = re.findall('\w', 'ä, Ä, ö. Ö, ü, Ü, ß.')  # ['ä', 'Ä', 'ö', 'Ö', 'ü', 'Ü', 'ß']
 result_2 = re.findall('\w', 'ä, Ä, ö. Ö, ü, Ü, ß.', flags=re.ASCII)  # []</code></pre> 
@@ -87,7 +87,7 @@ result_2 = re.findall('\w', 'ä, Ä, ö. Ö, ü, Ü, ß.', flags=re.ASCII)  # []
 result = re.findall('^(a|you)', string, flags=re.IGNORECASE|re.MULTILINE) 
 print(result)</code></pre> 
   <p> </p> 
-  <h2>Conclusion </h2> 
+  <h5>Conclusion </h5> 
   <p>In this topic, we have covered the main compilation flags that can improve your regexes. Let's recap them:</p> 
   <ul> 
    <li>Compilation flags are passed as values of the optional <code class="language-python">flags</code> argument;</li> 
