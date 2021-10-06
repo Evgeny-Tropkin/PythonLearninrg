@@ -11,7 +11,8 @@
 
 def parse_reg_ex(reg_ex_string):
     """The method accepts a string containing a Regular Expression.
-       Returns a list of tokens which were found in the entered regular expression """
+
+       Return a list of tokens which were found in the entered regular expression """
     special_characters = ('.', '?', '*', '+')
     res = []
     substring = []
@@ -23,7 +24,7 @@ def parse_reg_ex(reg_ex_string):
             if len(reg_ex_string) > 1:
                 reg_ex_string = reg_ex_string[1::]
         for pos, char in enumerate(reg_ex_string):
-            if char in special_characters and pos > 0:
+            if char in special_characters and (pos > 0 or char == '.'):
                 if char == '.':
                     if len(substring) != 0:
                         res.append(''.join(substring))
@@ -94,20 +95,54 @@ def match(processed_string, reg_ex_list, is_startswith=False):
                 continue
         elif len(target_item) > 1:
             if target_item[-1] in ['*', '+']:
+                count = 0
                 if target_item[-2] == '.':
-                    while checking_char != '\n' \
-                            and (checking_char != reg_ex_list[current_lex_pos + 1] or target_item[-1] == '+'):
-                        checking_char_index += 1
+                    while checking_char != '\n' and checking_char_index < len(processed_string):
                         checking_char = processed_string[checking_char_index]
+                        if current_lex_pos < (len(reg_ex_list) - 1):
+                            if checking_char == reg_ex_list[current_lex_pos + 1][0]:
+                                if target_item[-1] == '*' and count == 0:
+                                    break
+                                elif target_item[-1] == '+' and count > 0:
+                                    break
+                        checking_char_index += 1
+                        count += 1
 
                 while target_item[-2] == checking_char:
                     checking_char_index += 1
                     if checking_char_index >= len(processed_string):
                         break
                     checking_char = processed_string[checking_char_index]
+                    count += 1
                 else:
-                    current_lex_pos += 1
-                    if current_lex_pos < len(reg_ex_list):
+                    if target_item[-1] == '+' and count == 0:
+                        pass
+                    else:
+                        current_lex_pos += 1
+                        if current_lex_pos < len(reg_ex_list):
+                            target_item = reg_ex_list[current_lex_pos]
+            elif target_item[-1] == '?':
+                if target_item[-2] == '.':
+                    if checking_char != '\n':
+                        if current_lex_pos < (len(reg_ex_list) - 1):
+                            if checking_char != reg_ex_list[current_lex_pos + 1][0]:
+                                if checking_char_index < (len(processed_string) - 1):
+                                    checking_char_index += 1
+                            current_lex_pos += 1
+                            target_item = reg_ex_list[current_lex_pos]
+                        else:
+                            current_lex_pos += 1
+                elif target_item[-2] == checking_char:
+                    checking_char_index += 1
+                    if current_lex_pos < (len(reg_ex_list) - 1):
+                        current_lex_pos += 1
+                        target_item = reg_ex_list[current_lex_pos]
+                else:
+                    if current_lex_pos < (len(reg_ex_list) - 1):
+                        if checking_char != reg_ex_list[current_lex_pos + 1][0]:
+                            if checking_char_index < (len(processed_string) - 1):
+                                checking_char_index += 1
+                        current_lex_pos += 1
                         target_item = reg_ex_list[current_lex_pos]
 
         if checking_char_index >= len(processed_string):
@@ -123,9 +158,13 @@ def match(processed_string, reg_ex_list, is_startswith=False):
                 checking_char_index += len(target_item)
                 current_lex_pos += 1
             else:
+                if current_lex_pos >= len(reg_ex_list):
+                    res[0] = True
                 if is_startswith:
                     break
                 checking_char_index += 1
+                if checking_char_index >= len(processed_string):
+                    break
                 current_lex_pos = 0
 
     else:
