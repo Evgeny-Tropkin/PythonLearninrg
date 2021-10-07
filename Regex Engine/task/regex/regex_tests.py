@@ -103,3 +103,9 @@ class TestRegex(unittest.TestCase):
         self.assertTrue(regex.process_string("aaa", ['.?']))
 
         #  tests for a Stage 6
+        self.assertTrue(regex.process_string("end.", ['\\.', '$']))
+        self.assertTrue(regex.process_string("3+3=6", ['3', '\\+', '3']))
+        self.assertTrue(regex.process_string("Good?", ['\\?']))
+        self.assertTrue(regex.process_string("\\", ["\\\\"]))
+        self.assertFalse(regex.process_string("color", ["colou", '\\?', 'r']))
+        self.assertFalse(regex.process_string("colour", ["colou", '\\?', 'r']))
