@@ -42,6 +42,13 @@ class TestRegex(unittest.TestCase):
         self.assertEqual(regex.parse_reg_ex("^+abc"), ['^', "+abc"])
         self.assertEqual(regex.parse_reg_ex(".+a"), [".+", 'a'])
         self.assertEqual(regex.parse_reg_ex("..+a"), ['.', ".+", 'a'])
+        #  tests for Stage 6
+        self.assertEqual(regex.parse_reg_ex("\\^a"), ["\\^", 'a'])
+        self.assertEqual(regex.parse_reg_ex("a\\$"), ['a', "\\$"])
+        self.assertEqual(regex.parse_reg_ex("\\.a"), ["\\.", 'a'])
+        self.assertEqual(regex.parse_reg_ex("a\\?"), ['a', "\\?"])
+        self.assertEqual(regex.parse_reg_ex("a\\*"), ['a', "\\*"])
+        self.assertEqual(regex.parse_reg_ex("a\\+"), ['a', "\\+"])
 
     def test_process_string(self):
         # tests for Stages 1-3
