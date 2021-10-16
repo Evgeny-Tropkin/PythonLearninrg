@@ -9,5 +9,8 @@ files:
     # create Human
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/10115#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Sat, 16 Oct 2021 15:18:42 UTC
 record: -1
