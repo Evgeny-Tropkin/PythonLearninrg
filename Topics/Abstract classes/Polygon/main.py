@@ -11,3 +11,6 @@ class EquilateralPolygon(ABC):
 
 
 # create Square
+class Square(EquilateralPolygon):
+    def get_area(self):
+        return self.side * self.side
