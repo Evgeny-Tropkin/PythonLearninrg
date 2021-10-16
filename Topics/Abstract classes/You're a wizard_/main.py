@@ -21,3 +21,9 @@ class Player(ABC):
 
 
 # create a Wizard
+class Wizard(Player):
+    def fight(self):
+        print("Strike with a staff on the top of the enemy's head")
+
+    def do_spell(self):
+        print("Expiliarmus")
