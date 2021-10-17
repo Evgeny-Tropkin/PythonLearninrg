@@ -48,7 +48,7 @@ re.match('[\D\S]', 'a')  # match, 'a' is not a digit and not a whitespace charac
   <pre><code class="language-python">re.match('[^\d\s]', '0')  # no match, 0 is a digit
 re.match('[^\d\s]', '\t')  # no match, \t is a whitespace character
 re.match('[^\d\s]', 'a')  # match, 'a' is not a digit and not a whitespace</code></pre> 
-  <p>So, keep in mind that if you are thinking about using a combination of negated shorthands in your set, you probably should replace them with a <em>negated</em> <em>set </em>and regular, <em>non-negated</em> <em>shorthands </em>inside it. </p> 
+  <p>So, keep in mind that if you are thinking about using a combination of negated shorthands in your set, you probably should replace them with a <em>negated</em> <em>set </em>and regular <em>non-negated</em> <em>shorthands </em>inside it. </p> 
   <p>Used alone in combination with regular characters, negated shorthands behave properly in sets. You can add some of the characters banned by the negated shorthand to the set, making the scope of your set even bigger. For example, the set <code class="language-python">[\Wa-c]</code> matches no alphanumeric characters except for the <code class="language-python">a</code>, <code class="language-python">b</code>, <code class="language-python">c</code> letters:</p> 
   <pre><code class="language-python">re.match('[\Wa-c]', 'a')  # match, 'a' is in the set
 re.match('[\Wa-c]', 'z')  # no match: 'z' is alphanumeric and is not in the a-c range
