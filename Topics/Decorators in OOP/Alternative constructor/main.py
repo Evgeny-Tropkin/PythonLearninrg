@@ -5,5 +5,7 @@ class Person:
         self.email = email
 
     # use appropriate decorator
-    def from_string(...):
-        ...
+    @classmethod
+    def from_string(cls, string):
+        name, email = string.split('-')
+        return cls(name, email)
