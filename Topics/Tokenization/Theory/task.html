@@ -59,7 +59,7 @@ print(wpt.tokenize(text))
   <pre><code class="language-python">tbw = TreebankWordTokenizer()
 print(tbw.tokenize(text))
 # ['I', 'have', 'got', 'a', 'cat.', 'My', 'cat', "'s", 'name', 'is', 'C-3PO.', 'He', "'s", 'golden', '.']</code></pre> 
-  <p>The <code class="language-python">TreebankWordTokenizer()</code> works almost the same way as the <code class="language-python">word_tokenize()</code> but mind full stops — they form a token with the previous word, the last full stop is a separate token; the <code class="language-python">word_tokenize()</code>, on the contrary, recognizes full stops as separate tokens in all cases. Moreover, the <em>apostrophes</em> and the <em>s</em> are not separated as in the <code class="language-python">WordPunctTokenizer()</code>.</p> 
+  <p>The <code class="language-python">TreebankWordTokenizer()</code> works almost the same way as the <code class="language-python">word_tokenize()</code>, but mind full stops — they form a token with the previous word, and the last full stop is a separate token; <code class="language-python">word_tokenize()</code>, on the contrary, recognizes full stops as separate tokens in all cases. Moreover, the apostrophe and <code class="language-python">s</code> are not separated as in the <code class="language-python">WordPunctTokenizer()</code>.</p> 
   <p>Let's now move on to the next method. The <code class="language-python">regexp_tokenize()</code> function makes use of regular expressions and accepts two arguments, a string and a pattern for tokens.</p> 
   <pre><code class="language-python"># 1
 print(regexp_tokenize(text, "[A-z]+"))
@@ -86,7 +86,7 @@ print(regexp_tokenize(text, "[0-9A-z'\-]+"))
   <pre><code class="language-python">text_2 = "Mrs. Beam lives in the U.S.A., it is her motherland. She lost about 9 kilos (20 lbs.) last year."
 print(sent_tokenize(text_2))
 # ['Mrs. Beam lives in the U.S.A., it is her motherland.', 'She lost about 9 kilos (20 lbs.)', 'last year.']</code></pre> 
-  <p>The<code class="language-python">sent_tokenize()</code> includes a list of some instances of typical abbreviations and contractions with dots so they are not recognized as the end of the sentence. But sometimes it still provides confusing results. For example, after tokenizing the <code class="language-python">text_2</code> above, <code class="language-python">.)</code> was recognized as the end of the sentence. It is a mistake.</p> 
+  <p>The <code class="language-python">sent_tokenize()</code> includes a list of some instances of typical abbreviations and contractions with dots so they are not recognized as the end of the sentence. But sometimes it still provides confusing results. For example, after tokenizing the <code class="language-python">text_2</code> above, <code class="language-python">.)</code> was recognized as the end of the sentence. It is a mistake.</p> 
   <p>If you deal with informal texts such as comments, splitting them into sentences may be particularly problematic. For example, in <code class="language-python">text_3</code>, there are lots of periods and no spaces, so two sentences were recognized as one.</p> 
   <pre><code class="language-python">text_3 = "The plot of the film is cool!!!!!!! but the characters leave much to be desired....i don't like them."
 print(sent_tokenize(text_3))
