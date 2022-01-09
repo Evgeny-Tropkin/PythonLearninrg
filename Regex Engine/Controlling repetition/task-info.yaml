@@ -174,7 +174,7 @@ files:
             self.assertTrue(regex.process_string("colr", ["col", '.*', 'r']))
             #  tests for a Stage 6
   learner_created: true
-feedback_link: https://hyperskill.org/projects/114/stages/623/implement#comment
+feedback_link: https://hyperskill.org/learn/step/10243#comment
 status: Solved
 feedback:
   message: Congratulations!

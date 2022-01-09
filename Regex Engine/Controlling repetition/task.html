@@ -26,7 +26,7 @@
 <p>In the case of the operator <code class="java">?</code>, there are two possible scenarios:</p>
 
 <ol>
-	<li>The preceding character occurs zero times, so basically it is skipped. This means that only the part of the regex after the metacharacter <code class="java">?</code> is passed to the recursive function along with the unmodified input string.</li>
+	<li>The preceding character occurs zero times, so basically it is skipped. This means that only the part of the regex, if present, after the metacharacter <code class="java">?</code> is passed to the recursive function along with the unmodified input string.</li>
 	<li>The preceding character occurs once. This means that if the character preceding <code class="java">?</code> matches the first character of the input string, the part of the regex after <code class="java">?</code> is passed to the recursive function along with the part of the input string without the character that is already matched.</li>
 </ol>
 
@@ -42,11 +42,14 @@
 <ol>
 	<li>The preceding character occurs once. This case is the same as the second case with the operator <code class="java">?</code>.</li>
 	<li>The preceding character occurs more than once. This case is basically the same as the second case with the operator <code class="java">*</code>.</li>
+	<li>If there are character(s) after the operator, you need to pass to the recursive function a modified regex and a modified string.</li>
 </ol>
+
+<p> </p>
 
 <p>You could create separate functions for each operator and invoke them from the <code class="java">match</code> function, or you could include these cases into that function. The important thing to understand is that the logic of recursion does not change with the implementation of these operators, but you might have to fiddle with the number of characters that are going (or not going) to be sliced. Use boolean logic where possible in order to simplify the code and minimize the number of <code class="java">if else</code> clauses.</p>
 
-<h5>Example</h5>
+<h5>Examples</h5>
 
 <pre><code class="language-no-highlight">Input: 'colou?r|color'       Output: True
 Input: 'colou?r|colour'      Output: True

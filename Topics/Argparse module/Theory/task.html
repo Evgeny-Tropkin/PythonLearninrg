@@ -11,7 +11,7 @@
   <p>The next step is to create an <code class="language-python">ArgumentParser</code> object which will store all the information about the arguments:</p> 
   <pre><code class="language-python">parser = argparse.ArgumentParser(description="This program prints recipes \
 consisting of the ingredients you provide.")</code></pre> 
-  <p>The <code class="language-python">ArgumentParser</code> has quite a number of parameters that you can specify, but we only invoked <code class="language-python">description</code> which is quite handy in order to explain to a user what your program is for in general. Now let's add some arguments.</p> 
+  <p>The <code class="language-python">ArgumentParser</code> is a class. In Python, classes are used to define the data and the behaviors of similar objects. The <code class="language-python">ArgumentParser</code> has quite a number of parameters that you can specify, but we only invoked <code class="language-python">description</code> which is quite handy in order to explain to a user what your program is for in general. Now let's add some arguments.</p> 
   <h5>Adding arguments</h5> 
   <p>To do that, we will use the <code class="language-python">add_argument()</code> method:</p> 
   <pre><code class="language-python">parser.add_argument("-i1", "--ingredient_1")  # optional argument

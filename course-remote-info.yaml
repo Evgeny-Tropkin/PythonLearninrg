@@ -3,7 +3,7 @@ hyperskill_project:
   ide_files: https://stepik.org/media/attachments/lesson/384512/additional_files.json
   is_template_based: false
   use_ide: true
-update_date: Sun, 24 Oct 2021 14:53:05 UTC
+update_date: Sun, 09 Jan 2022 14:45:25 UTC
 stages:
 - id: 619
   step: 10239
@@ -77,7 +77,7 @@ topics:
     theory_id: 6972
   1:
   - title: Computer algorithms
-    theory_id: 4953
+    theory_id: 16547
   - title: Intro to computational thinking
     theory_id: 8742
   - title: Components of computational thinking

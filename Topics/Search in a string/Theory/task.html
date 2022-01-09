@@ -3,8 +3,31 @@
  <head></head>
  <body>
   <p>One of the essential skills when working with data is to be able to search it and locate specific bits of information. Working with textual data in Python, you may need to get some information about its content: whether it includes a specific <strong>substring</strong> (i.e. part of the string), where this substring is, or how many times it occurs in the text. In this topic, we will learn how to do it.</p> 
+  <h5>A substring searching algorithm</h5> 
+  <p>We'll start with a substring searching problem. Given two strings, <em>text</em> and <em>pattern</em>, we need to identify whether there is at least one occurrence of the <em>pattern</em> in the <em>text</em>. The simplest and most natural way to solve this problem is to sequentially consider all substrings of the <em>text</em> whose length is equal to the length of the <em>pattern</em> and compare them with the <em>pattern</em> itself. If at least in one case all corresponding symbols match, the <em>pattern</em> is found. If none of such attempts were successful, we should indicate that there is no <em>pattern</em> in the text. Here's how this simple algorithm can be implemented in Python:</p> 
+  <pre><code class="language-python">def contains(text, pattern):
+    for i in range(len(text) - len(pattern) + 1):
+        found = True
+
+        for j in range(len(pattern)):
+            if text[i + j] != pattern[j]:
+                found = False
+                break
+
+        if found:
+            return True
+
+    return False</code></pre> 
+  <p>The function named <code class="language-python">contains</code> takes two strings, <code class="language-python">text</code> and <code class="language-python">pattern</code>, as input and returns <code class="language-python">True</code> if <code class="language-python">text</code> contains <code class="language-python">pattern</code> and <code class="language-python">False</code> otherwise.</p> 
+  <p>At each step of the outer <code class="language-python">for</code> loop, we create a variable named <code class="language-python">found</code> and initialize it with <code class="language-python">True</code>. Then, in the inner <code class="language-python">for</code> loop, we start comparing <code class="language-python">pattern</code> with the current substring of <code class="language-python">text</code>. If at least one of the corresponding symbols doesn't match, we set the variable <code class="language-python">found</code> to <code class="language-python">False</code> and break the inner loop. After the inner <code class="language-python">for</code> loop is done, we check the state of the <code class="language-python">found</code> variable. If it remains <code class="language-python">True</code>, this means that each symbol of <code class="language-python">pattern</code> matches the current substring. In this case, we return <code class="language-python">True</code> indicating that <code class="language-python">pattern</code> is found. Otherwise, we move to the next iteration and start considering the next substring. In case none of the comparisons were successful, that is, the outer <code class="language-python">for</code> loop finishes all iterations, the function returns <code class="language-python">False</code> indicating that <code class="language-python">pattern</code> is not found.</p> 
+  <p>Here is how this algorithm can be used:</p> 
+  <pre><code class="language-python">contains("abacabad", "cab")  # True
+contains("abacabad", "abacabad")  # True
+contains("aba", "")  # True
+contains("abacabad", "hello")  # False</code></pre> 
+  <p>Now we know that there is a substring searching algorithm and how to implement it in Python. However, there are also built-in functions and operators that solve the problem. Let's see what they are.</p> 
   <h5>Membership testing</h5> 
-  <p>We'll start with the first question: how can we define if there's a specific pattern in our string? One way to do it is called <strong>membership testing</strong>, and it is implemented with the help of the operators <code class="language-python">in</code> and <code class="language-python">not in</code>. When we write <code class="language-python">pattern in string</code>, the left operand should be a string, and membership test checks if <code class="language-python">string</code> contains <code class="language-python">pattern</code> as a substring.</p> 
+  <p>Another way to define if there's a specific pattern in our string is called <strong>membership testing</strong>, and it is implemented with the help of the operators <code class="language-python">in</code> and <code class="language-python">not in</code>. When we write <code class="language-python">pattern in string</code>, the left operand should be a string, and membership test checks if <code class="language-python">string</code> contains <code class="language-python">pattern</code> as a substring.</p> 
   <p>If membership test returns <code class="language-python">True</code>, this means that there exists a position in <code class="language-python">string</code> starting from which you can read the pattern in the string.</p> 
   <pre><code class="language-python">print("apple" in "pineapple")  # True
 print("milk" in "yogurt")      # False</code></pre> 
@@ -57,6 +80,7 @@ print(magic.count("a"))     # 5</code></pre>
   <h5>Summary</h5> 
   <p>In this topic, we have examined different aspects of searching through a string and learned how to locate specific patterns. Now you will be able:</p> 
   <ul> 
+   <li>To implement a substring searching algorithm in Python,</li> 
    <li>To test for membership in a text,</li> 
    <li>To check that the string starts or ends with a specific pattern,</li> 
    <li>To find the exact position of a substring,</li> 

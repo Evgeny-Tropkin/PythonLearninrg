@@ -41,13 +41,13 @@ re.match(r'\\w', r'\k')  # no match, because \\w isn't a shorthand here</code></
 re.match('no[!\w]', 'noo')  # match</code></pre> 
   <p>Many great features can be dangerous, though. This feature is not an exception — do not use several negated shorthands in one set, as they are not what they may seem!</p> 
   <p>Suppose you want a set that will match everything except for digits and whitespace characters. You could write <code class="language-python">[\D\S]</code>, but that's a wrong move. The explanation is that a character matching a set should match only <em>one</em> element of this set, but not all of them at the same time. This way, when you use the set <code class="language-python">[\D\S]</code>, a character matching this set should match <em>either </em><code class="language-python">\D</code> <em>or </em><code class="language-python">\S</code>. So, every digit matches <code class="language-python">\S</code> (because digits are not whitespace characters), and every whitespace character matches <code class="language-python">\D</code>(because whitespace characters are never digits). In the end, this set matches <em>all</em> possible characters (looks like the dot character <code class="language-python">.</code>, but more powerful, because unlike the dot, it matches <code class="language-python">\n</code> too). </p> 
-  <pre><code class="language-python">re.match('[\D\S]', '0')  # match, 0 is not a whitespace character
+  <pre><code class="language-python">re.match('[\D\S]', '0')   # match, 0 is not a whitespace character
 re.match('[\D\S]', '\n')  # match, \n is not a digit
-re.match('[\D\S]', 'a')  # match, 'a' is not a digit and not a whitespace character</code></pre> 
+re.match('[\D\S]', 'a')   # match, 'a' is not a digit and not a whitespace character</code></pre> 
   <p>Instead of <code class="language-python">[\D\S]</code>, use <code class="language-python">[^\d\s]</code>. This set matches everything that does not fall into the categories of whitespaces and digits <em>at the same time</em>. </p> 
-  <pre><code class="language-python">re.match('[^\d\s]', '0')  # no match, 0 is a digit
+  <pre><code class="language-python">re.match('[^\d\s]', '0')   # no match, 0 is a digit
 re.match('[^\d\s]', '\t')  # no match, \t is a whitespace character
-re.match('[^\d\s]', 'a')  # match, 'a' is not a digit and not a whitespace</code></pre> 
+re.match('[^\d\s]', 'a')   # match, 'a' is not a digit and not a whitespace</code></pre> 
   <p>So, keep in mind that if you are thinking about using a combination of negated shorthands in your set, you probably should replace them with a <em>negated</em> <em>set </em>and regular <em>non-negated</em> <em>shorthands </em>inside it. </p> 
   <p>Used alone in combination with regular characters, negated shorthands behave properly in sets. You can add some of the characters banned by the negated shorthand to the set, making the scope of your set even bigger. For example, the set <code class="language-python">[\Wa-c]</code> matches no alphanumeric characters except for the <code class="language-python">a</code>, <code class="language-python">b</code>, <code class="language-python">c</code> letters:</p> 
   <pre><code class="language-python">re.match('[\Wa-c]', 'a')  # match, 'a' is in the set
@@ -74,9 +74,9 @@ re.match(r'Hail\B', 'Hailey')  # match</code></pre>
    <li><code class="language-python">\Z</code> matches an empty string at the end of the string. </li> 
   </ul> 
   <pre><code class="language-python">re.match('Hail\Z', 'Hail!')  # no match
-re.match('Hail\Z', 'Hail')  # match</code></pre> 
+re.match('Hail\Z', 'Hail')   # match</code></pre> 
   <p><code class="language-python">\b</code> shorthand is the only one that you need to escape to use correctly, otherwise, it will become a Python metacharacter, not a regexp one. You can avoid escaping by adding the <code class="language-python">r</code> prefix. In general, it is recommended to use the <code class="language-python">r</code> prefix any time you write a regular expression, it will save you some time and make your code more readable.</p> 
-  <pre><code class="language-python">re.match('Hail\b', 'Hail Mary!')  # no match, \b is a Python escape character
+  <pre><code class="language-python">re.match('Hail\b', 'Hail Mary!')   # no match, \b is a Python escape character
 re.match(r'Hail\b', 'Hail Mary!')  # match, \b is a regexp shorthand</code></pre> 
   <p>By the way, <code class="language-python">\A</code> and <code class="language-python">\Z</code> are not widespread. They are often replaced by simpler metacharacters with identical functions.</p> 
   <p> </p>
@@ -90,9 +90,13 @@ re.match(r'Hail\b', 'Hail Mary!')  # match, \b is a regexp shorthand</code></pre
   <p></p> 
   <p>Here is an example for the dollar sign character <code class="language-python">$</code>, since it is the only one that makes sense for us as long as we are using the <code class="language-python">match()</code> function to compare a template and a string:</p> 
   <pre><code class="language-python">re.match("Bring cash$", "Bring cash$")  # no match: $ in regexp means "the end of the string"
-re.match("Bring cash$", "Bring cash")  # match: h is the last character in the string
-re.match("Bring cash\Z", "Bring cash")  # match: \Z identical to $</code></pre> 
-  <p>The hat character <code class="language-python">^</code> works the same way, only for the beginning of the string.</p> 
+re.match("Bring cash$", "Bring cash")   # match: h is the last character in the string
+re.match("Bring cash\Z", "Bring cash")  # match: \Z is identical to $</code></pre> 
+  <p>The hat character <code class="language-python">^</code> works the same way, only for the beginning of the string:</p> 
+  <pre><code class="language-python">re.match("^Bring cash", "^Bring cash$")  # no match: ^ in regexp means "the start of the string"
+re.match("^Bring cash", "Bring cash$")   # match
+re.match("\ABring cash", "Bring cash$")  # match: \A is identical to ^
+re.match("Bring cash", "Bring cash$")    # match: match() matches the start of the string by default</code></pre> 
   <h5>Summary</h5> 
   <p>So, in this topic we have learned:</p> 
   <ul> 
