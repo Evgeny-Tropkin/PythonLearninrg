@@ -3,7 +3,7 @@
  <head></head>
  <body>
   <p>You have learned about basic methods that are used to work with dictionaries. Let's talk about other operations. They will help you discover new features of dictionaries.</p> 
-  <h5 style="text-align: center;">Membership testing in a dictionary</h5> 
+  <h5 style="text-align: center;" id="membership-testing-in-a-dictionary">Membership testing in a dictionary</h5> 
   <p>Sometimes you need to check whether a specific item is present in your dictionary. For example, you have a furniture catalog where products (keys) are listed along with prices (values), and you want to find out if it has a blue sofa in it or not. In this case, you can use operators <code class="language-python">in</code> and <code class="language-python">not in</code> for this purpose. The syntax is quite simple: <code class="language-python">key in dictionary</code> returns <code class="language-python">True</code> if <code class="language-python">key</code> exists in <code class="language-python">dictionary</code> and <code class="language-python">False</code> otherwise. The <code class="language-python">not in</code> operator does the opposite, it returns <code class="language-python">True</code> if <code class="language-python">key</code> does not exist in the dictionary:</p> 
   <pre><code class="language-python">catalog = {'green table': 5000, 'brown chair': 1500, 'blue sofa': 15000, 'wardrobe': 10000}
  
@@ -11,7 +11,7 @@ print('blue sofa' in catalog)        # True
 print('green table' not in catalog)  # False</code></pre> 
   <p>Note that the membership operator looks for keys, not values:</p> 
   <pre><code class="language-python">print(1500 in catalog)  # False</code></pre> 
-  <h5 style="text-align: center;">Iterating over keys</h5> 
+  <h5 style="text-align: center;" id="iterating-over-keys">Iterating over keys</h5> 
   <p>You already know that the <code class="language-python">for</code> loop allows us to iterate over elements of an object. So what does iteration over a dictionary give us? Let's take a look at the following example:</p> 
   <pre><code class="language-python">tiny_dict = {'a': 1, 'b': 2, 'c': 3}
  
@@ -29,7 +29,7 @@ c</code></pre>
 # a
 # b
 # c</code></pre> 
-  <h5 style="text-align: center;">Including values in iteration</h5> 
+  <h5 style="text-align: center;" id="including-values-in-iteration">Including values in iteration</h5> 
   <p>What if we want to get more than just the dictionary keys when iterating? </p> 
   <p>The<code class="language-python">values</code> method is quite similar to the previous one, the only difference is that you get the values, not the keys. It provides a collection of values, without any information about keys that are used to get these values from the dictionary:</p> 
   <pre><code class="language-python">for value in tiny_dict.values():
@@ -47,10 +47,10 @@ print(tiny_dict.values())  # dict_values([1, 2, 3])</code></pre>
 # ('c', 3)
 
 print(tiny_dict.items())  # dict_items([('a', 1), ('b', 2), ('c', 3)])</code></pre> 
-  <h5 style="text-align: center;">Dictionary comprehension </h5> 
+  <h5 style="text-align: center;" id="dictionary-comprehension">Dictionary comprehension </h5> 
   <p>Dictionary comprehension is a very convenient and concise way to create a new dictionary with one line of code. The minimal template looks like this:</p> 
   <pre><code class="language-python">dictionary = {key: value for element in iterable}</code></pre> 
-  <p>Let's take a closer look. The expression is grouped in curly brackets — <code class="language-python">{}</code>. What happens inside? The <code class="language-python">for</code> loop goes over the elements of an iterable object (list, another dictionary, etc.). To create a dictionary, we need to specify the <code class="language-python">key</code>, which must be bound with an iterable object, and then the <code class="language-python">value</code>, which can be arbitrary:</p> 
+  <p>Let's take a closer look. The expression is grouped in curly brackets — <code class="language-python">{}</code>. What happens inside? The <code class="language-python">for</code> loop goes over the elements of an iterable object (list, another dictionary, etc.). To create a dictionary, we need to specify the <code class="language-python">key</code>, which, if we want to create several elements at once, should be bound with an iterable object, and then the <code class="language-python">value</code>, which can be arbitrary:</p> 
   <pre><code class="language-python">dictionary = {key + 5: 'some_value' for key in range(3)}
 print(dictionary)  # {5: 'some_value', 6: 'some_value', 7: 'some_value'}</code></pre> 
   <p>However, the <code class="language-python">value</code> is usually also associated with the iterable:</p> 
@@ -77,7 +77,7 @@ print(planets_diameter_mile)  # {'Mars': 4212.29, 'Earth': 7917.53}</code></pre>
 print(planets_diameter_mile)  # {'Earth': 7917.53}</code></pre> 
   <p>So, the dictionary comprehension streamlines the process of creating a dictionary, and the logic of the process is understandable. However, be careful not to make your code hard to read.</p> 
   <p>You can find more information about dictionary comprehension on the <a target="_blank" href="https://www.python.org/dev/peps/pep-0274/" rel="noopener noreferrer nofollow">official Python website</a>.</p> 
-  <h5 style="text-align: center;">Summary</h5> 
+  <h5 style="text-align: center;" id="summary">Summary</h5> 
   <p>In this topic, you've learned some tricks about dictionaries:</p> 
   <ul> 
    <li><code class="language-python">in</code> and <code class="language-python">not in</code> operators allow to test for membership in a dictionary, though, they look for keys only;</li> 

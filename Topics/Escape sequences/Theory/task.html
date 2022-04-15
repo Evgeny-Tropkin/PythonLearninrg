@@ -9,7 +9,7 @@
 warning = 'That's my car'
 print(warning)</code></pre> 
   <p>The sentence seems to look fine, but Python will show you an error message «<code class="language-python">EOL while scanning string literal</code>». Why did that error occur? The abbreviation "EOL" stands for "End-of-line" and it means that Python went through the text and didn't find the end of the string. The sentence was divided into two parts. The first one is <code class="language-python">"That"</code> and the second one is <code class="language-python">"s my car"</code>.</p> 
-  <h5>What is an escape sequence?</h5> 
+  <h5 id="what-is-an-escape-sequence">What is an escape sequence?</h5> 
   <p>To avoid the described problem you should use <strong>escape sequences</strong>. </p> 
   <p>All escape sequences start with a backslash <code class="language-python">\</code>, which is interpreted as an <strong>escape character</strong>. A backslash indicates that one or more characters must be handled in a special way or that the next character after it has a different meaning.</p> 
   <p>Add an escape character to our example and see that the quote is now interpreted as the literal symbol of a single quote without any errors.</p> 
@@ -48,7 +48,7 @@ print(face)  # \^_^/</code></pre>
   <pre><code class="language-python">print(repr(face))  # '\\^_^/'</code></pre> 
   <p>When we want to know the length of a string, escape sequences are also taken into account:</p> 
   <pre><code class="language-python">print(len(repr(face)))  # 8</code></pre> 
-  <h5>Other examples</h5> 
+  <h5 id="other-examples">Other examples</h5> 
   <p>Let's consider an example with the escape sequence <code class="language-python">\n</code>:</p> 
   <pre><code class="language-python"># The new line
 
@@ -66,6 +66,12 @@ print('Hello\tWorld!')  # Hello   World!</code></pre>
 print("Hello, dear \rWorld!")  # World! dear</code></pre> 
   <p>Please note that the string length remains the same!</p> 
   <pre><code class="language-python">print(len("Hello, dear \rWorld!"))  # 19</code></pre> 
+  <p></p>
+  <div class="alert alert-primary">
+   Mind that 
+   <code class="language-python">\r</code> might work in a little bit different way if you use a specific Python environment or operating system. Be careful when you use it!
+  </div>
+  <p></p> 
   <p>Escape sequences are simple to use, aren't they? Let's talk more about the length of strings. For example:</p> 
   <pre><code class="language-python"># Comparing the lengths
 
@@ -82,7 +88,7 @@ print(len(greeting))       # 11
 print(len(nice_greeting))  # 12</code></pre> 
   <p>After calling the <code class="language-python">len()</code> function, we can see that the length of the string with an escape sequence (in this case <code class="language-python">\n</code>) is greater.</p> 
   <p>Be careful while working with strings because the function <code class="language-python">print()</code> doesn't show escape sequences.</p> 
-  <h5>Summary</h5> 
+  <h5 id="summary">Summary</h5> 
   <p>Thus, in this topic, we have introduced basic escape sequences, their features, and considered several examples of how to use them, so now you can work with them in Python strings!</p>
  </body>
 </html>

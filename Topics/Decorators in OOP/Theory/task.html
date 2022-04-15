@@ -3,7 +3,7 @@
  <head></head>
  <body>
   <p>As you already know, decorators can help change the behavior of a function without modifying its code. In this topic, we will discuss three main built-in decorators that can help us working with classes: <code class="language-python">staticmethod</code>, <code class="language-python">classmethod</code>, and <code class="language-python">property</code>.</p> 
-  <h5 style="text-align: center;">@staticmethod</h5> 
+  <h5 style="text-align: center;" id="staticmethod">@staticmethod</h5> 
   <p>The <code class="language-python">@staticmethod</code> decorator can be used to bind a function to a class as its method. In the following example, we have the <code class="language-python">CharType</code> class and the method to get the type of character:</p> 
   <pre><code class="language-python">class CharType(object):
 
@@ -21,7 +21,7 @@ print(CharType.get_type('a'))    # letter
 print(CharType().get_type('1'))  # digit</code></pre> 
   <p>As you can see, we may access the static method without creating an instance of the class first. Of course, we can extend the functionality by adding other methods which will interact with the static methods within the class.</p> 
   <p>Note that such static methods do not have any mandatory parameters; in contrast to instance methods we have dealt with before, the functions decorated with the <code class="language-python">@staticmethod</code> decorator do not take <code class="language-python">self</code> as the first argument; nor do they accept the <code class="language-python">cls</code> argument, as opposed to class methods you will read about below. Even though a static method belongs to a class and all its instances, it does not get any access to instance internals. This method is used for a matter of convenience or to make a better design for the code.</p> 
-  <h5 style="text-align: center;">@classmethod</h5> 
+  <h5 style="text-align: center;" id="classmethod">@classmethod</h5> 
   <p>Now, let's move on to the <code class="language-python">@classmethod</code> decorator. As you know, a "regular" method takes an instance of the class as its first argument and then we use <code class="language-python">self</code> to refer to it. Class methods, on the contrary, do not require particular class instances; they have access only to general class attributes and properties. Because of this, their first parameter should always be <code class="language-python">cls</code>, which represents the class itself, and not the class instance, denoted by <code class="language-python">self</code>.</p> 
   <p>In the following example, we have the class <code class="language-python">User</code> and a single string, containing both a name and a surname. Now, we need to process the string to receive the name and the surname as two separate string variables. We are going to do it with the help of the <code class="language-python">from_string</code> method.</p> 
   <pre><code class="language-python">class User(object):
@@ -45,13 +45,13 @@ print(user.get_info())  # Santa (Claus)</code></pre>
   <p>However, we can also call the <code class="language-python">from_string</code> method on the <code class="language-python">User</code> instance, even though it makes less sense.</p> 
   <pre><code class="language-python">user2 = user.from_string('Father Christmas')
 user2.get_info()  # Father (Christmas)</code></pre> 
-  <h5 style="text-align: center;">@classmethod vs @staticmethod</h5> 
+  <h5 style="text-align: center;" id="classmethod-vs-staticmethod">@classmethod vs @staticmethod</h5> 
   <p>To make it clearer, let's outline the main differences between static and class methods:</p> 
   <ol> 
    <li>Static methods have neither <code class="language-python">cls</code> nor <code class="language-python">self</code> as their parameters, so we cannot operate on the class or particular instances within the method. In general, they act similarly to functions outside the class and are often used as utility methods.</li> 
    <li>Class methods always take the class as the first argument, usually called <code class="language-python">cls</code>. They are frequently used as alternative constructors that create class objects for various use cases.</li> 
   </ol> 
-  <h5 style="text-align: center;">@property</h5> 
+  <h5 style="text-align: center;" id="property">@property</h5> 
   <p>Finally, let's create a basic example of the <code class="language-python">@property</code> decorator usage. This one is designed to access a method as if it was an attribute of a class. Once again, we have an instance of the <code class="language-python">User</code> class:</p> 
   <pre><code class="language-python">class User:
     def __init__(self, name, surname):
@@ -84,7 +84,7 @@ print(user.full_name)  # Santa Claus
 user.name = 'Father'
 print(user.name)  # Father
 print(user.full_name)  # Father Claus</code></pre> 
-  <h5>Summary</h5> 
+  <h5 id="summary">Summary</h5> 
   <p>In this topic, we have learned that:</p> 
   <ul> 
    <li>the <code class="language-python">@staticmethod</code> decorator allows us to use a function without access to class instances as a class method;</li> 

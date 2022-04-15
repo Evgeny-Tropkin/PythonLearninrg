@@ -86,6 +86,8 @@ class RegexTest(StageTest):
          "The repetition operators can be combined with other metacharacters, like '.', '^' and '$'."),
         ("^n.+p$", "noooooooope",     "False",
          "The repetition operators can be combined with other metacharacters, like '.', '^' and '$'."),
+        ('^.*c$', 'abcabc', "True",
+         "The repetition operators can be combined with other metacharacters, like '.', '^' and '$'."),
         # stage 6
         ("\\.$",  "end.",              "True",
          "Don't forget that '\\' is an escape symbol in Python itself, so it has to be duplicated!"),

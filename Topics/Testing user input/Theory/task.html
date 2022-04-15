@@ -2,8 +2,8 @@
 <html>
  <head></head>
  <body>
-  <p>When we write programs in Python, we often want to interact with a user, for example, to ask them to enter a value to obtain a further result. We need to be very careful with that! Users may enter not what they were asked, and it can lead to unexpected errors. To prevent this, we should <strong>test the user's input</strong>. The idea is to take into account all scenarios and process them correctly. This topic will cover the basics of such testings.</p> 
-  <h5 style="text-align: center;">Types of values in testing user's input</h5> 
+  <p>When we write programs in Python, we often want to interact with a user, for example, to ask them to enter a value to obtain a further result. We need to be very careful with that! Users may enter something other than what they were asked for, and it can lead to unexpected errors. To prevent this, we should <strong>test the user's input</strong>. The idea is to take into account all scenarios and process them correctly. This topic will cover the basics of such testings.</p> 
+  <h5 style="text-align: center;" id="types-of-values-in-testing-users-input">Types of values in testing user's input</h5> 
   <p>Input values can be divided into three groups:</p> 
   <ul> 
    <li><strong>expected values</strong> are correct input values, a program requires them for implementing next steps.</li> 
@@ -19,7 +19,7 @@
    <li>Other integers, floats, or strings are <em>invalid values</em>.</li> 
   </ol> 
   <p>In the following sections, we will discuss the ways of testing such inputs in our code.</p> 
-  <h5 style="text-align: center;">If statements for testing</h5> 
+  <h5 style="text-align: center;" id="if-statements-for-testing">If statements for testing</h5> 
   <p>Let's modify our code and read the user input step by step so that we could process every value without errors. First, we create a function that checks the given integer and prints a message if it is a correct value or not:</p> 
   <pre><code class="language-python">def check(x):
     if 25 &lt; x &lt; 50:
@@ -43,7 +43,7 @@ check(your_int)</code></pre>
 # Enter an integer number between 25 and 50: 3
 # 3 is the wrong number!</code></pre> 
   <p>As you can imagine, such conditional statements are not enough to test the user input. Let's see what else we can do.</p> 
-  <h5 style="text-align: center;">Try-except block to deal with exceptions</h5> 
+  <h5 style="text-align: center;" id="try-except-block-to-deal-with-exceptions">Try-except block to deal with exceptions</h5> 
   <p>If our user enters a float or a string, the <code class="language-python">ValueError</code> will occur because the <code class="language-python">int()</code> function would not be able to convert the input into an integer:</p> 
   <pre><code class="language-python"># Enter an integer number between 25 and 50: wrong!
 # Traceback (most recent call last):
@@ -67,7 +67,7 @@ except ValueError:
   <pre><code class="language-python"># Enter an integer number between 25 and 50: wrong!
 # Your input is not an integer!</code></pre> 
   <p>The <code class="language-python">while</code> loop can also be extremely useful for us in the task of handling the user input. </p> 
-  <h5 style="text-align: center;">While loop for continuous input request</h5> 
+  <h5 style="text-align: center;" id="while-loop-for-continuous-input-request">While loop for continuous input request</h5> 
   <p>In the previous examples, we needed to re-run the code each time to enter another value. However, when working with a user, our program should ask for the input until a correct value is entered. We can do so with the <code class="language-python">while</code> loop.</p> 
   <p>In the example below, we combine <code class="language-python">if</code> statements, <code class="language-python">try-except</code> block, and <code class="language-python">while</code> loops for multiple checking. We also consider the border values as the expected ones from now on. We should specify this in the message for a user, and process the values respectively in the code. Note that it is more convenient now to read the input inside the function.</p> 
   <pre><code class="language-python">def check_input():
@@ -91,7 +91,7 @@ except ValueError:
 # Enter an integer number between 25 and 50 (inclusively): 45
 # 45 is the right number!</code></pre> 
   <p>Finally, our program can process all types of inputs, and will not crash if the user behaves unexpectedly.</p> 
-  <h5 style="text-align: center;">Built-in methods for string testing</h5> 
+  <h5 style="text-align: center;" id="built-in-methods-for-string-testing">Built-in methods for string testing</h5> 
   <p>Our previous examples described integer inputs, but in a great number of situations, we need to deal with strings. Checking strings may be needed in various situations. Imagine that you are creating a program to check the password reliability. Python provides several methods that can be used for string input testing. They will allow you to check, for instance, if your password contains both integers and letters of different cases. Below we present a table with the string methods and their brief explanations.</p> 
   <table align="center" border="1" cellpadding="1" cellspacing="1" style="height: 500px; width: 700px;"> 
    <thead> 
@@ -150,7 +150,7 @@ check_name(name)</code></pre>
 # Enter a name: HaHa
 # HaHa is not a name!</code></pre> 
   <p>Take a look at the question mark in the third input. It is not a letter, so <code class="language-python">x.isalpha()</code> returns <code class="language-python">False</code>.</p> 
-  <h5 style="text-align: center;">Summary</h5> 
+  <h5 style="text-align: center;" id="summary">Summary</h5> 
   <p>The testing of user inputs is a pivotal step for creating a working piece of code. It allows us to process all possible inputs of a user and prevent some errors. So far, we have discussed the following:</p> 
   <ul> 
    <li>we have three main types of input values: the <em>expected </em>(correct values), the <em>border<strong> </strong></em>(end-points of the expected range)<strong>, </strong>and the <em>invalid </em>(incorrect values) ones;</li> 

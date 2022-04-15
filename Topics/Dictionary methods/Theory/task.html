@@ -3,7 +3,7 @@
  <head></head>
  <body>
   <p>You already know how to create a dictionary and access its items. In this topic, you are going to learn about other features of dictionaries.</p> 
-  <h5 style="text-align: center;">Alternative dictionary creation</h5> 
+  <h5 style="text-align: center;" id="alternative-dictionary-creation">Alternative dictionary creation</h5> 
   <p>You know that there are two ways to create a dictionary. Using <em>curly braces </em>with a comma-separated list of <code class="language-python">key: value</code> pairs or the <code class="language-python">dict</code> constructor. We will learn about the <code class="language-python">fromkeys</code> method that creates a new dictionary with specified keys and values. This is the syntax for this method:</p> 
   <pre><code class="language-python">dict.fromkeys(keys, value)</code></pre> 
   <p>The <code class="language-python">keys</code> parameter is a sequence of elements that will become the keys of a new dictionary. The <code class="language-python">value</code> parameter is optional and defaults to <code class="language-python">None</code>, but the user can specify a value for all keys in the dictionary. Look at the example below:</p> 
@@ -38,7 +38,7 @@ print(planets_dict)
   <p>We see that all the elements of the <code class="language-python">satellites</code> list have been assigned to all planets in our dictionary. This happened because the <code class="language-python">fromkeys</code>method assigns the same object to all keys. While referring to different keys of the <code class="language-python">planets_dict</code> dictionary, we are still referring to the same list. The difference from the previous example is that if we use mutable objects (a list, a dictionary) as values, all changes will also apply to our dictionary. The solution is to use the dictionary comprehension:</p> 
   <pre><code class="language-python">planets_dict = {key: [] for key in planets}</code></pre> 
   <p>More details on this operation will be provided in another topic on dictionary operations.</p> 
-  <h5 style="text-align: center;"> Adding items</h5> 
+  <h5 style="text-align: center;" id="adding-items"> Adding items</h5> 
   <p>Suppose we want to add items to an existing dictionary. You know one way to do it — define a new key and a new value: <code class="language-python">existing_dict['new key'] = 'new value'</code>. But there is another way — use the <code class="language-python">update</code> method. The method updates the dictionary with new elements from another dictionary or an iterable of key-value pairs.</p> 
   <p>Let's create a dictionary and define months as keys, and the average temperature for this month as values. So we have the following <code class="language-python">testable</code> dictionary:</p> 
   <pre><code class="language-python">testable = {'September': '16°C', 'December': '-10°C'} 
@@ -57,7 +57,7 @@ print(testable)
 testable.update(December='-20°C')
 
 print(testable)  # {'September': '16°C', 'December': '-20°C'}</code></pre> 
-  <h5 style="text-align: center;">Getting and removing items</h5> 
+  <h5 style="text-align: center;" id="getting-and-removing-items">Getting and removing items</h5> 
   <p>We learned how to create a dictionary and add elements to it. But what if we need to get some value from the dictionary or also remove an item? The following methods will help you deal with different tasks depending on your needs.</p> 
   <p><em>1. Get a value from the dictionary by a key</em>.</p> 
   <p>As you remember, we can access the value in a dictionary by a key:</p> 
@@ -103,7 +103,7 @@ return_value = testable.popitem()
    <em>the last one added</em>.
   </div>
   <p></p> 
-  <h5 style="text-align: center;">Cleaning the dictionary</h5> 
+  <h5 style="text-align: center;" id="cleaning-the-dictionary">Cleaning the dictionary</h5> 
   <p>All the methods described above return a value or an item (key, value) upon removing, but sometimes this is not what we want. There are two ways that remove an item from the dictionary (they do not return anything) or the entire dictionary content at once.</p> 
   <p><em>1. Delete (remove from a dictionary) a value by its key with the </em><code class="language-python">del</code><em> keyword:</em></p> 
   <pre><code class="language-python">testable = {'September': '16°C', 'December': '-10°C', 'July': '23°C'}
@@ -125,7 +125,7 @@ del testable</code></pre>
 
 testable.clear()  # remove all elements
 print(testable)   # {}</code></pre> 
-  <h5 style="text-align: center;">Differences in removal methods</h5> 
+  <h5 style="text-align: center;" id="differences-in-removal-methods">Differences in removal methods</h5> 
   <p>You may wonder, is there any difference between <code class="language-python">dict = {}</code> and <code class="language-python">dict.clear()</code> ? Let's say we have another variable that refers to the same dictionary:</p> 
   <pre><code class="language-python">testable = {'December': '-10°C', 'July': '23°C'}
 another_testable = testable</code></pre> 
@@ -140,7 +140,7 @@ print(another_testable)  # {'December': '-10°C', 'July': '23°C'}</code></pre>
 testable.clear()
 print(testable)  # {}
 print(another_testable)  # {}</code></pre> 
-  <h5 style="text-align: center;">Summary</h5> 
+  <h5 style="text-align: center;" id="summary">Summary</h5> 
   <p>What have we learned in this topic?</p> 
   <ul> 
    <li>a new <code class="language-python">fromkeys</code> method for alternative dictionary creation; we also found out its peculiarities,</li> 
